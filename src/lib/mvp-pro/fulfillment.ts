@@ -1,5 +1,6 @@
 import { appendNotification } from "@/lib/client-notifications/notification-store";
 import { persistZipUnlocked } from "@/lib/billing/paid-tenant";
+import { resolvePublicAppOrigin } from "@/lib/cloudflare/shared-project";
 import { loadClientManifest } from "@/lib/manifest/storage";
 import { LEMONSQUEEZY_VARIANT_MVP_PRO } from "@/lib/mvp-pro/constants";
 import { grantMvpProEntitlement, type MvpProEntitlement } from "@/lib/mvp-pro/entitlement-store";
@@ -30,7 +31,7 @@ async function sendDownloadEmail(entitlement: MvpProEntitlement, downloadUrl: st
     en: "Your Deployable ZIP (€999) is ready to download",
   } as const;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio-muenchen.com";
+  const siteUrl = resolvePublicAppOrigin();
   const siteBase = siteUrl.replace(/\/$/, "");
   const id = encodeURIComponent(entitlement.clientId);
   const adminUrl = `${siteBase}/admin/login?clientId=${id}`;
@@ -98,7 +99,7 @@ export async function fulfillMvpProOrder(input: {
     downloadToken: entitlement.downloadToken,
   });
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://webstudio-muenchen.com";
+  const siteUrl = resolvePublicAppOrigin();
   const downloadUrl = `${siteUrl.replace(/\/$/, "")}/api/download-zip?clientId=${encodeURIComponent(entitlement.clientId)}&token=${encodeURIComponent(entitlement.downloadToken)}`;
 
   const emailed = await sendDownloadEmail(entitlement, downloadUrl);

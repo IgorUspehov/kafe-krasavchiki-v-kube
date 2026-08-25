@@ -1,4 +1,5 @@
 import { markCrmDemoEmailSent } from "@/lib/crm-demo/delivery-status";
+import { resolvePublicAppOrigin } from "@/lib/cloudflare/shared-project";
 import { sendResendEmail, waitForResendDeliveryStatus } from "@/lib/email/resend";
 import { buildMvpRedirectUrl, loadClientManifest } from "@/lib/manifest/storage";
 import { runStorageCleanup } from "@/lib/manifest/storage-manager";
@@ -55,11 +56,8 @@ Download ZIP: ${downloadUrl}`;
 }
 
 function resolveSiteBaseUrl(): string {
-  if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return process.env.NEXT_PUBLIC_SITE_URL;
-  }
-  const domain = process.env.RAILWAY_PUBLIC_DOMAIN ?? "saas-mvp-funnel-production.up.railway.app";
-  return domain.startsWith("http") ? domain : `https://${domain}`;
+  // Prefer NEXT_PUBLIC_SITE_URL via resolvePublicAppOrigin — never localhost:10000.
+  return resolvePublicAppOrigin();
 }
 
 function resolveDownloadUrl(clientId: string): string {

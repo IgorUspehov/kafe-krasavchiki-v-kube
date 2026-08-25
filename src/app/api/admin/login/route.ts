@@ -29,12 +29,9 @@ function pickPackagedClientId(): string {
   }
 }
 
-function resolveRequestOrigin(request: Request): string {
-  try {
-    return new URL(request.url).origin;
-  } catch {
-    return resolveMagicLinkOrigin(request);
-  }
+/** Public origin for login/callback links — never request Host (can be localhost:10000). */
+function resolveLoginOrigin(request: Request): string {
+  return resolveMagicLinkOrigin(request);
 }
 
 /**
@@ -60,8 +57,8 @@ async function resolveLoginClientId(email: string, clientIdHint: string): Promis
   return null;
 }
 
-function zipEnterLoginUrl(origin: string, clientId: string): string {
-  return `${origin.replace(/\/$/, "")}${buildZipAdminEnterPath(clientId)}`;
+function zipEnterLoginUrl(clientId: string): string {
+  return buildZipAdminEnterPath(clientId);
 }
 
 export async function POST(request: Request) {
@@ -82,7 +79,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "Valid email required" }, { status: 400 });
     }
 
-    const origin = resolveRequestOrigin(request);
+    const origin = resolveLoginOrigin(request);
 
     // Deployable ZIP: never mint magic links / call Resend / hit bypass — client enters via /admin/enter.
     if (zip) {
@@ -97,11 +94,12 @@ export async function POST(request: Request) {
           deployableZip: true,
         });
       }
+      // Relative path avoids baking a bad absolute host (e.g. localhost:10000).
       return NextResponse.json({
         ok: true,
         emailSent: false,
         deployableZip: true,
-        loginUrl: zipEnterLoginUrl(origin, clientId),
+        loginUrl: zipEnterLoginUrl(clientId),
         clientId,
       });
     }
@@ -178,13 +176,12 @@ export async function POST(request: Request) {
     // ZIP must never 500 — hand the client an enter URL when possible.
     if (zip) {
       const fallbackId = clientIdHint.trim() || pickPackagedClientId();
-      const origin = resolveRequestOrigin(request);
       if (fallbackId) {
         return NextResponse.json({
           ok: true,
           emailSent: false,
           deployableZip: true,
-          loginUrl: zipEnterLoginUrl(origin, fallbackId),
+          loginUrl: zipEnterLoginUrl(fallbackId),
           clientId: fallbackId,
         });
       }

@@ -10,11 +10,13 @@ export type ZipUnlockReason =
   | "payment_required";
 
 /**
- * Who may download Deployable ZIP:
- * - env DEPLOYABLE_ZIP_OWNER_BYPASS=1 (operator testing)
- * - runtime IS_DEPLOYABLE_ZIP=true (buyer already runs the paid ZIP — no €999 upsell)
- * - local MVP Pro / Deployable ZIP entitlement for this clientId
+ * Who may download Deployable ZIP (€999 Polar entitlement):
+ * - env DEPLOYABLE_ZIP_OWNER_BYPASS=1 (operator testing only)
+ * - runtime IS_DEPLOYABLE_ZIP=true (buyer already hosts the paid ZIP package)
+ * - local MVP Pro / Deployable ZIP entitlement for this clientId (Polar)
  * - Firestore clients/{clientId}.zip_unlocked === true (Polar webhook)
+ *
+ * Never free-unlock on SaaS without Polar entitlement / Firestore flag.
  */
 export function canDownloadDeployableZip(clientId: string): {
   allowed: boolean;
@@ -23,7 +25,7 @@ export function canDownloadDeployableZip(clientId: string): {
   if (process.env.DEPLOYABLE_ZIP_OWNER_BYPASS?.trim() === "1") {
     return { allowed: true, reason: "bypass" };
   }
-  // Self-hosted ZIP is the product — never pitch Buy ZIP €999 again.
+  // Self-hosted Deployable ZIP package — product already purchased; not a Polar bypass on SaaS.
   if (isDeployableZipRuntime()) {
     return { allowed: true, reason: "deployable_zip" };
   }
@@ -31,6 +33,7 @@ export function canDownloadDeployableZip(clientId: string): {
   if (entitlement?.downloadToken) {
     return { allowed: true, reason: "entitlement" };
   }
+  // Fail closed — require Polar entitlement or Firestore zip_unlocked.
   return { allowed: false, reason: "payment_required" };
 }
 

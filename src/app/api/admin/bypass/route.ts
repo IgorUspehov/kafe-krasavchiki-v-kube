@@ -21,18 +21,10 @@ function pickPackagedClientId(): string {
   }
 }
 
-function resolveOrigin(request: Request): string {
-  try {
-    return new URL(request.url).origin;
-  } catch {
-    return resolveMagicLinkOrigin(request);
-  }
-}
-
 /**
- * Legacy Deployable ZIP entry. Does not create a server session anymore —
- * redirects to the client `/admin/enter` page so login never depends on this
- * route (and never 500s from cookie/HMAC/disk side effects).
+ * Legacy Deployable ZIP entry. Redirects to client `/admin/enter` —
+ * never mints a server session and never returns 500.
+ * Absolute redirects use resolveMagicLinkOrigin (NEXT_PUBLIC_SITE_URL), not request Host.
  *
  * GET /api/admin/bypass?clientId=…
  */
@@ -46,7 +38,7 @@ export async function GET(request: Request) {
     const requested = (url.searchParams.get("clientId") || "").trim();
     const packagedId = pickPackagedClientId();
     const clientId = requested || packagedId;
-    const origin = resolveOrigin(request);
+    const origin = resolveMagicLinkOrigin(request);
 
     if (!clientId || !UUID_RE.test(clientId)) {
       return NextResponse.redirect(new URL("/admin/login", `${origin}/`));
@@ -62,7 +54,7 @@ export async function GET(request: Request) {
       message: error instanceof Error ? error.message : String(error),
     });
     try {
-      const origin = resolveOrigin(request);
+      const origin = resolveMagicLinkOrigin(request);
       const clientId = new URL(request.url).searchParams.get("clientId")?.trim() || "";
       if (clientId) {
         return NextResponse.redirect(new URL(buildZipAdminEnterPath(clientId), `${origin}/`));

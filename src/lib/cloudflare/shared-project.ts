@@ -23,9 +23,19 @@ export function getDeploymentKeepCount(): number {
   return Math.floor(raw);
 }
 
+function isLoopbackOrigin(value: string): boolean {
+  try {
+    const hostname = new URL(value).hostname.toLowerCase();
+    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
+  } catch {
+    return false;
+  }
+}
+
 export function getPublicSiteOrigin(): string {
+  // Never emit localhost / :10000 — use public NEXT_PUBLIC_SITE_URL only when non-loopback.
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") || "";
-  if (fromEnv) return fromEnv;
+  if (fromEnv && !isLoopbackOrigin(fromEnv)) return fromEnv;
 
   // Deployable ZIP on Vercel — prefer the live deployment host.
   if (process.env.IS_DEPLOYABLE_ZIP === "true") {
@@ -36,16 +46,7 @@ export function getPublicSiteOrigin(): string {
   return RAILWAY_FRAME_ANCESTOR;
 }
 
-function isLoopbackOrigin(value: string): boolean {
-  try {
-    const hostname = new URL(value).hostname.toLowerCase();
-    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
-  } catch {
-    return false;
-  }
-}
-
-/** Public https origin for emails and redirects. Never localhost in production. */
+/** Public https origin for emails and redirects. Never localhost / :10000. */
 export function resolvePublicAppOrigin(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") || "";
   if (fromEnv && !isLoopbackOrigin(fromEnv)) return fromEnv;
@@ -58,11 +59,15 @@ export function resolvePublicAppOrigin(): string {
   return "https://webstudio-muenchen.com";
 }
 
+/**
+ * Origin for admin magic-link / callback URLs.
+ * Always prefers NEXT_PUBLIC_SITE_URL (non-loopback). Never returns localhost:10000.
+ */
 export function resolveMagicLinkOrigin(request: Request): string {
   if (process.env.NODE_ENV !== "production") {
     try {
       const origin = new URL(request.url).origin;
-      if (origin) return origin;
+      if (origin && !isLoopbackOrigin(origin)) return origin;
     } catch {
       /* fall through */
     }
