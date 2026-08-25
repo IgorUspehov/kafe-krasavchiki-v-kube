@@ -1,0 +1,6 @@
+project_name: BEAUTY_SALON_MVP
+project_type: beauty_salon
+version: 1.0.0
+
+deployment:
+  mode: github_only

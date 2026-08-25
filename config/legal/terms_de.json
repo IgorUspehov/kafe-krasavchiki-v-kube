@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "language": "de",
+  "title": "Nutzungsbedingungen",
+  "disclaimer": "Dies ist keine Rechtsberatung. Diese Bedingungen beschreiben Plattformregeln für die MVP-Lieferung.",
+  "rules": [
+    {
+      "id": 1,
+      "text": "Das generierte MVP ist ein Prototyp."
+    },
+    {
+      "id": 2,
+      "text": "Generierte Dateien stehen 48 Stunden zum Download bereit."
+    },
+    {
+      "id": 3,
+      "text": "Der Kunde ist für das Herunterladen und Speichern der Dateien verantwortlich."
+    },
+    {
+      "id": 4,
+      "text": "Temporäre Dateien können automatisch gelöscht werden."
+    },
+    {
+      "id": 5,
+      "text": "Metadaten der Bestellhistorie können aufbewahrt werden."
+    },
+    {
+      "id": 6,
+      "text": "Der Dienst garantiert keinen kommerziellen Erfolg."
+    },
+    {
+      "id": 7,
+      "text": "Der Kunde akzeptiert den ausgewählten Plan und die Preise."
+    }
+  ]
+}

@@ -1,0 +1,5686 @@
+{
+  "beauty_salon": {
+    "metrics": {
+      "ru": [
+        "Активных клиентов",
+        "Записей сегодня",
+        "Выручка сегодня",
+        "Свободных слотов"
+      ],
+      "de": [
+        "Aktive Kunden",
+        "Termine heute",
+        "Umsatz heute",
+        "Freie Slots"
+      ],
+      "en": [
+        "Active Clients",
+        "Appointments Today",
+        "Revenue Today",
+        "Free Slots"
+      ]
+    },
+    "metric_values": [
+      "47",
+      "12",
+      "€840",
+      "5"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Анна Петрова",
+          "de": "Anna Schmidt",
+          "en": "Anna Smith"
+        },
+        "service": {
+          "ru": "Окрашивание волос",
+          "de": "Haare färben",
+          "en": "Hair Coloring"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "София Иванова",
+          "de": "Sofia Weber",
+          "en": "Sofia Johnson"
+        },
+        "service": {
+          "ru": "Маникюр",
+          "de": "Maniküre",
+          "en": "Manicure"
+        },
+        "time": "10:30"
+      },
+      {
+        "name": {
+          "ru": "Мария Сидорова",
+          "de": "Maria Müller",
+          "en": "Maria Brown"
+        },
+        "service": {
+          "ru": "Стрижка",
+          "de": "Haarschnitt",
+          "en": "Haircut"
+        },
+        "time": "12:00"
+      },
+      {
+        "name": {
+          "ru": "Юлия Козлова",
+          "de": "Julia Schneider",
+          "en": "Julia Davis"
+        },
+        "service": {
+          "ru": "Брови",
+          "de": "Augenbrauen",
+          "en": "Eyebrows"
+        },
+        "time": "14:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Окрашивание волос",
+        "Маникюр",
+        "Стрижка и укладка",
+        "Наращивание ресниц"
+      ],
+      "de": [
+        "Haare färben",
+        "Maniküre",
+        "Schnitt und Styling",
+        "Wimpernverlängerung"
+      ],
+      "en": [
+        "Hair Coloring",
+        "Manicure",
+        "Haircut & Styling",
+        "Lash Extension"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Анна Петрова",
+            "de": "Anna Petrova",
+            "en": "Anna Petrova"
+          },
+          "phone": "+49 160 111 0001",
+          "note": {
+            "ru": "Постоянный клиент",
+            "de": "Stammkundin",
+            "en": "Regular client"
+          },
+          "visits": 5
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "София Вебер",
+            "de": "Sofia Weber",
+            "en": "Sofia Weber"
+          },
+          "phone": "+49 160 111 0002",
+          "note": {
+            "ru": "Окрашивание волос",
+            "de": "Haare färben",
+            "en": "Hair coloring"
+          },
+          "visits": 3
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Мария Мюллер",
+            "de": "Maria Müller",
+            "en": "Maria Müller"
+          },
+          "phone": "+49 160 111 0003",
+          "note": {
+            "ru": "Маникюр",
+            "de": "Maniküre",
+            "en": "Manicure"
+          },
+          "visits": 2
+        }
+      ],
+      "masters": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Елена Стайлс",
+            "de": "Elena Styles",
+            "en": "Elena Styles"
+          },
+          "role": {
+            "ru": "Стилист",
+            "de": "Stylistin",
+            "en": "Hair Stylist"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Юлия Колор",
+            "de": "Julia Color",
+            "en": "Julia Color"
+          },
+          "role": {
+            "ru": "Колорист",
+            "de": "Coloristin",
+            "en": "Colorist"
+          },
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Busy"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Нина Кэр",
+            "de": "Nina Care",
+            "en": "Nina Care"
+          },
+          "role": {
+            "ru": "Мастер ногтей",
+            "de": "Nageldesignerin",
+            "en": "Nail Artist"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Стрижка",
+            "de": "Haarschnitt",
+            "en": "Haircut"
+          },
+          "duration": "45 min",
+          "price": "€45"
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Окрашивание волос",
+            "de": "Haare färben",
+            "en": "Hair Coloring"
+          },
+          "duration": "90 min",
+          "price": "€89"
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Маникюр",
+            "de": "Maniküre",
+            "en": "Manicure"
+          },
+          "duration": "60 min",
+          "price": "€35"
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Анна Петрова",
+            "de": "Anna Petrova",
+            "en": "Anna Petrova"
+          },
+          "service": {
+            "ru": "Окрашивание волос",
+            "de": "Haare färben",
+            "en": "Hair Coloring"
+          },
+          "time": "2026-06-18 09:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "София Вебер",
+            "de": "Sofia Weber",
+            "en": "Sofia Weber"
+          },
+          "service": {
+            "ru": "Маникюр",
+            "de": "Maniküre",
+            "en": "Manicure"
+          },
+          "time": "2026-06-18 11:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Мария Мюллер",
+            "de": "Maria Müller",
+            "en": "Maria Müller"
+          },
+          "service": {
+            "ru": "Стрижка",
+            "de": "Haarschnitt",
+            "en": "Haircut"
+          },
+          "time": "2026-06-18 14:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Анна Петрова",
+            "de": "Anna Petrova",
+            "en": "Anna Petrova"
+          },
+          "amount": "€89",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "София Вебер",
+            "de": "Sofia Weber",
+            "en": "Sofia Weber"
+          },
+          "amount": "€35",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Мария Мюллер",
+            "de": "Maria Müller",
+            "en": "Maria Müller"
+          },
+          "amount": "€45",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "restaurant": {
+    "metrics": {
+      "ru": [
+        "Гостей сегодня",
+        "Бронирований",
+        "Средний чек",
+        "Свободных столов"
+      ],
+      "de": [
+        "Gäste heute",
+        "Reservierungen",
+        "Durchschnittsscheck",
+        "Freie Tische"
+      ],
+      "en": [
+        "Guests Today",
+        "Reservations",
+        "Average Check",
+        "Free Tables"
+      ]
+    },
+    "metric_values": [
+      "84",
+      "23",
+      "€45",
+      "6"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Стол 5 — Семья Вебер",
+          "de": "Tisch 5 — Familie Weber",
+          "en": "Table 5 — Weber Family"
+        },
+        "service": {
+          "ru": "Бронирование 19:00",
+          "de": "Reservierung 19:00",
+          "en": "Reservation 19:00"
+        },
+        "time": "19:00"
+      },
+      {
+        "name": {
+          "ru": "Стол 3 — Г-н Мюллер",
+          "de": "Tisch 3 — Herr Müller",
+          "en": "Table 3 — Mr Miller"
+        },
+        "service": {
+          "ru": "Бронирование 20:00",
+          "de": "Reservierung 20:00",
+          "en": "Reservation 20:00"
+        },
+        "time": "20:00"
+      },
+      {
+        "name": {
+          "ru": "VIP — Фирма Шмидт",
+          "de": "VIP — Firma Schmidt",
+          "en": "VIP — Schmidt Corp"
+        },
+        "service": {
+          "ru": "Деловой ужин",
+          "de": "Geschäftsessen",
+          "en": "Business Dinner"
+        },
+        "time": "20:30"
+      },
+      {
+        "name": {
+          "ru": "Терраса — Группа",
+          "de": "Terrasse — Gruppe",
+          "en": "Terrace — Group"
+        },
+        "service": {
+          "ru": "День рождения",
+          "de": "Geburtstag",
+          "en": "Birthday Party"
+        },
+        "time": "21:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Жареный лосось",
+        "Стейк рибай",
+        "Паста карбонара",
+        "Тирамису"
+      ],
+      "de": [
+        "Gegrillter Lachs",
+        "Ribeye Steak",
+        "Pasta Carbonara",
+        "Tiramisu"
+      ],
+      "en": [
+        "Grilled Salmon",
+        "Ribeye Steak",
+        "Pasta Carbonara",
+        "Tiramisu"
+      ]
+    },
+    "records": {
+      "reservations": [
+        {
+          "id": "1",
+          "guest": {
+            "ru": "Семья Вебер",
+            "de": "Familie Weber",
+            "en": "Weber Family"
+          },
+          "table": {
+            "ru": "Стол 5",
+            "de": "Tisch 5",
+            "en": "Table 5"
+          },
+          "time": "19:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "guest": {
+            "ru": "Г-н Мюллер",
+            "de": "Herr Müller",
+            "en": "Mr Miller"
+          },
+          "table": {
+            "ru": "Стол 3",
+            "de": "Tisch 3",
+            "en": "Table 3"
+          },
+          "time": "20:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "guest": {
+            "ru": "Анна Шмидт",
+            "de": "Anna Schmidt",
+            "en": "Anna Schmidt"
+          },
+          "table": {
+            "ru": "Стол 8",
+            "de": "Tisch 8",
+            "en": "Table 8"
+          },
+          "time": "18:30",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "tables": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Стол 1",
+            "de": "Tisch 1",
+            "en": "Table 1"
+          },
+          "seats": 2,
+          "status": {
+            "ru": "Свободен",
+            "de": "Frei",
+            "en": "Free"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Стол 5",
+            "de": "Tisch 5",
+            "en": "Table 5"
+          },
+          "seats": 4,
+          "status": {
+            "ru": "Забронирован",
+            "de": "Reserviert",
+            "en": "Reserved"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Стол 8",
+            "de": "Tisch 8",
+            "en": "Table 8"
+          },
+          "seats": 6,
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Occupied"
+          }
+        }
+      ],
+      "menu": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Бизнес-ланч",
+            "de": "Business Lunch",
+            "en": "Business Lunch"
+          },
+          "price": "€9.90",
+          "category": {
+            "ru": "Обед",
+            "de": "Mittagessen",
+            "en": "Lunch"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Паста карбонара",
+            "de": "Pasta Carbonara",
+            "en": "Pasta Carbonara"
+          },
+          "price": "€14.50",
+          "category": {
+            "ru": "Основное",
+            "de": "Hauptgericht",
+            "en": "Main"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Тирамису",
+            "de": "Tiramisu",
+            "en": "Tiramisu"
+          },
+          "price": "€6.50",
+          "category": {
+            "ru": "Десерт",
+            "de": "Dessert",
+            "en": "Dessert"
+          }
+        }
+      ],
+      "staff": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Марко Росси",
+            "de": "Marco Rossi",
+            "en": "Marco Rossi"
+          },
+          "role": {
+            "ru": "Шеф-повар",
+            "de": "Küchenchef",
+            "en": "Chef"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "role": {
+            "ru": "Официант",
+            "de": "Kellnerin",
+            "en": "Waiter"
+          },
+          "status": {
+            "ru": "На смене",
+            "de": "Im Dienst",
+            "en": "On shift"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Том Келлер",
+            "de": "Tom Keller",
+            "en": "Tom Keller"
+          },
+          "role": {
+            "ru": "Хостес",
+            "de": "Gastgeber",
+            "en": "Host"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ]
+    }
+  },
+  "fitness_club": {
+    "metrics": {
+      "ru": [
+        "Членов клуба",
+        "Тренировок сегодня",
+        "Абонементов активных",
+        "Тренеров на смене"
+      ],
+      "de": [
+        "Clubmitglieder",
+        "Trainings heute",
+        "Aktive Abos",
+        "Trainer im Dienst"
+      ],
+      "en": [
+        "Club Members",
+        "Trainings Today",
+        "Active Subscriptions",
+        "Trainers on Shift"
+      ]
+    },
+    "metric_values": [
+      "312",
+      "28",
+      "198",
+      "6"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Группа А — Йога",
+          "de": "Gruppe A — Yoga",
+          "en": "Group A — Yoga"
+        },
+        "service": {
+          "ru": "Йога для начинающих",
+          "de": "Yoga für Anfänger",
+          "en": "Beginner Yoga"
+        },
+        "time": "08:00"
+      },
+      {
+        "name": {
+          "ru": "Группа Б — КроссФит",
+          "de": "Gruppe B — CrossFit",
+          "en": "Group B — CrossFit"
+        },
+        "service": {
+          "ru": "CrossFit интенсив",
+          "de": "CrossFit Intensiv",
+          "en": "CrossFit Intensive"
+        },
+        "time": "10:00"
+      },
+      {
+        "name": {
+          "ru": "Макс Мюллер — персональная",
+          "de": "Max Müller — Personal",
+          "en": "Max Miller — Personal"
+        },
+        "service": {
+          "ru": "Персональная тренировка",
+          "de": "Personal Training",
+          "en": "Personal Training"
+        },
+        "time": "12:00"
+      },
+      {
+        "name": {
+          "ru": "Группа В — Велотренировка",
+          "de": "Gruppe C — Spinning",
+          "en": "Group C — Spinning"
+        },
+        "service": {
+          "ru": "Велотренировка",
+          "de": "Spinning",
+          "en": "Spinning Class"
+        },
+        "time": "18:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Йога",
+        "CrossFit",
+        "Персональные тренировки",
+        "Пилатес"
+      ],
+      "de": [
+        "Yoga",
+        "CrossFit",
+        "Personal Training",
+        "Pilates"
+      ],
+      "en": [
+        "Yoga",
+        "CrossFit",
+        "Personal Training",
+        "Pilates"
+      ]
+    },
+    "records": {
+      "members": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Макс Фишер",
+            "de": "Max Fischer",
+            "en": "Max Fischer"
+          },
+          "phone": "+49 160 222 0001",
+          "note": {
+            "ru": "Годовой абонемент",
+            "de": "Jahresabo",
+            "en": "Annual plan"
+          },
+          "visits": 42
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Лаура Кляйн",
+            "de": "Laura Klein",
+            "en": "Laura Klein"
+          },
+          "phone": "+49 160 222 0002",
+          "note": {
+            "ru": "Йога",
+            "de": "Yoga",
+            "en": "Yoga member"
+          },
+          "visits": 18
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Йонас Харт",
+            "de": "Jonas Hart",
+            "en": "Jonas Hart"
+          },
+          "phone": "+49 160 222 0003",
+          "note": {
+            "ru": "Новый участник",
+            "de": "Neues Mitglied",
+            "en": "New member"
+          },
+          "visits": 4
+        }
+      ],
+      "trainers": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Алекс Пауэр",
+            "de": "Alex Power",
+            "en": "Alex Power"
+          },
+          "role": {
+            "ru": "Персональный тренер",
+            "de": "Personal Trainer",
+            "en": "Personal Trainer"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Сара Фит",
+            "de": "Sara Fit",
+            "en": "Sara Fit"
+          },
+          "role": {
+            "ru": "Тренер по йоге",
+            "de": "Yoga-Coach",
+            "en": "Yoga Coach"
+          },
+          "status": {
+            "ru": "На сеансе",
+            "de": "In Sitzung",
+            "en": "In session"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Майк Стронг",
+            "de": "Mike Strong",
+            "en": "Mike Strong"
+          },
+          "role": {
+            "ru": "Тренер CrossFit",
+            "de": "CrossFit-Trainer",
+            "en": "CrossFit"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "classes": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Утренняя йога",
+            "de": "Morgenyoga",
+            "en": "Morning Yoga"
+          },
+          "duration": "60 min",
+          "price": "€15"
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "HIIT тренировка",
+            "de": "HIIT-Training",
+            "en": "HIIT Training"
+          },
+          "duration": "45 min",
+          "price": "€18"
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Велотренировка",
+            "de": "Spinning",
+            "en": "Spinning"
+          },
+          "duration": "50 min",
+          "price": "€16"
+        }
+      ],
+      "subscriptions": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Базовый месячный",
+            "de": "Monats-Basic",
+            "en": "Monthly Basic"
+          },
+          "price": "€39",
+          "duration": {
+            "ru": "1 месяц",
+            "de": "1 Monat",
+            "en": "1 month"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Годовой Pro",
+            "de": "Jahres-Pro",
+            "en": "Annual Pro"
+          },
+          "price": "€399",
+          "duration": {
+            "ru": "12 месяцев",
+            "de": "12 Monate",
+            "en": "12 months"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Дневной пропуск",
+            "de": "Tageskarte",
+            "en": "Day Pass"
+          },
+          "price": "€12",
+          "duration": {
+            "ru": "1 день",
+            "de": "1 Tag",
+            "en": "1 day"
+          }
+        }
+      ]
+    }
+  },
+  "dental_clinic": {
+    "metrics": {
+      "ru": [
+        "Пациентов сегодня",
+        "Приёмов",
+        "Планов лечения",
+        "Одобрений страховки"
+      ],
+      "de": [
+        "Patienten heute",
+        "Termine",
+        "Behandlungspläne",
+        "Versicherungsgenehmigungen"
+      ],
+      "en": [
+        "Patients Today",
+        "Appointments",
+        "Treatment Plans",
+        "Insurance Approvals"
+      ]
+    },
+    "metric_values": [
+      "18",
+      "24",
+      "11",
+      "7"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Томас Вебер",
+          "de": "Thomas Weber",
+          "en": "Thomas Weber"
+        },
+        "service": {
+          "ru": "Профессиональная чистка",
+          "de": "Profireinigung",
+          "en": "Professional Cleaning"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "Анна Мюллер",
+          "de": "Anna Müller",
+          "en": "Anna Miller"
+        },
+        "service": {
+          "ru": "Установка виниров",
+          "de": "Veneers",
+          "en": "Veneers"
+        },
+        "time": "10:30"
+      },
+      {
+        "name": {
+          "ru": "Клаус Шмидт",
+          "de": "Klaus Schmidt",
+          "en": "Klaus Schmidt"
+        },
+        "service": {
+          "ru": "Удаление зуба",
+          "de": "Zahnentfernung",
+          "en": "Tooth Extraction"
+        },
+        "time": "12:00"
+      },
+      {
+        "name": {
+          "ru": "Мария Кох",
+          "de": "Maria Koch",
+          "en": "Maria Koch"
+        },
+        "service": {
+          "ru": "Рентген + консультация",
+          "de": "Röntgen + Beratung",
+          "en": "X-ray + Consultation"
+        },
+        "time": "14:30"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Профессиональная чистка",
+        "Лечение кариеса",
+        "Установка виниров",
+        "Отбеливание"
+      ],
+      "de": [
+        "Profireinigung",
+        "Kariesbehandlung",
+        "Veneers",
+        "Zahnaufhellung"
+      ],
+      "en": [
+        "Professional Cleaning",
+        "Caries Treatment",
+        "Veneers",
+        "Whitening"
+      ]
+    },
+    "records": {
+      "patients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Анна Вебер",
+            "de": "Anna Weber",
+            "en": "Anna Weber"
+          },
+          "phone": "+49 160 333 0001",
+          "note": {
+            "ru": "План лечения",
+            "de": "Behandlungsplan",
+            "en": "Treatment plan"
+          },
+          "visits": 4
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Томас Кох",
+            "de": "Thomas Koch",
+            "en": "Thomas Koch"
+          },
+          "phone": "+49 160 333 0002",
+          "note": {
+            "ru": "Регулярная чистка",
+            "de": "Regelmäßige Reinigung",
+            "en": "Regular cleaning"
+          },
+          "visits": 2
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "phone": "+49 160 333 0003",
+          "note": {
+            "ru": "Новый пациент",
+            "de": "Neuer Patient",
+            "en": "New patient"
+          },
+          "visits": 1
+        }
+      ],
+      "doctors": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Д-р Елена Хартманн",
+            "de": "Dr. Elena Hartmann",
+            "en": "Dr. Elena Hartmann"
+          },
+          "role": {
+            "ru": "Стоматолог",
+            "de": "Zahnarzt",
+            "en": "Dentist"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Д-р Маркус Бергер",
+            "de": "Dr. Markus Berger",
+            "en": "Dr. Markus Berger"
+          },
+          "role": {
+            "ru": "Ортодонт",
+            "de": "Kieferorthopäde",
+            "en": "Orthodontist"
+          },
+          "status": {
+            "ru": "На приёме",
+            "de": "Im Eingriff",
+            "en": "In surgery"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Д-р София Кляйн",
+            "de": "Dr. Sofia Klein",
+            "en": "Dr. Sofia Klein"
+          },
+          "role": {
+            "ru": "Гигиенист",
+            "de": "Hygienikerin",
+            "en": "Hygienist"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Анна Вебер",
+            "de": "Anna Weber",
+            "en": "Anna Weber"
+          },
+          "service": {
+            "ru": "Осмотр зубов",
+            "de": "Zahnkontrolle",
+            "en": "Dental Check-up"
+          },
+          "time": "2026-06-18 10:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Томас Кох",
+            "de": "Thomas Koch",
+            "en": "Thomas Koch"
+          },
+          "service": {
+            "ru": "Чистка зубов",
+            "de": "Zahnreinigung",
+            "en": "Teeth Cleaning"
+          },
+          "time": "2026-06-18 12:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "service": {
+            "ru": "Консультация",
+            "de": "Beratung",
+            "en": "Consultation"
+          },
+          "time": "2026-06-18 15:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Осмотр зубов",
+            "de": "Zahnkontrolle",
+            "en": "Dental Check-up"
+          },
+          "duration": "30 min",
+          "price": "€80"
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Чистка зубов",
+            "de": "Zahnreinigung",
+            "en": "Teeth Cleaning"
+          },
+          "duration": "45 min",
+          "price": "€95"
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Лечение корневого канала",
+            "de": "Wurzelkanalbehandlung",
+            "en": "Root Canal"
+          },
+          "duration": "90 min",
+          "price": "€320"
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Анна Вебер",
+            "de": "Anna Weber",
+            "en": "Anna Weber"
+          },
+          "amount": "€80",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Томас Кох",
+            "de": "Thomas Koch",
+            "en": "Thomas Koch"
+          },
+          "amount": "€95",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "amount": "€60",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "health_clinic": {
+    "metrics": {
+      "ru": [
+        "Пациентов сегодня",
+        "Приёмов",
+        "На обследовании",
+        "Врачей на смене"
+      ],
+      "de": [
+        "Patienten heute",
+        "Termine",
+        "In Untersuchung",
+        "Ärzte im Dienst"
+      ],
+      "en": [
+        "Patients Today",
+        "Appointments",
+        "Under Examination",
+        "Doctors on Shift"
+      ]
+    },
+    "metric_values": [
+      "34",
+      "41",
+      "8",
+      "5"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Ганс Вебер",
+          "de": "Hans Weber",
+          "en": "Hans Weber"
+        },
+        "service": {
+          "ru": "Общий осмотр",
+          "de": "Allgemeinuntersuchung",
+          "en": "General Examination"
+        },
+        "time": "08:30"
+      },
+      {
+        "name": {
+          "ru": "Ева Мюллер",
+          "de": "Eva Müller",
+          "en": "Eva Miller"
+        },
+        "service": {
+          "ru": "УЗИ",
+          "de": "Ultraschall",
+          "en": "Ultrasound"
+        },
+        "time": "10:00"
+      },
+      {
+        "name": {
+          "ru": "Петр Шмидт",
+          "de": "Peter Schmidt",
+          "en": "Peter Schmidt"
+        },
+        "service": {
+          "ru": "Кардиограмма",
+          "de": "EKG",
+          "en": "ECG"
+        },
+        "time": "11:30"
+      },
+      {
+        "name": {
+          "ru": "Лиза Кох",
+          "de": "Lisa Koch",
+          "en": "Lisa Koch"
+        },
+        "service": {
+          "ru": "Анализы крови",
+          "de": "Bluttests",
+          "en": "Blood Tests"
+        },
+        "time": "13:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Общий осмотр",
+        "УЗИ",
+        "Анализы",
+        "Кардиограмма"
+      ],
+      "de": [
+        "Allgemeinuntersuchung",
+        "Ultraschall",
+        "Bluttests",
+        "EKG"
+      ],
+      "en": [
+        "General Examination",
+        "Ultrasound",
+        "Blood Tests",
+        "ECG"
+      ]
+    },
+    "records": {
+      "patients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Ганс Вебер",
+            "de": "Hans Weber",
+            "en": "Hans Weber"
+          },
+          "phone": "+49 160 333 0001",
+          "note": {
+            "ru": "План лечения",
+            "de": "Behandlungsplan",
+            "en": "Treatment plan"
+          },
+          "visits": 4
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Ева Кох",
+            "de": "Eva Koch",
+            "en": "Eva Koch"
+          },
+          "phone": "+49 160 333 0002",
+          "note": {
+            "ru": "Регулярный осмотр",
+            "de": "Regelmäßige Kontrolle",
+            "en": "Regular check-up"
+          },
+          "visits": 2
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "phone": "+49 160 333 0003",
+          "note": {
+            "ru": "Новый пациент",
+            "de": "Neuer Patient",
+            "en": "New patient"
+          },
+          "visits": 1
+        }
+      ],
+      "doctors": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Д-р Елена Хартманн",
+            "de": "Dr. Elena Hartmann",
+            "en": "Dr. Elena Hartmann"
+          },
+          "role": {
+            "ru": "Терапевт",
+            "de": "Allgemeinmediziner",
+            "en": "General Practitioner"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Д-р Маркус Бергер",
+            "de": "Dr. Markus Berger",
+            "en": "Dr. Markus Berger"
+          },
+          "role": {
+            "ru": "Кардиолог",
+            "de": "Kardiologe",
+            "en": "Cardiologist"
+          },
+          "status": {
+            "ru": "На приёме",
+            "de": "Im Eingriff",
+            "en": "In surgery"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Д-р София Кляйн",
+            "de": "Dr. Sofia Klein",
+            "en": "Dr. Sofia Klein"
+          },
+          "role": {
+            "ru": "Медсестра",
+            "de": "Pflegekraft",
+            "en": "Nurse"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Ганс Вебер",
+            "de": "Hans Weber",
+            "en": "Hans Weber"
+          },
+          "service": {
+            "ru": "Общий осмотр",
+            "de": "Allgemeinuntersuchung",
+            "en": "General Examination"
+          },
+          "time": "2026-06-18 10:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Ева Кох",
+            "de": "Eva Koch",
+            "en": "Eva Koch"
+          },
+          "service": {
+            "ru": "УЗИ",
+            "de": "Ultraschall",
+            "en": "Ultrasound"
+          },
+          "time": "2026-06-18 12:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "service": {
+            "ru": "Анализы крови",
+            "de": "Bluttests",
+            "en": "Blood Tests"
+          },
+          "time": "2026-06-18 15:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Общий осмотр",
+            "de": "Allgemeinuntersuchung",
+            "en": "General Examination"
+          },
+          "duration": "30 min",
+          "price": "€80"
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "УЗИ",
+            "de": "Ultraschall",
+            "en": "Ultrasound"
+          },
+          "duration": "45 min",
+          "price": "€95"
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Кардиограмма",
+            "de": "EKG",
+            "en": "ECG"
+          },
+          "duration": "20 min",
+          "price": "€60"
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Ганс Вебер",
+            "de": "Hans Weber",
+            "en": "Hans Weber"
+          },
+          "amount": "€80",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Ева Кох",
+            "de": "Eva Koch",
+            "en": "Eva Koch"
+          },
+          "amount": "€95",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "amount": "€60",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "massage_salon": {
+    "metrics": {
+      "ru": [
+        "Клиентов сегодня",
+        "Сеансов",
+        "Выручка сегодня",
+        "Свободных слотов"
+      ],
+      "de": [
+        "Kunden heute",
+        "Sitzungen",
+        "Umsatz heute",
+        "Freie Slots"
+      ],
+      "en": [
+        "Clients Today",
+        "Sessions",
+        "Revenue Today",
+        "Free Slots"
+      ]
+    },
+    "metric_values": [
+      "16",
+      "19",
+      "€760",
+      "3"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Анна Петрова",
+          "de": "Anna Schmidt",
+          "en": "Anna Smith"
+        },
+        "service": {
+          "ru": "Классический массаж 60 мин",
+          "de": "Klassische Massage 60 Min",
+          "en": "Classic Massage 60 min"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "Клаус Мюллер",
+          "de": "Klaus Müller",
+          "en": "Klaus Miller"
+        },
+        "service": {
+          "ru": "Спортивный массаж 90 мин",
+          "de": "Sportmassage 90 Min",
+          "en": "Sport Massage 90 min"
+        },
+        "time": "10:30"
+      },
+      {
+        "name": {
+          "ru": "Мария Шмидт",
+          "de": "Maria Weber",
+          "en": "Maria Brown"
+        },
+        "service": {
+          "ru": "Антистресс массаж",
+          "de": "Anti-Stress-Massage",
+          "en": "Anti-Stress Massage"
+        },
+        "time": "13:00"
+      },
+      {
+        "name": {
+          "ru": "Томас Кох",
+          "de": "Thomas Koch",
+          "en": "Thomas Koch"
+        },
+        "service": {
+          "ru": "Лимфодренаж",
+          "de": "Lymphdrainage",
+          "en": "Lymph Drainage"
+        },
+        "time": "15:30"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Классический массаж",
+        "Спортивный массаж",
+        "Антистресс",
+        "Лимфодренаж"
+      ],
+      "de": [
+        "Klassische Massage",
+        "Sportmassage",
+        "Anti-Stress",
+        "Lymphdrainage"
+      ],
+      "en": [
+        "Classic Massage",
+        "Sport Massage",
+        "Anti-Stress",
+        "Lymph Drainage"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Елена Рихтер",
+            "de": "Elena Richter",
+            "en": "Elena Richter"
+          },
+          "phone": "+49 160 444 0001",
+          "note": {
+            "ru": "Боль в спине",
+            "de": "Rückenschmerzen",
+            "en": "Back pain"
+          },
+          "visits": 6
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Пауль Нойман",
+            "de": "Paul Neumann",
+            "en": "Paul Neumann"
+          },
+          "phone": "+49 160 444 0002",
+          "note": {
+            "ru": "Спортивный массаж",
+            "de": "Sportmassage",
+            "en": "Sports massage"
+          },
+          "visits": 3
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Клара Фогель",
+            "de": "Clara Vogel",
+            "en": "Clara Vogel"
+          },
+          "phone": "+49 160 444 0003",
+          "note": {
+            "ru": "Релакс сеанс",
+            "de": "Entspannung",
+            "en": "Relax session"
+          },
+          "visits": 2
+        }
+      ],
+      "therapists": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Мия Велнесс",
+            "de": "Mia Wellness",
+            "en": "Mia Wellness"
+          },
+          "role": {
+            "ru": "Массажист",
+            "de": "Masseurin",
+            "en": "Massage Therapist"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Олег Релакс",
+            "de": "Oleg Relax",
+            "en": "Oleg Relax"
+          },
+          "role": {
+            "ru": "SPA-терапевт",
+            "de": "SPA-Therapeut",
+            "en": "SPA Therapist"
+          },
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Busy"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Нина Кэр",
+            "de": "Nina Care",
+            "en": "Nina Care"
+          },
+          "role": {
+            "ru": "Терапевт",
+            "de": "Therapeutin",
+            "en": "Therapist"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Классический массаж",
+            "de": "Klassische Massage",
+            "en": "Classic Massage"
+          },
+          "duration": "60 min",
+          "price": "€65"
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Антистресс массаж",
+            "de": "Anti-Stress-Massage",
+            "en": "Anti-Stress Massage"
+          },
+          "duration": "75 min",
+          "price": "€79"
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Спортивный массаж",
+            "de": "Sportmassage",
+            "en": "Sport Massage"
+          },
+          "duration": "50 min",
+          "price": "€70"
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Елена Рихтер",
+            "de": "Elena Richter",
+            "en": "Elena Richter"
+          },
+          "service": {
+            "ru": "Классический массаж",
+            "de": "Klassische Massage",
+            "en": "Classic Massage"
+          },
+          "time": "2026-06-18 10:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Пауль Нойман",
+            "de": "Paul Neumann",
+            "en": "Paul Neumann"
+          },
+          "service": {
+            "ru": "Спортивный массаж",
+            "de": "Sportmassage",
+            "en": "Sport Massage"
+          },
+          "time": "2026-06-18 13:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Клара Фогель",
+            "de": "Clara Vogel",
+            "en": "Clara Vogel"
+          },
+          "service": {
+            "ru": "Антистресс массаж",
+            "de": "Anti-Stress-Massage",
+            "en": "Anti-Stress Massage"
+          },
+          "time": "2026-06-18 16:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "car_service": {
+    "metrics": {
+      "ru": [
+        "Автомобилей в ремонте",
+        "Заказ-нарядов",
+        "Мастеров на смене",
+        "Записей сегодня"
+      ],
+      "de": [
+        "Fahrzeuge in Reparatur",
+        "Werkstattaufträge",
+        "Mechaniker im Dienst",
+        "Termine heute"
+      ],
+      "en": [
+        "Cars in Repair",
+        "Work Orders",
+        "Mechanics on Shift",
+        "Appointments Today"
+      ]
+    },
+    "metric_values": [
+      "14",
+      "23",
+      "5",
+      "8"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "BMW X5",
+          "de": "BMW X5",
+          "en": "BMW X5"
+        },
+        "service": {
+          "ru": "Замена тормозов",
+          "de": "Bremsenwechsel",
+          "en": "Brake Replacement"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "Audi A6",
+          "de": "Audi A6",
+          "en": "Audi A6"
+        },
+        "service": {
+          "ru": "Диагностика двигателя",
+          "de": "Motordiagnose",
+          "en": "Engine Diagnostics"
+        },
+        "time": "11:30"
+      },
+      {
+        "name": {
+          "ru": "Mercedes C200",
+          "de": "Mercedes C200",
+          "en": "Mercedes C200"
+        },
+        "service": {
+          "ru": "ТО 120000 км",
+          "de": "Inspektion 120000 km",
+          "en": "Service 120k km"
+        },
+        "time": "14:00"
+      },
+      {
+        "name": {
+          "ru": "VW Passat",
+          "de": "VW Passat",
+          "en": "VW Passat"
+        },
+        "service": {
+          "ru": "Шиномонтаж",
+          "de": "Reifenwechsel",
+          "en": "Tire Change"
+        },
+        "time": "16:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Замена масла",
+        "Диагностика",
+        "Шиномонтаж",
+        "Замена тормозов"
+      ],
+      "de": [
+        "Ölwechsel",
+        "Diagnose",
+        "Reifenwechsel",
+        "Bremsenwechsel"
+      ],
+      "en": [
+        "Oil Change",
+        "Diagnostics",
+        "Tire Change",
+        "Brake Replacement"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Стефан Фогель",
+            "de": "Stefan Vogel",
+            "en": "Stefan Vogel"
+          },
+          "phone": "+49 160 555 0001",
+          "note": {
+            "ru": "Владелец BMW",
+            "de": "BMW-Besitzer",
+            "en": "BMW owner"
+          },
+          "visits": 3
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Хельга Вайс",
+            "de": "Helga Weiss",
+            "en": "Helga Weiss"
+          },
+          "phone": "+49 160 555 0002",
+          "note": {
+            "ru": "Обслуживание VW",
+            "de": "VW-Service",
+            "en": "VW service"
+          },
+          "visits": 5
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Марк Отто",
+            "de": "Mark Otto",
+            "en": "Mark Otto"
+          },
+          "phone": "+49 160 555 0003",
+          "note": {
+            "ru": "Шиномонтаж",
+            "de": "Reifenwechsel",
+            "en": "Tire change"
+          },
+          "visits": 1
+        }
+      ],
+      "work_orders": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Стефан Фогель",
+            "de": "Stefan Vogel",
+            "en": "Stefan Vogel"
+          },
+          "service": {
+            "ru": "Замена масла",
+            "de": "Ölwechsel",
+            "en": "Oil Change"
+          },
+          "time": "2026-06-18 09:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Хельга Вайс",
+            "de": "Helga Weiss",
+            "en": "Helga Weiss"
+          },
+          "service": {
+            "ru": "Замена шин",
+            "de": "Reifenwechsel",
+            "en": "Tire Change"
+          },
+          "time": "2026-06-18 11:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Марк Отто",
+            "de": "Mark Otto",
+            "en": "Mark Otto"
+          },
+          "service": {
+            "ru": "Замена тормозов",
+            "de": "Bremsenwechsel",
+            "en": "Brake Replacement"
+          },
+          "time": "2026-06-18 14:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "vehicles": [
+        {
+          "id": "1",
+          "model": "BMW 320d",
+          "plate": "M-AB 1234",
+          "status": {
+            "ru": "В сервисе",
+            "de": "In Wartung",
+            "en": "In service"
+          }
+        },
+        {
+          "id": "2",
+          "model": "VW Golf",
+          "plate": "M-CD 5678",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Wartend",
+            "en": "Waiting"
+          }
+        },
+        {
+          "id": "3",
+          "model": "Audi A4",
+          "plate": "M-EF 9012",
+          "status": {
+            "ru": "Готов",
+            "de": "Bereit",
+            "en": "Ready"
+          }
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Клаус Верк",
+            "de": "Klaus Werk",
+            "en": "Klaus Werk"
+          },
+          "role": {
+            "ru": "Старший механик",
+            "de": "Chefmechaniker",
+            "en": "Lead Mechanic"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Петер Мотор",
+            "de": "Peter Motor",
+            "en": "Peter Motor"
+          },
+          "role": {
+            "ru": "Техник",
+            "de": "Techniker",
+            "en": "Technician"
+          },
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Busy"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Ян Авто",
+            "de": "Jan Auto",
+            "en": "Jan Auto"
+          },
+          "role": {
+            "ru": "Диагност",
+            "de": "Diagnostiker",
+            "en": "Diagnostic"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ]
+    }
+  },
+  "hotel_booking": {
+    "metrics": {
+      "ru": [
+        "Гостей сейчас",
+        "Заездов сегодня",
+        "Выездов сегодня",
+        "Свободных номеров"
+      ],
+      "de": [
+        "Aktuelle Gäste",
+        "Check-ins heute",
+        "Check-outs heute",
+        "Freie Zimmer"
+      ],
+      "en": [
+        "Current Guests",
+        "Check-ins Today",
+        "Check-outs Today",
+        "Free Rooms"
+      ]
+    },
+    "metric_values": [
+      "47",
+      "8",
+      "5",
+      "12"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Семья Вебер — Номер 204 — Заезд 14:00",
+          "de": "Familie Weber — Zimmer 204 — Check-in 14:00",
+          "en": "Weber Family — Room 204 — Check-in 14:00"
+        },
+        "service": {
+          "ru": "Заезд",
+          "de": "Check-in",
+          "en": "Check-in"
+        },
+        "time": "14:00"
+      },
+      {
+        "name": {
+          "ru": "Г-н Мюллер — Люкс 301 — Заезд 15:00",
+          "de": "Herr Müller — Suite 301 — Check-in 15:00",
+          "en": "Mr Miller — Suite 301 — Check-in 15:00"
+        },
+        "service": {
+          "ru": "Заезд",
+          "de": "Check-in",
+          "en": "Check-in"
+        },
+        "time": "15:00"
+      },
+      {
+        "name": {
+          "ru": "Г-жа Шмидт — Номер 112 — Выезд 11:00",
+          "de": "Frau Schmidt — Zimmer 112 — Check-out 11:00",
+          "en": "Ms Schmidt — Room 112 — Check-out 11:00"
+        },
+        "service": {
+          "ru": "Выезд",
+          "de": "Check-out",
+          "en": "Check-out"
+        },
+        "time": "11:00"
+      },
+      {
+        "name": {
+          "ru": "Группа — Конференц-зал 10:00",
+          "de": "Gruppe — Konferenz 10:00",
+          "en": "Group — Conference 10:00"
+        },
+        "service": {
+          "ru": "Конференц-зал",
+          "de": "Konferenzraum",
+          "en": "Conference Room"
+        },
+        "time": "10:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Стандартный номер",
+        "Люкс",
+        "Завтрак включён",
+        "Конференц-зал"
+      ],
+      "de": [
+        "Standardzimmer",
+        "Suite",
+        "Frühstück inklusive",
+        "Konferenzraum"
+      ],
+      "en": [
+        "Standard Room",
+        "Suite",
+        "Breakfast Included",
+        "Conference Room"
+      ]
+    },
+    "records": {
+      "guests": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Михаил Браун",
+            "de": "Michael Brown",
+            "en": "Michael Brown"
+          },
+          "phone": "+49 160 666 0001",
+          "note": {
+            "ru": "2 ночи",
+            "de": "2 Nächte",
+            "en": "2 nights"
+          },
+          "visits": 2
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Сара Джонсон",
+            "de": "Sarah Johnson",
+            "en": "Sarah Johnson"
+          },
+          "phone": "+49 160 666 0002",
+          "note": {
+            "ru": "Командировка",
+            "de": "Geschäftsreise",
+            "en": "Business trip"
+          },
+          "visits": 1
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Дэвид Ли",
+            "de": "David Lee",
+            "en": "David Lee"
+          },
+          "phone": "+49 160 666 0003",
+          "note": {
+            "ru": "Семейный отдых",
+            "de": "Familienaufenthalt",
+            "en": "Family stay"
+          },
+          "visits": 4
+        }
+      ],
+      "rooms": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Номер 101",
+            "de": "Zimmer 101",
+            "en": "Room 101"
+          },
+          "type": {
+            "ru": "Стандарт",
+            "de": "Standard",
+            "en": "Standard"
+          },
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Occupied"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Номер 205",
+            "de": "Zimmer 205",
+            "en": "Room 205"
+          },
+          "type": {
+            "ru": "Делюкс",
+            "de": "Deluxe",
+            "en": "Deluxe"
+          },
+          "status": {
+            "ru": "Свободен",
+            "de": "Frei",
+            "en": "Free"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Люкс 301",
+            "de": "Suite 301",
+            "en": "Suite 301"
+          },
+          "type": {
+            "ru": "Люкс",
+            "de": "Suite",
+            "en": "Suite"
+          },
+          "status": {
+            "ru": "Забронирован",
+            "de": "Reserviert",
+            "en": "Reserved"
+          }
+        }
+      ],
+      "reservations": [
+        {
+          "id": "1",
+          "guest": {
+            "ru": "Михаил Браун",
+            "de": "Michael Brown",
+            "en": "Michael Brown"
+          },
+          "service": {
+            "ru": "Номер 205",
+            "de": "Zimmer 205",
+            "en": "Room 205"
+          },
+          "time": "2026-06-18",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "guest": {
+            "ru": "Сара Джонсон",
+            "de": "Sarah Johnson",
+            "en": "Sarah Johnson"
+          },
+          "service": {
+            "ru": "Номер 101",
+            "de": "Zimmer 101",
+            "en": "Room 101"
+          },
+          "time": "2026-06-19",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "3",
+          "guest": {
+            "ru": "Дэвид Ли",
+            "de": "David Lee",
+            "en": "David Lee"
+          },
+          "service": {
+            "ru": "Люкс 301",
+            "de": "Suite 301",
+            "en": "Suite 301"
+          },
+          "time": "2026-06-20",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ],
+      "housekeeping": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Этаж 1",
+            "de": "Etage 1",
+            "en": "Floor 1"
+          },
+          "task": {
+            "ru": "Уборка",
+            "de": "Reinigung",
+            "en": "Cleaning"
+          },
+          "status": {
+            "ru": "Выполнено",
+            "de": "Erledigt",
+            "en": "Done"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Этаж 2",
+            "de": "Etage 2",
+            "en": "Floor 2"
+          },
+          "task": {
+            "ru": "Смена белья",
+            "de": "Bettwäsche wechseln",
+            "en": "Linen change"
+          },
+          "status": {
+            "ru": "В работе",
+            "de": "In Bearbeitung",
+            "en": "In progress"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Люкс 301",
+            "de": "Suite 301",
+            "en": "Suite 301"
+          },
+          "task": {
+            "ru": "Подготовка к заезду",
+            "de": "Anreisevorbereitung",
+            "en": "Pre-arrival"
+          },
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "education": {
+    "metrics": {
+      "ru": [
+        "Студентов",
+        "Занятий сегодня",
+        "Посещаемость",
+        "Успеваемость"
+      ],
+      "de": [
+        "Schüler",
+        "Kurse heute",
+        "Anwesenheit",
+        "Leistungsrate"
+      ],
+      "en": [
+        "Students",
+        "Classes Today",
+        "Attendance",
+        "Performance Rate"
+      ]
+    },
+    "metric_values": [
+      "156",
+      "12",
+      "89%",
+      "4.2"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Группа А — Немецкий B2",
+          "de": "Gruppe A — Deutsch B2",
+          "en": "Group A — German B2"
+        },
+        "service": {
+          "ru": "Немецкий язык B2",
+          "de": "Deutsch B2",
+          "en": "German B2"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "Группа Б — Математика",
+          "de": "Gruppe B — Mathematik",
+          "en": "Group B — Mathematics"
+        },
+        "service": {
+          "ru": "Высшая математика",
+          "de": "Höhere Mathematik",
+          "en": "Advanced Mathematics"
+        },
+        "time": "11:00"
+      },
+      {
+        "name": {
+          "ru": "Группа В — Английский C1",
+          "de": "Gruppe C — Englisch C1",
+          "en": "Group C — English C1"
+        },
+        "service": {
+          "ru": "Английский C1",
+          "de": "Englisch C1",
+          "en": "English C1"
+        },
+        "time": "13:00"
+      },
+      {
+        "name": {
+          "ru": "Группа Г — Программирование",
+          "de": "Gruppe D — Informatik",
+          "en": "Group D — Programming"
+        },
+        "service": {
+          "ru": "Программирование",
+          "de": "Programmierung",
+          "en": "Programming"
+        },
+        "time": "15:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Немецкий язык",
+        "Математика",
+        "Английский язык",
+        "Программирование"
+      ],
+      "de": [
+        "Deutsch",
+        "Mathematik",
+        "Englisch",
+        "Programmierung"
+      ],
+      "en": [
+        "German",
+        "Mathematics",
+        "English",
+        "Programming"
+      ]
+    },
+    "records": {
+      "students": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Эмма Уилсон",
+            "de": "Emma Wilson",
+            "en": "Emma Wilson"
+          },
+          "phone": "+49 160 777 0001",
+          "note": {
+            "ru": "Немецкий B2",
+            "de": "Deutsch B2",
+            "en": "B2 German"
+          },
+          "visits": 12
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Джеймс Миллер",
+            "de": "James Miller",
+            "en": "James Miller"
+          },
+          "phone": "+49 160 777 0002",
+          "note": {
+            "ru": "Английский A2",
+            "de": "Englisch A2",
+            "en": "A2 English"
+          },
+          "visits": 8
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Оливия Дэвис",
+            "de": "Olivia Davis",
+            "en": "Olivia Davis"
+          },
+          "phone": "+49 160 777 0003",
+          "note": {
+            "ru": "Курс математики",
+            "de": "Mathematikkurs",
+            "en": "Math course"
+          },
+          "visits": 5
+        }
+      ],
+      "teachers": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Проф. Анна Ланг",
+            "de": "Prof. Anna Lang",
+            "en": "Prof. Anna Lang"
+          },
+          "role": {
+            "ru": "Преподаватель немецкого",
+            "de": "Deutschlehrerin",
+            "en": "German Teacher"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Джон Тич",
+            "de": "John Teach",
+            "en": "John Teach"
+          },
+          "role": {
+            "ru": "Преподаватель английского",
+            "de": "Englischlehrer",
+            "en": "English Teacher"
+          },
+          "status": {
+            "ru": "На занятии",
+            "de": "Im Unterricht",
+            "en": "In class"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Мария Курс",
+            "de": "Maria Kurs",
+            "en": "Maria Kurs"
+          },
+          "role": {
+            "ru": "Преподаватель математики",
+            "de": "Mathematiklehrerin",
+            "en": "Math Teacher"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "courses": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Немецкий B2",
+            "de": "Deutsch B2",
+            "en": "German B2"
+          },
+          "duration": {
+            "ru": "8 недель",
+            "de": "8 Wochen",
+            "en": "8 weeks"
+          },
+          "price": "€299"
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Английский A2",
+            "de": "Englisch A2",
+            "en": "English A2"
+          },
+          "duration": {
+            "ru": "6 недель",
+            "de": "6 Wochen",
+            "en": "6 weeks"
+          },
+          "price": "€249"
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Основы математики",
+            "de": "Mathe-Grundlagen",
+            "en": "Math Basics"
+          },
+          "duration": {
+            "ru": "4 недели",
+            "de": "4 Wochen",
+            "en": "4 weeks"
+          },
+          "price": "€199"
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Эмма Уилсон",
+            "de": "Emma Wilson",
+            "en": "Emma Wilson"
+          },
+          "service": {
+            "ru": "Немецкий B2",
+            "de": "Deutsch B2",
+            "en": "German B2"
+          },
+          "time": "2026-06-18 10:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Джеймс Миллер",
+            "de": "James Miller",
+            "en": "James Miller"
+          },
+          "service": {
+            "ru": "Английский A2",
+            "de": "Englisch A2",
+            "en": "English A2"
+          },
+          "time": "2026-06-18 14:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Оливия Дэвис",
+            "de": "Olivia Davis",
+            "en": "Olivia Davis"
+          },
+          "service": {
+            "ru": "Основы математики",
+            "de": "Mathe-Grundlagen",
+            "en": "Math Basics"
+          },
+          "time": "2026-06-18 16:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "logistics": {
+    "metrics": {
+      "ru": [
+        "Заказов в пути",
+        "Доставлено сегодня",
+        "Водителей на маршруте",
+        "Задержек"
+      ],
+      "de": [
+        "Aufträge unterwegs",
+        "Heute geliefert",
+        "Fahrer auf Route",
+        "Verzögerungen"
+      ],
+      "en": [
+        "Orders in Transit",
+        "Delivered Today",
+        "Drivers on Route",
+        "Delays"
+      ]
+    },
+    "metric_values": [
+      "67",
+      "34",
+      "12",
+      "3"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Водитель Ганс — Маршрут Север — 14 доставок",
+          "de": "Fahrer Hans — Route Nord — 14 Lieferungen",
+          "en": "Driver Hans — North Route — 14 deliveries"
+        },
+        "service": {
+          "ru": "14 доставок",
+          "de": "14 Lieferungen",
+          "en": "14 deliveries"
+        },
+        "time": "07:00"
+      },
+      {
+        "name": {
+          "ru": "Водитель Клаус — Маршрут Юг — 11 доставок",
+          "de": "Fahrer Klaus — Route Süd — 11 Lieferungen",
+          "en": "Driver Klaus — South Route — 11 deliveries"
+        },
+        "service": {
+          "ru": "11 доставок",
+          "de": "11 Lieferungen",
+          "en": "11 deliveries"
+        },
+        "time": "07:30"
+      },
+      {
+        "name": {
+          "ru": "Грузовик 3 — Центр Мюнхена — Срочная",
+          "de": "LKW 3 — München Zentrum — Express",
+          "en": "Truck 3 — Munich Center — Express"
+        },
+        "service": {
+          "ru": "Срочная доставка",
+          "de": "Expresslieferung",
+          "en": "Express Delivery"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "Экспресс — Аэропорт",
+          "de": "Express — Flughafen",
+          "en": "Express — Airport"
+        },
+        "service": {
+          "ru": "Аэропорт экспресс",
+          "de": "Flughafen-Express",
+          "en": "Airport Express"
+        },
+        "time": "11:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Стандартная доставка",
+        "Срочная доставка",
+        "Хрупкий груз",
+        "Холодовая цепь"
+      ],
+      "de": [
+        "Standardlieferung",
+        "Expresslieferung",
+        "Zerbrechliche Waren",
+        "Kühlkette"
+      ],
+      "en": [
+        "Standard Delivery",
+        "Express Delivery",
+        "Fragile Goods",
+        "Cold Chain"
+      ]
+    },
+    "records": {
+      "routes": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Центр Мюнхена",
+            "de": "München Zentrum",
+            "en": "Munich Center"
+          },
+          "stops": 12,
+          "status": {
+            "ru": "Активен",
+            "de": "Aktiv",
+            "en": "Active"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Северный район",
+            "de": "Nordbezirk",
+            "en": "North District"
+          },
+          "stops": 8,
+          "status": {
+            "ru": "Активен",
+            "de": "Aktiv",
+            "en": "Active"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Аэропорт экспресс",
+            "de": "Flughafen-Express",
+            "en": "Airport Express"
+          },
+          "stops": 5,
+          "status": {
+            "ru": "Запланирован",
+            "de": "Geplant",
+            "en": "Planned"
+          }
+        }
+      ],
+      "drivers": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Игорь Драйв",
+            "de": "Igor Drive",
+            "en": "Igor Drive"
+          },
+          "role": {
+            "ru": "Водитель",
+            "de": "Fahrer",
+            "en": "Driver"
+          },
+          "status": {
+            "ru": "На маршруте",
+            "de": "Unterwegs",
+            "en": "On route"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Алекс Карго",
+            "de": "Alex Cargo",
+            "en": "Alex Cargo"
+          },
+          "role": {
+            "ru": "Водитель",
+            "de": "Fahrer",
+            "en": "Driver"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Макс Флит",
+            "de": "Max Fleet",
+            "en": "Max Fleet"
+          },
+          "role": {
+            "ru": "Водитель",
+            "de": "Fahrer",
+            "en": "Driver"
+          },
+          "status": {
+            "ru": "На перерыве",
+            "de": "Pause",
+            "en": "On break"
+          }
+        }
+      ],
+      "deliveries": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Магазин A",
+            "de": "Shop A",
+            "en": "Shop A"
+          },
+          "service": {
+            "ru": "Экспресс",
+            "de": "Express",
+            "en": "Express"
+          },
+          "time": "2026-06-18 09:00",
+          "status": {
+            "ru": "Доставлено",
+            "de": "Geliefert",
+            "en": "Delivered"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Офис B",
+            "de": "Office B",
+            "en": "Office B"
+          },
+          "service": {
+            "ru": "Стандарт",
+            "de": "Standard",
+            "en": "Standard"
+          },
+          "time": "2026-06-18 12:00",
+          "status": {
+            "ru": "В пути",
+            "de": "Unterwegs",
+            "en": "In transit"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Клиент C",
+            "de": "Client C",
+            "en": "Client C"
+          },
+          "service": {
+            "ru": "В тот же день",
+            "de": "Same Day",
+            "en": "Same day"
+          },
+          "time": "2026-06-18 15:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ],
+      "vehicles": [
+        {
+          "id": "1",
+          "model": "Mercedes Sprinter",
+          "plate": "M-LG 100",
+          "status": {
+            "ru": "На маршруте",
+            "de": "Unterwegs",
+            "en": "On route"
+          }
+        },
+        {
+          "id": "2",
+          "model": "Ford Transit",
+          "plate": "M-LG 200",
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "3",
+          "model": "VW Crafter",
+          "plate": "M-LG 300",
+          "status": {
+            "ru": "На обслуживании",
+            "de": "Wartung",
+            "en": "Maintenance"
+          }
+        }
+      ]
+    }
+  },
+  "ecommerce": {
+    "metrics": {
+      "ru": [
+        "Заказов сегодня",
+        "Выручка сегодня",
+        "Новых клиентов",
+        "Товаров в наличии"
+      ],
+      "de": [
+        "Bestellungen heute",
+        "Umsatz heute",
+        "Neue Kunden",
+        "Produkte auf Lager"
+      ],
+      "en": [
+        "Orders Today",
+        "Revenue Today",
+        "New Customers",
+        "Products in Stock"
+      ]
+    },
+    "metric_values": [
+      "43",
+      "€2840",
+      "12",
+      "1240"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Заказ #1047 — iPhone 15 Pro",
+          "de": "Bestellung #1047 — iPhone 15 Pro",
+          "en": "Order #1047 — iPhone 15 Pro"
+        },
+        "service": {
+          "ru": "iPhone 15 Pro + чехол",
+          "de": "iPhone 15 Pro + Hülle",
+          "en": "iPhone 15 Pro + Case"
+        },
+        "time": "09:15"
+      },
+      {
+        "name": {
+          "ru": "Заказ #1048 — Nike Air Max",
+          "de": "Bestellung #1048 — Nike Air Max",
+          "en": "Order #1048 — Nike Air Max"
+        },
+        "service": {
+          "ru": "Nike Air Max 270",
+          "de": "Nike Air Max 270",
+          "en": "Nike Air Max 270"
+        },
+        "time": "10:30"
+      },
+      {
+        "name": {
+          "ru": "Заказ #1049 — Samsung Galaxy",
+          "de": "Bestellung #1049 — Samsung Galaxy",
+          "en": "Order #1049 — Samsung Galaxy"
+        },
+        "service": {
+          "ru": "Samsung Galaxy S24",
+          "de": "Samsung Galaxy S24",
+          "en": "Samsung Galaxy S24"
+        },
+        "time": "12:00"
+      },
+      {
+        "name": {
+          "ru": "Заказ #1050 — MacBook Pro",
+          "de": "Bestellung #1050 — MacBook Pro",
+          "en": "Order #1050 — MacBook Pro"
+        },
+        "service": {
+          "ru": "MacBook Pro 14",
+          "de": "MacBook Pro 14",
+          "en": "MacBook Pro 14"
+        },
+        "time": "14:45"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Электроника",
+        "Одежда и обувь",
+        "Спорт",
+        "Дом и сад"
+      ],
+      "de": [
+        "Elektronik",
+        "Kleidung & Schuhe",
+        "Sport",
+        "Haus & Garten"
+      ],
+      "en": [
+        "Electronics",
+        "Clothing & Shoes",
+        "Sports",
+        "Home & Garden"
+      ]
+    },
+    "records": {
+      "products": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Беспроводные наушники",
+            "de": "Kabellose Kopfhörer",
+            "en": "Wireless Headphones"
+          },
+          "price": "€79",
+          "duration": {
+            "ru": "В наличии",
+            "de": "Auf Lager",
+            "en": "In stock"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Умные часы",
+            "de": "Smartwatch",
+            "en": "Smart Watch"
+          },
+          "price": "€149",
+          "duration": {
+            "ru": "В наличии",
+            "de": "Auf Lager",
+            "en": "In stock"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Чехол для телефона",
+            "de": "Handyhülle",
+            "en": "Phone Case"
+          },
+          "price": "€19",
+          "duration": {
+            "ru": "Мало на складе",
+            "de": "Wenig auf Lager",
+            "en": "Low stock"
+          }
+        }
+      ],
+      "orders": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Джон Смит",
+            "de": "John Smith",
+            "en": "John Smith"
+          },
+          "service": {
+            "ru": "Заказ #1001",
+            "de": "Bestellung #1001",
+            "en": "Order #1001"
+          },
+          "time": "2026-06-18",
+          "status": {
+            "ru": "Отправлено",
+            "de": "Versendet",
+            "en": "Shipped"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Анна Вайт",
+            "de": "Anna White",
+            "en": "Anna White"
+          },
+          "service": {
+            "ru": "Заказ #1002",
+            "de": "Bestellung #1002",
+            "en": "Order #1002"
+          },
+          "time": "2026-06-18",
+          "status": {
+            "ru": "Обработка",
+            "de": "In Bearbeitung",
+            "en": "Processing"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Михаил Браун",
+            "de": "Michael Brown",
+            "en": "Michael Brown"
+          },
+          "service": {
+            "ru": "Заказ #1003",
+            "de": "Bestellung #1003",
+            "en": "Order #1003"
+          },
+          "time": "2026-06-17",
+          "status": {
+            "ru": "Доставлено",
+            "de": "Geliefert",
+            "en": "Delivered"
+          }
+        }
+      ],
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Джон Смит",
+            "de": "John Smith",
+            "en": "John Smith"
+          },
+          "phone": "+49 160 888 0001",
+          "note": {
+            "ru": "VIP",
+            "de": "VIP",
+            "en": "VIP"
+          },
+          "visits": 7
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Анна Вайт",
+            "de": "Anna White",
+            "en": "Anna White"
+          },
+          "phone": "+49 160 888 0002",
+          "note": {
+            "ru": "Постоянный покупатель",
+            "de": "Stammkäuferin",
+            "en": "Repeat buyer"
+          },
+          "visits": 4
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Михаил Браун",
+            "de": "Michael Brown",
+            "en": "Michael Brown"
+          },
+          "phone": "+49 160 888 0003",
+          "note": {
+            "ru": "Новый клиент",
+            "de": "Neukunde",
+            "en": "New customer"
+          },
+          "visits": 1
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Джон Смит",
+            "de": "John Smith",
+            "en": "John Smith"
+          },
+          "amount": "€79",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Анна Вайт",
+            "de": "Anna White",
+            "en": "Anna White"
+          },
+          "amount": "€149",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Михаил Браун",
+            "de": "Michael Brown",
+            "en": "Michael Brown"
+          },
+          "amount": "€19",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "technology": {
+    "metrics": {
+      "ru": [
+        "Активных проектов",
+        "Задач на сегодня",
+        "Клиентов",
+        "Разработчиков"
+      ],
+      "de": [
+        "Aktive Projekte",
+        "Aufgaben heute",
+        "Kunden",
+        "Entwickler"
+      ],
+      "en": [
+        "Active Projects",
+        "Tasks Today",
+        "Clients",
+        "Developers"
+      ]
+    },
+    "metric_values": [
+      "8",
+      "34",
+      "15",
+      "12"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Проект Альфа — Frontend",
+          "de": "Projekt Alpha — Frontend",
+          "en": "Project Alpha — Frontend"
+        },
+        "service": {
+          "ru": "Frontend разработка",
+          "de": "Frontend-Entwicklung",
+          "en": "Frontend Development"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "Проект Бета — Backend API",
+          "de": "Projekt Beta — Backend API",
+          "en": "Project Beta — Backend API"
+        },
+        "service": {
+          "ru": "Backend интеграция",
+          "de": "Backend-Integration",
+          "en": "Backend Integration"
+        },
+        "time": "10:00"
+      },
+      {
+        "name": {
+          "ru": "Проект Гамма — Мобильное приложение",
+          "de": "Projekt Gamma — Mobile App",
+          "en": "Project Gamma — Mobile App"
+        },
+        "service": {
+          "ru": "Мобильное приложение",
+          "de": "Mobile App",
+          "en": "Mobile Application"
+        },
+        "time": "14:00"
+      },
+      {
+        "name": {
+          "ru": "Встреча — Клиент X",
+          "de": "Meeting — Kunde X",
+          "en": "Meeting — Client X"
+        },
+        "service": {
+          "ru": "Презентация клиенту",
+          "de": "Kundenpräsentation",
+          "en": "Client Presentation"
+        },
+        "time": "16:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Разработка MVP",
+        "Мобильные приложения",
+        "API интеграции",
+        "UI/UX дизайн"
+      ],
+      "de": [
+        "MVP-Entwicklung",
+        "Mobile Apps",
+        "API-Integration",
+        "UI/UX Design"
+      ],
+      "en": [
+        "MVP Development",
+        "Mobile Apps",
+        "API Integration",
+        "UI/UX Design"
+      ]
+    },
+    "records": {
+      "products": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "SaaS платформа",
+            "de": "SaaS-Plattform",
+            "en": "SaaS Platform"
+          },
+          "price": "€499/mo",
+          "duration": {
+            "ru": "Активен",
+            "de": "Aktiv",
+            "en": "Active"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Мобильное приложение",
+            "de": "Mobile App",
+            "en": "Mobile App"
+          },
+          "price": "€999",
+          "duration": {
+            "ru": "Активен",
+            "de": "Aktiv",
+            "en": "Active"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Доступ к API",
+            "de": "API-Zugang",
+            "en": "API Access"
+          },
+          "price": "€199/mo",
+          "duration": {
+            "ru": "Бета",
+            "de": "Beta",
+            "en": "Beta"
+          }
+        }
+      ],
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Стартап Альфа",
+            "de": "Startup Alpha",
+            "en": "Startup Alpha"
+          },
+          "phone": "+49 160 999 0001",
+          "note": {
+            "ru": "MVP проект",
+            "de": "MVP-Projekt",
+            "en": "MVP project"
+          },
+          "visits": 3
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Ритейл Бета",
+            "de": "Retail Beta",
+            "en": "Retail Beta"
+          },
+          "phone": "+49 160 999 0002",
+          "note": {
+            "ru": "Внедрение CRM",
+            "de": "CRM-Rollout",
+            "en": "CRM rollout"
+          },
+          "visits": 2
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Клиника Гамма",
+            "de": "Clinic Gamma",
+            "en": "Clinic Gamma"
+          },
+          "phone": "+49 160 999 0003",
+          "note": {
+            "ru": "Интеграция",
+            "de": "Integration",
+            "en": "Integration"
+          },
+          "visits": 1
+        }
+      ],
+      "projects": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Сайт + CRM + Бронирование",
+            "de": "Website + CRM + Buchung",
+            "en": "Website + CRM + Booking"
+          },
+          "status": {
+            "ru": "В работе",
+            "de": "In Bearbeitung",
+            "en": "In progress"
+          },
+          "deadline": "2026-07-01"
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Клиентский портал",
+            "de": "Kundenportal",
+            "en": "Client Portal"
+          },
+          "status": {
+            "ru": "Планирование",
+            "de": "Planung",
+            "en": "Planning"
+          },
+          "deadline": "2026-08-15"
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Мобильная CRM",
+            "de": "Mobile CRM",
+            "en": "Mobile CRM"
+          },
+          "status": {
+            "ru": "На проверке",
+            "de": "In Prüfung",
+            "en": "Review"
+          },
+          "deadline": "2026-06-30"
+        }
+      ],
+      "developers": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Алекс Код",
+            "de": "Alex Code",
+            "en": "Alex Code"
+          },
+          "role": {
+            "ru": "Full-stack",
+            "de": "Full-stack",
+            "en": "Full-stack"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Сара Дев",
+            "de": "Sara Dev",
+            "en": "Sara Dev"
+          },
+          "role": {
+            "ru": "Frontend",
+            "de": "Frontend",
+            "en": "Frontend"
+          },
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Busy"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Иван Бэкенд",
+            "de": "Ivan Backend",
+            "en": "Ivan Backend"
+          },
+          "role": {
+            "ru": "Backend",
+            "de": "Backend",
+            "en": "Backend"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ]
+    }
+  },
+  "real_estate": {
+    "metrics": {
+      "ru": [
+        "Активных клиентов",
+        "Показов сегодня",
+        "Выручка сегодня",
+        "Свободных слотов"
+      ],
+      "de": [
+        "Aktive Kunden",
+        "Besichtigungen heute",
+        "Umsatz heute",
+        "Freie Slots"
+      ],
+      "en": [
+        "Active Clients",
+        "Viewings Today",
+        "Revenue Today",
+        "Free Slots"
+      ]
+    },
+    "metric_values": [
+      "47",
+      "12",
+      "€840",
+      "5"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Thomas Bauer",
+          "de": "Thomas Bauer",
+          "en": "Thomas Bauer"
+        },
+        "service": {
+          "ru": "Показ квартиры",
+          "de": "Wohnungsbesichtigung",
+          "en": "Apartment Viewing"
+        },
+        "time": "10:00"
+      },
+      {
+        "name": {
+          "ru": "Helga Richter",
+          "de": "Helga Richter",
+          "en": "Helga Richter"
+        },
+        "service": {
+          "ru": "Оценка дома",
+          "de": "Hausbewertung",
+          "en": "House Valuation"
+        },
+        "time": "13:00"
+      },
+      {
+        "name": {
+          "ru": "Klaus Hoffmann",
+          "de": "Klaus Hoffmann",
+          "en": "Klaus Hoffmann"
+        },
+        "service": {
+          "ru": "Просмотр офиса",
+          "de": "Bürobesichtigung",
+          "en": "Office Viewing"
+        },
+        "time": "15:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Продажа недвижимости",
+        "Аренда",
+        "Оценка объекта"
+      ],
+      "de": [
+        "Immobilienverkauf",
+        "Vermietung",
+        "Objektbewertung"
+      ],
+      "en": [
+        "Property Sales",
+        "Rental",
+        "Property Valuation"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Thomas Bauer",
+            "de": "Thomas Bauer",
+            "en": "Thomas Bauer"
+          },
+          "phone": "+49 89 123 4501",
+          "note": {
+            "ru": "Ищет квартиру 3 комн.",
+            "de": "Sucht 3-Zimmer-Wohnung",
+            "en": "Looking for 3-room apartment"
+          },
+          "visits": 2
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Helga Richter",
+            "de": "Helga Richter",
+            "en": "Helga Richter"
+          },
+          "phone": "+49 89 123 4502",
+          "note": {
+            "ru": "Продаёт дом в пригороде",
+            "de": "Verkauft Haus im Vorort",
+            "en": "Selling suburban house"
+          },
+          "visits": 5
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Klaus Hoffmann",
+            "de": "Klaus Hoffmann",
+            "en": "Klaus Hoffmann"
+          },
+          "phone": "+49 89 123 4503",
+          "note": {
+            "ru": "Аренда офиса",
+            "de": "Bürovermietung",
+            "en": "Office rental"
+          },
+          "visits": 1
+        }
+      ],
+      "viewings": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Thomas Bauer",
+            "de": "Thomas Bauer",
+            "en": "Thomas Bauer"
+          },
+          "service": {
+            "ru": "Показ квартиры Maxvorstadt",
+            "de": "Besichtigung Wohnung Maxvorstadt",
+            "en": "Apartment Viewing Maxvorstadt"
+          },
+          "time": "2026-06-18 10:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Helga Richter",
+            "de": "Helga Richter",
+            "en": "Helga Richter"
+          },
+          "service": {
+            "ru": "Оценка дома",
+            "de": "Hausbewertung",
+            "en": "House Valuation"
+          },
+          "time": "2026-06-18 13:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Klaus Hoffmann",
+            "de": "Klaus Hoffmann",
+            "en": "Klaus Hoffmann"
+          },
+          "service": {
+            "ru": "Просмотр офиса",
+            "de": "Bürobesichtigung",
+            "en": "Office Viewing"
+          },
+          "time": "2026-06-18 15:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Thomas Bauer",
+            "de": "Thomas Bauer",
+            "en": "Thomas Bauer"
+          },
+          "service": {
+            "ru": "Показ квартиры Maxvorstadt",
+            "de": "Besichtigung Wohnung Maxvorstadt",
+            "en": "Apartment Viewing Maxvorstadt"
+          },
+          "time": "2026-06-18 10:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "client": {
+            "ru": "Helga Richter",
+            "de": "Helga Richter",
+            "en": "Helga Richter"
+          },
+          "service": {
+            "ru": "Оценка дома",
+            "de": "Hausbewertung",
+            "en": "House Valuation"
+          },
+          "time": "2026-06-18 13:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "client": {
+            "ru": "Klaus Hoffmann",
+            "de": "Klaus Hoffmann",
+            "en": "Klaus Hoffmann"
+          },
+          "service": {
+            "ru": "Просмотр офиса",
+            "de": "Bürobesichtigung",
+            "en": "Office Viewing"
+          },
+          "time": "2026-06-18 15:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Продажа недвижимости",
+            "de": "Immobilienverkauf",
+            "en": "Property Sales"
+          },
+          "duration": {
+            "ru": "Полное сопровождение сделки купли-продажи",
+            "de": "Begleitung des gesamten Verkaufsprozesses",
+            "en": "Full support for buying and selling"
+          },
+          "price": {
+            "ru": "Комиссия 3%",
+            "de": "3% Provision",
+            "en": "3% commission"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Аренда",
+            "de": "Vermietung",
+            "en": "Rental"
+          },
+          "duration": {
+            "ru": "Подбор арендаторов и оформление договора",
+            "de": "Mietersuche und Vertragsabwicklung",
+            "en": "Tenant search and contract processing"
+          },
+          "price": {
+            "ru": "Комиссия 1 месяц",
+            "de": "1 Monat Miete",
+            "en": "1 month rent"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Оценка объекта",
+            "de": "Objektbewertung",
+            "en": "Property Valuation"
+          },
+          "duration": {
+            "ru": "Профессиональная оценка рыночной стоимости",
+            "de": "Professionelle Marktwertschätzung",
+            "en": "Professional market value assessment"
+          },
+          "price": {
+            "ru": "€150 фиксированно",
+            "de": "€150 pauschal",
+            "en": "€150 flat fee"
+          }
+        }
+      ],
+      "agents": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Maximilian Kern",
+            "de": "Maximilian Kern",
+            "en": "Maximilian Kern"
+          },
+          "role": {
+            "ru": "Агент по продажам",
+            "de": "Verkaufsmakler",
+            "en": "Sales Agent"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Laura Vogt",
+            "de": "Laura Vogt",
+            "en": "Laura Vogt"
+          },
+          "role": {
+            "ru": "Специалист по аренде",
+            "de": "Vermietungsspezialistin",
+            "en": "Rental Specialist"
+          },
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Busy"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Stefan Braun",
+            "de": "Stefan Braun",
+            "en": "Stefan Braun"
+          },
+          "role": {
+            "ru": "Старший агент",
+            "de": "Senior-Makler",
+            "en": "Senior Agent"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ]
+    }
+  },
+  "veterinary_clinic": {
+    "metrics": {
+      "ru": [
+        "Питомцев",
+        "Приёмов сегодня",
+        "Вакцинаций",
+        "Владельцев"
+      ],
+      "de": [
+        "Haustiere",
+        "Termine heute",
+        "Impfungen",
+        "Besitzer"
+      ],
+      "en": [
+        "Pets",
+        "Appointments Today",
+        "Vaccinations",
+        "Owners"
+      ]
+    },
+    "metric_values": [
+      "128",
+      "14",
+      "6",
+      "96"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Luna",
+          "de": "Luna",
+          "en": "Luna"
+        },
+        "service": {
+          "ru": "Осмотр",
+          "de": "Untersuchung",
+          "en": "Checkup"
+        },
+        "time": "09:00"
+      },
+      {
+        "name": {
+          "ru": "Max",
+          "de": "Max",
+          "en": "Max"
+        },
+        "service": {
+          "ru": "Вакцинация",
+          "de": "Impfung",
+          "en": "Vaccination"
+        },
+        "time": "11:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Осмотр",
+        "Вакцинация",
+        "Стрижка когтей",
+        "Чистка зубов"
+      ],
+      "de": [
+        "Untersuchung",
+        "Impfung",
+        "Krallen schneiden",
+        "Zahnreinigung"
+      ],
+      "en": [
+        "Checkup",
+        "Vaccination",
+        "Nail Trim",
+        "Dental Cleaning"
+      ]
+    },
+    "records": {
+      "pets": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Luna",
+            "de": "Luna",
+            "en": "Luna"
+          },
+          "phone": "+49 157 334 7720",
+          "note": {
+            "ru": "Собака",
+            "de": "Hund",
+            "en": "Dog"
+          },
+          "visits": 3
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Max",
+            "de": "Max",
+            "en": "Max"
+          },
+          "phone": "+49 157 334 7721",
+          "note": {
+            "ru": "Кот",
+            "de": "Katze",
+            "en": "Cat"
+          },
+          "visits": 1
+        }
+      ],
+      "owners": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Julia Hartmann",
+            "de": "Julia Hartmann",
+            "en": "Julia Hartmann"
+          },
+          "phone": "+49 157 334 7720",
+          "note": {
+            "ru": "2 питомца",
+            "de": "2 Haustiere",
+            "en": "2 pets"
+          },
+          "visits": 2
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Anna Petrova",
+            "de": "Anna Petrova",
+            "en": "Anna Petrova"
+          },
+          "service": {
+            "ru": "Чистка зубов",
+            "de": "Zahnreinigung",
+            "en": "Dental Cleaning"
+          },
+          "time": "2026-06-18 09:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "treatments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Luna",
+            "de": "Luna",
+            "en": "Luna"
+          },
+          "service": {
+            "ru": "Осмотр",
+            "de": "Untersuchung",
+            "en": "Checkup"
+          },
+          "time": "2026-06-18",
+          "status": {
+            "ru": "Завершён",
+            "de": "Abgeschlossen",
+            "en": "Completed"
+          }
+        }
+      ],
+      "vaccinations": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Max",
+            "de": "Max",
+            "en": "Max"
+          },
+          "service": {
+            "ru": "Бешенство",
+            "de": "Tollwut",
+            "en": "Rabies"
+          },
+          "time": "2026-09-01",
+          "status": {
+            "ru": "Запланировано",
+            "de": "Geplant",
+            "en": "Scheduled"
+          }
+        }
+      ]
+    }
+  },
+  "school_management": {
+    "metrics": {
+      "ru": [
+        "Учеников",
+        "Классов",
+        "Учителей",
+        "Оценок сегодня"
+      ],
+      "de": [
+        "Schüler",
+        "Klassen",
+        "Lehrer",
+        "Noten heute"
+      ],
+      "en": [
+        "Students",
+        "Classes",
+        "Teachers",
+        "Grades Today"
+      ]
+    },
+    "metric_values": [
+      "420",
+      "18",
+      "32",
+      "56"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Lucas Fischer",
+          "de": "Lucas Fischer",
+          "en": "Lucas Fischer"
+        },
+        "service": {
+          "ru": "Математика 8B",
+          "de": "Mathematik 8B",
+          "en": "Math 8B"
+        },
+        "time": "08:30"
+      },
+      {
+        "name": {
+          "ru": "Maria Lehmann",
+          "de": "Maria Lehmann",
+          "en": "Maria Lehmann"
+        },
+        "service": {
+          "ru": "Английский 7A",
+          "de": "Englisch 7A",
+          "en": "English 7A"
+        },
+        "time": "10:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Математика",
+        "Английский",
+        "Физика",
+        "История"
+      ],
+      "de": [
+        "Mathematik",
+        "Englisch",
+        "Physik",
+        "Geschichte"
+      ],
+      "en": [
+        "Mathematics",
+        "English",
+        "Physics",
+        "History"
+      ]
+    },
+    "records": {
+      "students": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Lucas Fischer",
+            "de": "Lucas Fischer",
+            "en": "Lucas Fischer"
+          },
+          "phone": "+49 160 111 0001",
+          "note": {
+            "ru": "Класс 8B",
+            "de": "Klasse 8B",
+            "en": "Grade 8B"
+          },
+          "visits": 1
+        }
+      ],
+      "teachers": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Dr. Helena Brandt",
+            "de": "Dr. Helena Brandt",
+            "en": "Dr. Helena Brandt"
+          },
+          "phone": "+49 160 111 0002",
+          "note": {
+            "ru": "Математика",
+            "de": "Mathematik",
+            "en": "Mathematics"
+          },
+          "visits": 5
+        }
+      ],
+      "classes": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "8B Mathematics",
+            "de": "8B Mathematik",
+            "en": "8B Mathematics"
+          },
+          "phone": "A204",
+          "note": {
+            "ru": "32 ученика",
+            "de": "32 Schüler",
+            "en": "32 students"
+          },
+          "visits": 32
+        }
+      ],
+      "attendance": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Lucas Fischer",
+            "de": "Lucas Fischer",
+            "en": "Lucas Fischer"
+          },
+          "service": {
+            "ru": "Присутствует",
+            "de": "Anwesend",
+            "en": "Present"
+          },
+          "time": "2026-06-18",
+          "status": {
+            "ru": "OK",
+            "de": "OK",
+            "en": "OK"
+          }
+        }
+      ],
+      "grades": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Lucas Fischer",
+            "de": "Lucas Fischer",
+            "en": "Lucas Fischer"
+          },
+          "service": {
+            "ru": "A-",
+            "de": "A-",
+            "en": "A-"
+          },
+          "time": "Q2",
+          "status": {
+            "ru": "Выставлена",
+            "de": "Vergeben",
+            "en": "Issued"
+          }
+        }
+      ]
+    }
+  },
+  "course_platform": {
+    "metrics": {
+      "ru": [
+        "Курсов",
+        "Студентов",
+        "Уроков",
+        "Сертификатов"
+      ],
+      "de": [
+        "Kurse",
+        "Studierende",
+        "Lektionen",
+        "Zertifikate"
+      ],
+      "en": [
+        "Courses",
+        "Students",
+        "Lessons",
+        "Certificates"
+      ]
+    },
+    "metric_values": [
+      "24",
+      "840",
+      "156",
+      "42"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "React Fundamentals",
+          "de": "React Grundlagen",
+          "en": "React Fundamentals"
+        },
+        "service": {
+          "ru": "12 уроков",
+          "de": "12 Lektionen",
+          "en": "12 lessons"
+        },
+        "time": "Live"
+      },
+      {
+        "name": {
+          "ru": "Python Basics",
+          "de": "Python Grundlagen",
+          "en": "Python Basics"
+        },
+        "service": {
+          "ru": "10 уроков",
+          "de": "10 Lektionen",
+          "en": "10 lessons"
+        },
+        "time": "On-demand"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "React",
+        "Python",
+        "UI/UX",
+        "Marketing"
+      ],
+      "de": [
+        "React",
+        "Python",
+        "UI/UX",
+        "Marketing"
+      ],
+      "en": [
+        "React",
+        "Python",
+        "UI/UX",
+        "Marketing"
+      ]
+    },
+    "records": {
+      "courses": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "React Fundamentals",
+            "de": "React Grundlagen",
+            "en": "React Fundamentals"
+          },
+          "phone": "84",
+          "note": {
+            "ru": "12 уроков",
+            "de": "12 Lektionen",
+            "en": "12 lessons"
+          },
+          "visits": 84
+        }
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Components 101",
+            "de": "Komponenten 101",
+            "en": "Components 101"
+          },
+          "phone": "18 min",
+          "note": {
+            "ru": "React",
+            "de": "React",
+            "en": "React"
+          },
+          "visits": 1
+        }
+      ],
+      "students": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Maria Lehmann",
+            "de": "Maria Lehmann",
+            "en": "Maria Lehmann"
+          },
+          "phone": "+49 160 222 0001",
+          "note": {
+            "ru": "62% прогресс",
+            "de": "62% Fortschritt",
+            "en": "62% progress"
+          },
+          "visits": 1
+        }
+      ],
+      "progress": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Maria Lehmann",
+            "de": "Maria Lehmann",
+            "en": "Maria Lehmann"
+          },
+          "service": {
+            "ru": "React Fundamentals",
+            "de": "React Grundlagen",
+            "en": "React Fundamentals"
+          },
+          "time": "62%",
+          "status": {
+            "ru": "В процессе",
+            "de": "In Bearbeitung",
+            "en": "In progress"
+          }
+        }
+      ],
+      "certificates": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Maria Lehmann",
+            "de": "Maria Lehmann",
+            "en": "Maria Lehmann"
+          },
+          "service": {
+            "ru": "React Fundamentals",
+            "de": "React Grundlagen",
+            "en": "React Fundamentals"
+          },
+          "time": "2026-05-30",
+          "status": {
+            "ru": "Выдан",
+            "de": "Ausgestellt",
+            "en": "Issued"
+          }
+        }
+      ]
+    }
+  },
+  "inventory_system": {
+    "metrics": {
+      "ru": [
+        "Товаров",
+        "Складов",
+        "Поставщиков",
+        "Заказов"
+      ],
+      "de": [
+        "Produkte",
+        "Lager",
+        "Lieferanten",
+        "Bestellungen"
+      ],
+      "en": [
+        "Products",
+        "Warehouses",
+        "Suppliers",
+        "Orders"
+      ]
+    },
+    "metric_values": [
+      "1240",
+      "4",
+      "18",
+      "23"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Wireless Mouse",
+          "de": "Kabellose Maus",
+          "en": "Wireless Mouse"
+        },
+        "service": {
+          "ru": "SKU-1001",
+          "de": "SKU-1001",
+          "en": "SKU-1001"
+        },
+        "time": "240 шт"
+      },
+      {
+        "name": {
+          "ru": "USB-C Hub",
+          "de": "USB-C Hub",
+          "en": "USB-C Hub"
+        },
+        "service": {
+          "ru": "SKU-2044",
+          "de": "SKU-2044",
+          "en": "SKU-2044"
+        },
+        "time": "88 шт"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Электроника",
+        "Аксессуары",
+        "Кабели",
+        "Комплектующие"
+      ],
+      "de": [
+        "Elektronik",
+        "Zubehör",
+        "Kabel",
+        "Komponenten"
+      ],
+      "en": [
+        "Electronics",
+        "Accessories",
+        "Cables",
+        "Components"
+      ]
+    },
+    "records": {
+      "products": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Wireless Mouse",
+            "de": "Kabellose Maus",
+            "en": "Wireless Mouse"
+          },
+          "phone": "SKU-1001",
+          "note": {
+            "ru": "240 шт",
+            "de": "240 Stk",
+            "en": "240 pcs"
+          },
+          "visits": 240
+        }
+      ],
+      "warehouses": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Berlin Central",
+            "de": "Berlin Zentral",
+            "en": "Berlin Central"
+          },
+          "phone": "1200 m²",
+          "note": {
+            "ru": "Активен",
+            "de": "Aktiv",
+            "en": "Active"
+          },
+          "visits": 1
+        }
+      ],
+      "suppliers": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "TechSupply GmbH",
+            "de": "TechSupply GmbH",
+            "en": "TechSupply GmbH"
+          },
+          "phone": "+49 30 445 8800",
+          "note": {
+            "ru": "Активен",
+            "de": "Aktiv",
+            "en": "Active"
+          },
+          "visits": 3
+        }
+      ],
+      "stock": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Wireless Mouse",
+            "de": "Kabellose Maus",
+            "en": "Wireless Mouse"
+          },
+          "service": {
+            "ru": "Berlin Central",
+            "de": "Berlin Zentral",
+            "en": "Berlin Central"
+          },
+          "time": "240",
+          "status": {
+            "ru": "OK",
+            "de": "OK",
+            "en": "OK"
+          }
+        }
+      ],
+      "orders": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "TechSupply GmbH",
+            "de": "TechSupply GmbH",
+            "en": "TechSupply GmbH"
+          },
+          "service": {
+            "ru": "€4,200",
+            "de": "€4.200",
+            "en": "€4,200"
+          },
+          "time": "3 items",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        }
+      ]
+    }
+  },
+  "law_firm": {
+    "metrics": {
+      "ru": [
+        "Активных клиентов",
+        "Встреч сегодня",
+        "Открытых дел",
+        "Счетов к оплате"
+      ],
+      "de": [
+        "Aktive Mandanten",
+        "Termine heute",
+        "Offene Mandate",
+        "Offene Rechnungen"
+      ],
+      "en": [
+        "Active clients",
+        "Meetings today",
+        "Open matters",
+        "Unpaid invoices"
+      ]
+    },
+    "metric_values": [
+      "28",
+      "6",
+      "14",
+      "9"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Ханс Мюллер",
+          "de": "Hans Müller",
+          "en": "Hans Mueller"
+        },
+        "service": {
+          "ru": "Консультация по договору",
+          "de": "Vertragsberatung",
+          "en": "Contract consultation"
+        },
+        "time": "09:30"
+      },
+      {
+        "name": {
+          "ru": "Анна Беккер",
+          "de": "Anna Becker",
+          "en": "Anna Becker"
+        },
+        "service": {
+          "ru": "Трудовое право",
+          "de": "Arbeitsrecht",
+          "en": "Employment law"
+        },
+        "time": "11:00"
+      },
+      {
+        "name": {
+          "ru": "Томас Фишер",
+          "de": "Thomas Fischer",
+          "en": "Thomas Fisher"
+        },
+        "service": {
+          "ru": "Корпоративное право",
+          "de": "Gesellschaftsrecht",
+          "en": "Corporate law"
+        },
+        "time": "14:00"
+      },
+      {
+        "name": {
+          "ru": "Лиза Вагнер",
+          "de": "Lisa Wagner",
+          "en": "Lisa Wagner"
+        },
+        "service": {
+          "ru": "Семейное право",
+          "de": "Familienrecht",
+          "en": "Family law"
+        },
+        "time": "16:00"
+      }
+    ],
+    "services": {
+      "ru": [
+        "Консультация",
+        "Договорное право",
+        "Трудовое право",
+        "Корпоративное право"
+      ],
+      "de": [
+        "Beratung",
+        "Vertragsrecht",
+        "Arbeitsrecht",
+        "Gesellschaftsrecht"
+      ],
+      "en": [
+        "Consultation",
+        "Contract law",
+        "Employment law",
+        "Corporate law"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Ханс Мюллер",
+            "de": "Hans Müller",
+            "en": "Hans Mueller"
+          },
+          "phone": "+49 170 111 0001",
+          "note": {
+            "ru": "Корп. клиент",
+            "de": "Firmenmandant",
+            "en": "Corporate client"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Анна Беккер",
+            "de": "Anna Becker",
+            "en": "Anna Becker"
+          },
+          "phone": "+49 170 111 0002",
+          "note": {
+            "ru": "Трудовой спор",
+            "de": "Arbeitsstreit",
+            "en": "Employment case"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Томас Фишер",
+            "de": "Thomas Fischer",
+            "en": "Thomas Fisher"
+          },
+          "phone": "+49 170 111 0003",
+          "note": {
+            "ru": "Учреждение GmbH",
+            "de": "GmbH-Gründung",
+            "en": "GmbH formation"
+          }
+        }
+      ]
+    }
+  },
+  "accounting": {
+    "metrics": {
+      "ru": [
+        "Активных клиентов",
+        "Встреч сегодня",
+        "Счетов выставлено",
+        "Дедлайнов"
+      ],
+      "de": [
+        "Aktive Mandanten",
+        "Termine heute",
+        "Rechnungen gestellt",
+        "Fristen"
+      ],
+      "en": [
+        "Active clients",
+        "Meetings today",
+        "Invoices issued",
+        "Deadlines"
+      ]
+    },
+    "metric_values": [
+      "36",
+      "5",
+      "18",
+      "7"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "ООО Норд",
+          "de": "Nord GmbH",
+          "en": "Nord Ltd"
+        },
+        "service": {
+          "ru": "Квартальный отчёт",
+          "de": "Quartalsabschluss",
+          "en": "Quarterly closing"
+        },
+        "time": "10:00"
+      },
+      {
+        "name": {
+          "ru": "Мария Шульц",
+          "de": "Maria Schulz",
+          "en": "Maria Schulz"
+        },
+        "service": {
+          "ru": "Налоговая декларация",
+          "de": "Steuererklärung",
+          "en": "Tax return"
+        },
+        "time": "12:30"
+      },
+      {
+        "name": {
+          "ru": "Петер Кляйн",
+          "de": "Peter Klein",
+          "en": "Peter Klein"
+        },
+        "service": {
+          "ru": "Бухгалтерский учёт",
+          "de": "Buchführung",
+          "en": "Bookkeeping"
+        },
+        "time": "15:00"
+      }
+    ],
+    "services": {
+      "ru": [
+        "Бухучёт",
+        "Налоговая декларация",
+        "Зарплата",
+        "Консультация"
+      ],
+      "de": [
+        "Buchführung",
+        "Steuererklärung",
+        "Lohnbuchhaltung",
+        "Beratung"
+      ],
+      "en": [
+        "Bookkeeping",
+        "Tax return",
+        "Payroll",
+        "Advisory"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Nord GmbH",
+            "de": "Nord GmbH",
+            "en": "Nord Ltd"
+          },
+          "phone": "+49 170 222 0001",
+          "note": {
+            "ru": "Ежемесячный учёт",
+            "de": "Monatsbuchhaltung",
+            "en": "Monthly books"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Мария Шульц",
+            "de": "Maria Schulz",
+            "en": "Maria Schulz"
+          },
+          "phone": "+49 170 222 0002",
+          "note": {
+            "ru": "ИП",
+            "de": "Einzelunternehmen",
+            "en": "Sole trader"
+          }
+        }
+      ]
+    }
+  },
+  "construction": {
+    "metrics": {
+      "ru": [
+        "Активных клиентов",
+        "Выездов сегодня",
+        "Проектов",
+        "Бригад"
+      ],
+      "de": [
+        "Aktive Kunden",
+        "Termine heute",
+        "Projekte",
+        "Teams"
+      ],
+      "en": [
+        "Active clients",
+        "Site visits today",
+        "Projects",
+        "Crews"
+      ]
+    },
+    "metric_values": [
+      "19",
+      "4",
+      "8",
+      "3"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Семья Хофманн",
+          "de": "Familie Hofmann",
+          "en": "Hofmann family"
+        },
+        "service": {
+          "ru": "Ремонт кухни",
+          "de": "Küchenrenovierung",
+          "en": "Kitchen renovation"
+        },
+        "time": "08:00"
+      },
+      {
+        "name": {
+          "ru": "Баухаус АГ",
+          "de": "Bauhaus AG",
+          "en": "Bauhaus AG"
+        },
+        "service": {
+          "ru": "Отделка офиса",
+          "de": "Büroausbau",
+          "en": "Office fit-out"
+        },
+        "time": "11:30"
+      },
+      {
+        "name": {
+          "ru": "Ян Рихтер",
+          "de": "Jan Richter",
+          "en": "Jan Richter"
+        },
+        "service": {
+          "ru": "Кровля",
+          "de": "Dacharbeiten",
+          "en": "Roofing"
+        },
+        "time": "14:30"
+      }
+    ],
+    "services": {
+      "ru": [
+        "Ремонт",
+        "Отделка",
+        "Кровля",
+        "Сантехника"
+      ],
+      "de": [
+        "Renovierung",
+        "Ausbau",
+        "Dach",
+        "Sanitär"
+      ],
+      "en": [
+        "Renovation",
+        "Fit-out",
+        "Roofing",
+        "Plumbing"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Семья Хофманн",
+            "de": "Familie Hofmann",
+            "en": "Hofmann family"
+          },
+          "phone": "+49 170 333 0001",
+          "note": {
+            "ru": "Кухня",
+            "de": "Küche",
+            "en": "Kitchen"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Баухаус АГ",
+            "de": "Bauhaus AG",
+            "en": "Bauhaus AG"
+          },
+          "phone": "+49 170 333 0002",
+          "note": {
+            "ru": "Офис 240 м²",
+            "de": "Büro 240 m²",
+            "en": "Office 240 m²"
+          }
+        }
+      ]
+    }
+  },
+  "cleaning_service": {
+    "metrics": {
+      "ru": [
+        "Активных клиентов",
+        "Уборок сегодня",
+        "Объектов",
+        "Сотрудников"
+      ],
+      "de": [
+        "Aktive Kunden",
+        "Einsätze heute",
+        "Objekte",
+        "Mitarbeiter"
+      ],
+      "en": [
+        "Active clients",
+        "Jobs today",
+        "Locations",
+        "Staff"
+      ]
+    },
+    "metric_values": [
+      "52",
+      "11",
+      "34",
+      "8"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Офис Альфа",
+          "de": "Büro Alpha",
+          "en": "Alpha Office"
+        },
+        "service": {
+          "ru": "Ежедневная уборка",
+          "de": "Unterhaltsreinigung",
+          "en": "Daily cleaning"
+        },
+        "time": "07:00"
+      },
+      {
+        "name": {
+          "ru": "Семья Браун",
+          "de": "Familie Braun",
+          "en": "Braun family"
+        },
+        "service": {
+          "ru": "Генеральная уборка",
+          "de": "Grundreinigung",
+          "en": "Deep cleaning"
+        },
+        "time": "10:00"
+      },
+      {
+        "name": {
+          "ru": "Кафе Юг",
+          "de": "Café Süd",
+          "en": "South Café"
+        },
+        "service": {
+          "ru": "Уборка после закрытия",
+          "de": "Abschlussreinigung",
+          "en": "Closing clean"
+        },
+        "time": "21:00"
+      }
+    ],
+    "services": {
+      "ru": [
+        "Ежедневная уборка",
+        "Генеральная",
+        "Окна",
+        "После ремонта"
+      ],
+      "de": [
+        "Unterhalt",
+        "Grundreinigung",
+        "Fenster",
+        "Baureinigung"
+      ],
+      "en": [
+        "Daily cleaning",
+        "Deep clean",
+        "Windows",
+        "Post-renovation"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Офис Альфа",
+            "de": "Büro Alpha",
+            "en": "Alpha Office"
+          },
+          "phone": "+49 170 444 0001",
+          "note": {
+            "ru": "Пн–Пт",
+            "de": "Mo–Fr",
+            "en": "Mon–Fri"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Семья Браун",
+            "de": "Familie Braun",
+            "en": "Braun family"
+          },
+          "phone": "+49 170 444 0002",
+          "note": {
+            "ru": "Раз в месяц",
+            "de": "1× monatlich",
+            "en": "Monthly"
+          }
+        }
+      ]
+    }
+  },
+  "car_wash": {
+    "metrics": {
+      "ru": [
+        "Клиентов сегодня",
+        "Заказов на мойку",
+        "В очереди",
+        "Сотрудников"
+      ],
+      "de": [
+        "Kunden heute",
+        "Waschaufträge",
+        "In Warteschlange",
+        "Mitarbeiter"
+      ],
+      "en": [
+        "Customers today",
+        "Wash orders",
+        "In queue",
+        "Employees"
+      ]
+    },
+    "metric_values": [
+      "18",
+      "12",
+      "4",
+      "6"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Иван П.",
+          "de": "Ivan P.",
+          "en": "Ivan P."
+        },
+        "service": {
+          "ru": "Мойка кузова",
+          "de": "Außenwäsche",
+          "en": "Exterior wash"
+        },
+        "time": "10:00"
+      },
+      {
+        "name": {
+          "ru": "Анна К.",
+          "de": "Anna K.",
+          "en": "Anna K."
+        },
+        "service": {
+          "ru": "Комплекс",
+          "de": "Komplettwäsche",
+          "en": "Full wash"
+        },
+        "time": "11:30"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Мойка кузова",
+        "Салон",
+        "Комплекс"
+      ],
+      "de": [
+        "Außenwäsche",
+        "Innenreinigung",
+        "Komplettwäsche"
+      ],
+      "en": [
+        "Exterior wash",
+        "Interior cleaning",
+        "Full wash"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Иван Петров",
+            "de": "Ivan Petrov",
+            "en": "Ivan Petrov"
+          },
+          "phone": "+49 170 1112233",
+          "note": {
+            "ru": "SUV",
+            "de": "SUV",
+            "en": "SUV"
+          },
+          "visits": 3
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Иван Петров",
+            "de": "Ivan Petrov",
+            "en": "Ivan Petrov"
+          },
+          "service": {
+            "ru": "Мойка кузова",
+            "de": "Außenwäsche",
+            "en": "Exterior wash"
+          },
+          "time": "10:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Мойка кузова",
+            "de": "Außenwäsche",
+            "en": "Exterior wash"
+          },
+          "price": "€15",
+          "duration": {
+            "ru": "20 мин",
+            "de": "20 Min.",
+            "en": "20 min"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Салон",
+            "de": "Innenreinigung",
+            "en": "Interior cleaning"
+          },
+          "price": "€25",
+          "duration": {
+            "ru": "40 мин",
+            "de": "40 Min.",
+            "en": "40 min"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Комплекс",
+            "de": "Komplettwäsche",
+            "en": "Full wash"
+          },
+          "price": "€35",
+          "duration": {
+            "ru": "60 мин",
+            "de": "60 Min.",
+            "en": "60 min"
+          }
+        }
+      ],
+      "staff": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Сергей М.",
+            "de": "Sergej M.",
+            "en": "Sergej M."
+          },
+          "role": {
+            "ru": "Сотрудник",
+            "de": "Mitarbeiter",
+            "en": "Employee"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Иван Петров",
+            "de": "Ivan Petrov",
+            "en": "Ivan Petrov"
+          },
+          "amount": "€15",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        }
+      ]
+    }
+  },
+  "barbershop": {
+    "metrics": {
+      "ru": [
+        "Клиентов сегодня",
+        "Записей",
+        "Услуг",
+        "Барберов"
+      ],
+      "de": [
+        "Kunden heute",
+        "Termine",
+        "Leistungen",
+        "Barbiere"
+      ],
+      "en": [
+        "Clients today",
+        "Appointments",
+        "Services",
+        "Barbers"
+      ]
+    },
+    "metric_values": [
+      "14",
+      "9",
+      "6",
+      "3"
+    ],
+    "today_items": [
+      {
+        "name": {
+          "ru": "Максим Р.",
+          "de": "Maxim R.",
+          "en": "Maxim R."
+        },
+        "service": {
+          "ru": "Классическая стрижка",
+          "de": "Klassischer Haarschnitt",
+          "en": "Classic haircut"
+        },
+        "time": "12:00"
+      }
+    ],
+    "popular_services": {
+      "ru": [
+        "Классическая стрижка",
+        "Борода",
+        "Бритьё"
+      ],
+      "de": [
+        "Klassischer Haarschnitt",
+        "Bartpflege",
+        "Rasur mit Hot Towel"
+      ],
+      "en": [
+        "Classic haircut",
+        "Beard trim",
+        "Hot towel shave"
+      ]
+    },
+    "records": {
+      "clients": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Максим Романов",
+            "de": "Maxim Romanov",
+            "en": "Maxim Romanov"
+          },
+          "phone": "+49 170 2223344",
+          "note": {
+            "ru": "Постоянный",
+            "de": "Stammkunde",
+            "en": "Regular"
+          },
+          "visits": 5
+        }
+      ],
+      "appointments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Максим Романов",
+            "de": "Maxim Romanov",
+            "en": "Maxim Romanov"
+          },
+          "service": {
+            "ru": "Классическая стрижка",
+            "de": "Klassischer Haarschnitt",
+            "en": "Classic haircut"
+          },
+          "time": "12:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Классическая стрижка",
+            "de": "Klassischer Haarschnitt",
+            "en": "Classic haircut"
+          },
+          "price": "€28",
+          "duration": {
+            "ru": "30 мин",
+            "de": "30 Min.",
+            "en": "30 min"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Борода",
+            "de": "Bartpflege",
+            "en": "Beard trim"
+          },
+          "price": "€18",
+          "duration": {
+            "ru": "20 мин",
+            "de": "20 Min.",
+            "en": "20 min"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Бритьё",
+            "de": "Rasur mit Hot Towel",
+            "en": "Hot towel shave"
+          },
+          "price": "€25",
+          "duration": {
+            "ru": "25 мин",
+            "de": "25 Min.",
+            "en": "25 min"
+          }
+        }
+      ],
+      "staff": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Алекс Б.",
+            "de": "Alex B.",
+            "en": "Alex B."
+          },
+          "role": {
+            "ru": "Барбер",
+            "de": "Barbier",
+            "en": "Barber"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "payments": [
+        {
+          "id": "1",
+          "client": {
+            "ru": "Максим Романов",
+            "de": "Maxim Romanov",
+            "en": "Maxim Romanov"
+          },
+          "amount": "€28",
+          "status": {
+            "ru": "Оплачено",
+            "de": "Bezahlt",
+            "en": "Paid"
+          }
+        }
+      ]
+    }
+  }
+}

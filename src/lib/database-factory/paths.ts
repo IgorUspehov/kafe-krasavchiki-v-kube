@@ -1,0 +1,15 @@
+export const DATABASE_PATHS = {
+  root: "artifacts/factory_output/database",
+  manifest: "artifacts/factory_output/database/database_manifest.json",
+  report: "artifacts/factory_output/database/database_report.json",
+  relations: "artifacts/factory_output/database/database_relations.json",
+  migrationManifest: "artifacts/factory_output/database/migration_manifest.json",
+  config: "artifacts/factory_output/database/database_config.json",
+  env: "artifacts/factory_output/database/database_env.json",
+  ports: "artifacts/factory_output/database/database_ports.json",
+  seedData: "artifacts/factory_output/database/seed_data.json",
+  createTables: "artifacts/factory_output/database/create_tables.sql",
+  createIndexes: "artifacts/factory_output/database/create_indexes.sql",
+  constraints: "artifacts/factory_output/database/constraints.sql",
+  seedSql: "artifacts/factory_output/database/seed.sql",
+} as const;

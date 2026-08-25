@@ -1,0 +1,13 @@
+export type AiProviderMode = "fallback" | "deepseek";
+
+export function getAiProvider(): AiProviderMode {
+  const value = process.env.AI_PROVIDER?.trim().toLowerCase();
+  if (value === "deepseek") {
+    return "deepseek";
+  }
+  return "fallback";
+}
+
+export function isExternalLlmEnabled(): boolean {
+  return getAiProvider() === "deepseek";
+}

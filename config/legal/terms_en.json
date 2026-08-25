@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "language": "en",
+  "title": "Terms of Service",
+  "disclaimer": "This is not legal advice. These terms describe platform rules for MVP delivery.",
+  "rules": [
+    {
+      "id": 1,
+      "text": "The generated MVP is a prototype."
+    },
+    {
+      "id": 2,
+      "text": "Generated files are available for download for 48 hours."
+    },
+    {
+      "id": 3,
+      "text": "The customer is responsible for downloading and storing files."
+    },
+    {
+      "id": 4,
+      "text": "Temporary files may be deleted automatically."
+    },
+    {
+      "id": 5,
+      "text": "Order history metadata may be retained."
+    },
+    {
+      "id": 6,
+      "text": "The service does not guarantee commercial success."
+    },
+    {
+      "id": 7,
+      "text": "The customer accepts the selected plan and pricing."
+    }
+  ]
+}

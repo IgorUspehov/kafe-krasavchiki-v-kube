@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "language": "de",
+  "title": "Rückgaberecht",
+  "disclaimer": "Dies ist keine Rechtsberatung. Diese Richtlinie beschreibt die Erstattungsbedingungen für digitale MVP-Lieferungen.",
+  "sections": [
+    {
+      "id": "general",
+      "title": "Allgemeine Richtlinie",
+      "text": "Alle Produkte sind digitale Liefergegenstände, die individuell für jeden Kunden erstellt werden. Nach erfolgter Lieferung sind Erstattungen nicht möglich."
+    },
+    {
+      "id": "non-delivery",
+      "title": "Erstattung bei Nicht-Lieferung",
+      "text": "Wurde das Produkt nicht innerhalb von 24 Stunden nach Zahlungseingang geliefert, haben Sie Anspruch auf eine vollständige Erstattung. Kontaktieren Sie support@mvpfactory.de mit Ihren Bestelldaten."
+    },
+    {
+      "id": "processing",
+      "title": "Bearbeitung der Erstattung",
+      "text": "Genehmigte Erstattungen werden innerhalb von 5–10 Werktagen auf die ursprüngliche Zahlungsmethode zurückgebucht, abhängig von Ihrer Bank oder Ihrem Zahlungsanbieter."
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+import { apiFetch } from "@/lib/api-core";
+
+export interface ProjectTypeResult {
+  status: string;
+  project_type?: string;
+  confidence?: number;
+}
+
+export interface RankRepoResult {
+  status: string;
+  best_repo?: string;
+  score?: number;
+}
+
+export interface RankTemplateResult {
+  status: string;
+  best_template?: string;
+  score?: number;
+}
+
+export interface RankUiResult {
+  status: string;
+  best_ui?: string;
+  score?: number;
+}
+
+export interface ComplexityResult {
+  status: string;
+  complexity?: string;
+  score?: number;
+}
+
+export interface CostResult {
+  status: string;
+  hours?: number;
+  cost_eur?: number;
+}
+
+export interface PackagingResult {
+  status: string;
+  recommended?: string;
+}
+
+export interface FactoryAuditResult {
+  status: string;
+  ready_for_v3?: boolean;
+}
+
+export async function fetchProjectType(): Promise<ProjectTypeResult> {
+  return apiFetch<ProjectTypeResult>("/detect-project-type", { method: "POST", body: "{}" });
+}
+
+export async function fetchRankRepositories(): Promise<RankRepoResult> {
+  return apiFetch<RankRepoResult>("/rank-repositories", { method: "POST", body: "{}" });
+}
+
+export async function fetchRankTemplates(): Promise<RankTemplateResult> {
+  return apiFetch<RankTemplateResult>("/rank-templates", { method: "POST", body: "{}" });
+}
+
+export async function fetchRankUi(): Promise<RankUiResult> {
+  return apiFetch<RankUiResult>("/rank-ui", { method: "POST", body: "{}" });
+}
+
+export async function fetchComplexity(): Promise<ComplexityResult> {
+  return apiFetch<ComplexityResult>("/estimate-complexity", { method: "POST", body: "{}" });
+}
+
+export async function fetchCostEstimate(): Promise<CostResult> {
+  return apiFetch<CostResult>("/estimate-cost", { method: "POST", body: "{}" });
+}
+
+export async function fetchPackagingAdvice(): Promise<PackagingResult> {
+  return apiFetch<PackagingResult>("/advise-packaging", { method: "POST", body: "{}" });
+}
+
+export async function fetchFactoryAudit(): Promise<FactoryAuditResult> {
+  return apiFetch<FactoryAuditResult>("/factory-audit", { method: "POST", body: "{}" });
+}
+
+export async function fetchPipelineSnapshot() {
+  const [
+    projectType,
+    repository,
+    template,
+    ui,
+    complexity,
+    cost,
+    packaging,
+    audit,
+  ] = await Promise.allSettled([
+    fetchProjectType(),
+    fetchRankRepositories(),
+    fetchRankTemplates(),
+    fetchRankUi(),
+    fetchComplexity(),
+    fetchCostEstimate(),
+    fetchPackagingAdvice(),
+    fetchFactoryAudit(),
+  ]);
+
+  const val = <T,>(r: PromiseSettledResult<T>): T | null =>
+    r.status === "fulfilled" ? r.value : null;
+
+  return {
+    projectType: val(projectType),
+    repository: val(repository),
+    template: val(template),
+    ui: val(ui),
+    complexity: val(complexity),
+    cost: val(cost),
+    packaging: val(packaging),
+    audit: val(audit),
+  };
+}

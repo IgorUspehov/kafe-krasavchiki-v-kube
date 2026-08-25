@@ -1,0 +1,378 @@
+{
+  "whatsapp": "+4915258400610",
+  "socialLinks": {
+    "other": "",
+    "website": "",
+    "tiktok": "",
+    "facebook": "",
+    "instagram": "",
+    "linkedin": ""
+  },
+  "city": "München",
+  "postalCode": "80939",
+  "businessName": "КАФЕ КРАСАВЧИКИ В КУБЕ",
+  "primaryColor": "#cb6a15",
+  "description": "",
+  "language": "ru",
+  "features": [],
+  "pages": [
+    "dashboard",
+    "reservations",
+    "tables",
+    "menu",
+    "staff",
+    "settings"
+  ],
+  "ownerName": "ИГОРЬ КРЯЖЕВ",
+  "scenario": {
+    "today_items": [
+      {
+        "name": {
+          "ru": "Стол 5 — Семья Вебер",
+          "de": "Tisch 5 — Familie Weber",
+          "en": "Table 5 — Weber Family"
+        },
+        "service": {
+          "ru": "Бронирование 19:00",
+          "de": "Reservierung 19:00",
+          "en": "Reservation 19:00"
+        },
+        "time": "19:00"
+      },
+      {
+        "name": {
+          "ru": "Стол 3 — Г-н Мюллер",
+          "de": "Tisch 3 — Herr Müller",
+          "en": "Table 3 — Mr Miller"
+        },
+        "service": {
+          "ru": "Бронирование 20:00",
+          "de": "Reservierung 20:00",
+          "en": "Reservation 20:00"
+        },
+        "time": "20:00"
+      },
+      {
+        "name": {
+          "ru": "VIP — Фирма Шмидт",
+          "de": "VIP — Firma Schmidt",
+          "en": "VIP — Schmidt Corp"
+        },
+        "service": {
+          "ru": "Деловой ужин",
+          "de": "Geschäftsessen",
+          "en": "Business Dinner"
+        },
+        "time": "20:30"
+      },
+      {
+        "name": {
+          "ru": "Терраса — Группа",
+          "de": "Terrasse — Gruppe",
+          "en": "Terrace — Group"
+        },
+        "service": {
+          "ru": "День рождения",
+          "de": "Geburtstag",
+          "en": "Birthday Party"
+        },
+        "time": "21:00"
+      }
+    ],
+    "metric_values": [
+      "84",
+      "23",
+      "€45",
+      "6"
+    ],
+    "popular_services": {
+      "de": [
+        "Gegrillter Lachs",
+        "Ribeye Steak",
+        "Pasta Carbonara",
+        "Tiramisu"
+      ],
+      "ru": [
+        "Жареный лосось",
+        "Стейк рибай",
+        "Паста карбонара",
+        "Тирамису"
+      ],
+      "en": [
+        "Grilled Salmon",
+        "Ribeye Steak",
+        "Pasta Carbonara",
+        "Tiramisu"
+      ]
+    },
+    "records": {
+      "tables": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Стол 1",
+            "de": "Tisch 1",
+            "en": "Table 1"
+          },
+          "seats": 2,
+          "status": {
+            "ru": "Свободен",
+            "de": "Frei",
+            "en": "Free"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Стол 5",
+            "de": "Tisch 5",
+            "en": "Table 5"
+          },
+          "seats": 4,
+          "status": {
+            "ru": "Забронирован",
+            "de": "Reserviert",
+            "en": "Reserved"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Стол 8",
+            "de": "Tisch 8",
+            "en": "Table 8"
+          },
+          "seats": 6,
+          "status": {
+            "ru": "Занят",
+            "de": "Besetzt",
+            "en": "Occupied"
+          }
+        }
+      ],
+      "reservations": [
+        {
+          "id": "1",
+          "guest": {
+            "ru": "Семья Вебер",
+            "de": "Familie Weber",
+            "en": "Weber Family"
+          },
+          "table": {
+            "ru": "Стол 5",
+            "de": "Tisch 5",
+            "en": "Table 5"
+          },
+          "time": "19:00",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        },
+        {
+          "id": "2",
+          "guest": {
+            "ru": "Г-н Мюллер",
+            "de": "Herr Müller",
+            "en": "Mr Miller"
+          },
+          "table": {
+            "ru": "Стол 3",
+            "de": "Tisch 3",
+            "en": "Table 3"
+          },
+          "time": "20:00",
+          "status": {
+            "ru": "Ожидает",
+            "de": "Ausstehend",
+            "en": "Pending"
+          }
+        },
+        {
+          "id": "3",
+          "guest": {
+            "ru": "Анна Шмидт",
+            "de": "Anna Schmidt",
+            "en": "Anna Schmidt"
+          },
+          "table": {
+            "ru": "Стол 8",
+            "de": "Tisch 8",
+            "en": "Table 8"
+          },
+          "time": "18:30",
+          "status": {
+            "ru": "Подтверждён",
+            "de": "Bestätigt",
+            "en": "Confirmed"
+          }
+        }
+      ],
+      "staff": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Марко Росси",
+            "de": "Marco Rossi",
+            "en": "Marco Rossi"
+          },
+          "role": {
+            "ru": "Шеф-повар",
+            "de": "Küchenchef",
+            "en": "Chef"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Лиза Браун",
+            "de": "Lisa Braun",
+            "en": "Lisa Braun"
+          },
+          "role": {
+            "ru": "Официант",
+            "de": "Kellnerin",
+            "en": "Waiter"
+          },
+          "status": {
+            "ru": "На смене",
+            "de": "Im Dienst",
+            "en": "On shift"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Том Келлер",
+            "de": "Tom Keller",
+            "en": "Tom Keller"
+          },
+          "role": {
+            "ru": "Хостес",
+            "de": "Gastgeber",
+            "en": "Host"
+          },
+          "status": {
+            "ru": "Доступен",
+            "de": "Verfügbar",
+            "en": "Available"
+          }
+        }
+      ],
+      "menu": [
+        {
+          "id": "1",
+          "name": {
+            "ru": "Бизнес-ланч",
+            "de": "Business Lunch",
+            "en": "Business Lunch"
+          },
+          "price": "€9.90",
+          "category": {
+            "ru": "Обед",
+            "de": "Mittagessen",
+            "en": "Lunch"
+          }
+        },
+        {
+          "id": "2",
+          "name": {
+            "ru": "Паста карбонара",
+            "de": "Pasta Carbonara",
+            "en": "Pasta Carbonara"
+          },
+          "price": "€14.50",
+          "category": {
+            "ru": "Основное",
+            "de": "Hauptgericht",
+            "en": "Main"
+          }
+        },
+        {
+          "id": "3",
+          "name": {
+            "ru": "Тирамису",
+            "de": "Tiramisu",
+            "en": "Tiramisu"
+          },
+          "price": "€6.50",
+          "category": {
+            "ru": "Десерт",
+            "de": "Dessert",
+            "en": "Dessert"
+          }
+        }
+      ]
+    },
+    "metrics": {
+      "de": [
+        "Gäste heute",
+        "Reservierungen",
+        "Durchschnittsscheck",
+        "Freie Tische"
+      ],
+      "ru": [
+        "Гостей сегодня",
+        "Бронирований",
+        "Средний чек",
+        "Свободных столов"
+      ],
+      "en": [
+        "Guests Today",
+        "Reservations",
+        "Average Check",
+        "Free Tables"
+      ]
+    }
+  },
+  "logo": "assets/logo.png",
+  "theme": {
+    "border": "#e0dad7",
+    "secondary": "#d29474",
+    "hero_bg": "linear-gradient(135deg, #6c2e0f 0%, #bc811a 100%)",
+    "text": "#2a221d",
+    "accent": "#cb6a15",
+    "primary": "#a24516"
+  },
+  "workingHours": {
+    "sunday": "closed",
+    "saturday": "10:00-15:00",
+    "tuesday": "09:00-18:00",
+    "friday": "09:00-18:00",
+    "thursday": "09:00-18:00",
+    "wednesday": "09:00-18:00",
+    "monday": "09:00-18:00"
+  },
+  "email": "uspeh.polimer2022+045@gmail.com",
+  "sectorId": "cafe",
+  "address": "lotte-branze, 2",
+  "demoData": {},
+  "galleryPhotos": [
+    "/image-library/restaurant/gallery-1.jpg",
+    "/image-library/restaurant/gallery-2.jpg",
+    "/image-library/restaurant/gallery-3.jpg"
+  ],
+  "heroPhoto": "/image-library/restaurant/hero.jpg",
+  "phone": "+4915258400610",
+  "sector_id": "cafe",
+  "subtitle": "",
+  "niche": "restaurant",
+  "businessType": "restaurant",
+  "promotion": {
+    "de": "Gratis Getränk ab Bestellung €30",
+    "ru": "Бесплатный напиток при заказе от €30",
+    "en": "Free drink with order from €30"
+  },
+  "clientId": "fccae333-fda6-498b-b864-69757feb7da5",
+  "client_id": "",
+  "paid": true,
+  "deployablePaid": true,
+  "publicSiteUrl": "https://webstudio-muenchen.com/site/fccae333-fda6-498b-b864-69757feb7da5",
+  "siteUrl": "https://webstudio-muenchen.com/site/fccae333-fda6-498b-b864-69757feb7da5"
+}

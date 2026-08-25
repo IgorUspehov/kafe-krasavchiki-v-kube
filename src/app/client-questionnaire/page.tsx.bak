@@ -1,0 +1,5 @@
+import { ClientQuestionnairePage } from "@/views/client-questionnaire-page";
+
+export default function Page() {
+  return <ClientQuestionnairePage />;
+}

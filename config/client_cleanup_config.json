@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "retention_hours": 48,
+  "delete_zip": true,
+  "delete_demo_video": true,
+  "delete_screenshots": true,
+  "delete_apk": true
+}

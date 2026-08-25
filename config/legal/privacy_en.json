@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "language": "en",
+  "title": "Privacy Policy",
+  "disclaimer": "This is not legal advice. This policy describes how platform metadata is handled.",
+  "sections": [
+    {
+      "id": "collection",
+      "title": "Data Collected",
+      "text": "We store business questionnaire data, order metadata, and notification logs."
+    },
+    {
+      "id": "retention",
+      "title": "Retention",
+      "text": "Deliverable files are temporary. Order metadata may be retained according to platform policy."
+    },
+    {
+      "id": "responsibility",
+      "title": "Customer Responsibility",
+      "text": "Customers must download and store deliverables before automatic cleanup."
+    }
+  ]
+}

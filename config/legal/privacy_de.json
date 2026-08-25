@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "language": "de",
+  "title": "Datenschutzrichtlinie",
+  "disclaimer": "Dies ist keine Rechtsberatung. Diese Richtlinie beschreibt den Umgang mit Plattform-Metadaten.",
+  "sections": [
+    {
+      "id": "collection",
+      "title": "Erfasste Daten",
+      "text": "Wir speichern Fragebogendaten, Bestellmetadaten und Benachrichtigungsprotokolle."
+    },
+    {
+      "id": "retention",
+      "title": "Aufbewahrung",
+      "text": "Lieferdateien sind temporär. Bestellmetadaten können gemäß Plattformrichtlinie aufbewahrt werden."
+    },
+    {
+      "id": "responsibility",
+      "title": "Kundenverantwortung",
+      "text": "Kunden müssen Lieferungen vor der automatischen Bereinigung herunterladen und speichern."
+    }
+  ]
+}

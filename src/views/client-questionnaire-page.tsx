@@ -1,0 +1,765 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+import { ClientFunnelShell } from "@/components/client-funnel-shell";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { isLocale, type Locale } from "@/lib/i18n/config";
+import { useTranslation } from "@/lib/i18n/context";
+import {
+  type V2StatusPayload,
+} from "@/lib/client-delivery-v2/v2-delivery-ui-mapper";
+import {
+  DEFAULT_QUESTIONNAIRE_PATH,
+  formatQuestionnaireMessage,
+  getQuestionnaireCopy,
+  localizeBusinessType,
+  localizeStepStatus,
+  type DeliveryStepStatusKey,
+} from "@/lib/i18n/questionnaire-copy";
+import { getPreviewCopy } from "@/lib/i18n/preview-copy";
+
+const BUSINESS_TYPES = [
+  "health_clinic",
+  "dental_clinic",
+  "beauty_salon",
+  "barbershop",
+  "car_service",
+  "fitness_club",
+  "restaurant",
+  "real_estate",
+  "education",
+  "ecommerce",
+  "cleaning_service",
+] as const;
+
+const LANGUAGE_OPTIONS = ["ru", "de", "en"] as const;
+const DELIVERY_METHODS = ["zip", "netlify", "github"] as const;
+
+type WorkingHours = {
+  monday: string;
+  tuesday: string;
+  wednesday: string;
+  thursday: string;
+  friday: string;
+  saturday: string;
+  sunday: string;
+};
+
+type QuestionnaireForm = {
+  business_name: string;
+  business_type: (typeof BUSINESS_TYPES)[number];
+  email: string;
+  phone: string;
+  telegram: string;
+  whatsapp: string;
+  language: (typeof LANGUAGE_OPTIONS)[number];
+  delivery_method: (typeof DELIVERY_METHODS)[number];
+};
+
+const DEFAULT_WORKING_HOURS: WorkingHours = {
+  monday: "09:00-18:00",
+  tuesday: "09:00-18:00",
+  wednesday: "09:00-18:00",
+  thursday: "09:00-18:00",
+  friday: "09:00-18:00",
+  saturday: "10:00-15:00",
+  sunday: "closed",
+};
+
+const DEFAULT_FORM: QuestionnaireForm = {
+  business_name: "",
+  business_type: "health_clinic",
+  email: "",
+  phone: "",
+  telegram: "",
+  whatsapp: "",
+  language: "ru",
+  delivery_method: "zip",
+};
+
+const selectClassName =
+  "h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:bg-input/30";
+
+type DeliveryStepStatus = DeliveryStepStatusKey;
+
+type DeliveryStep = {
+  name: string;
+  label: string;
+  status: DeliveryStepStatus;
+};
+
+type DeliveryResponse = {
+  status: "PASS" | "FAIL";
+  llm_used?: false;
+  quality_gate?: string;
+  failed_step?: string;
+  business_name?: string;
+  business_type?: string;
+  template_id?: string;
+  modules?: string[];
+  final_package?: string;
+  error?: string;
+  steps?: Array<{ name: string; status: string }>;
+};
+
+type DeliveryStatusResponse = V2StatusPayload;
+
+function INITIAL_DELIVERY_STEPS(copy: ReturnType<typeof getQuestionnaireCopy>): DeliveryStep[] {
+  return [
+    { name: "client_onboarding", label: copy.stepOnboarding, status: "PENDING" },
+    { name: "client_full_delivery", label: copy.stepBuildOrchestrator, status: "PENDING" },
+    { name: "quality_gate", label: copy.stepV2Finalize, status: "PENDING" },
+  ];
+}
+
+type LegacyDeliveryStatusResponse = {
+  status?: string;
+  client_build_status?: "ready" | "pending" | "error";
+  job_status?: "RUNNING" | "PASS" | "FAIL" | "IDLE";
+  job_id?: string;
+  error?: string;
+  steps?: Array<{ name: string; status: string }>;
+  checks?: Array<{ name: string; status: string }>;
+  business_name?: string;
+  business_type?: string;
+  final_package?: string;
+};
+
+function mapLegacyDeliverySteps(
+  baseSteps: DeliveryStep[],
+  statusPayload: LegacyDeliveryStatusResponse | null,
+): DeliveryStep[] {
+  if (!statusPayload) {
+    return baseSteps;
+  }
+
+  const stepStatuses = new Map(
+    (statusPayload.steps ?? []).map((step) => [step.name, step.status as DeliveryStepStatus]),
+  );
+
+  const checkMap: Record<string, string> = {
+    client_onboarding: "Client Profile",
+    client_full_delivery: "Full Delivery",
+    quality_gate: "Quality Gate",
+  };
+
+  return baseSteps.map((step) => {
+    const fromSteps = stepStatuses.get(step.name);
+    if (fromSteps) {
+      return { ...step, status: fromSteps };
+    }
+
+    const checkName = checkMap[step.name];
+    const check = statusPayload.checks?.find((item) => item.name === checkName);
+    if (check) {
+      const mapped =
+        check.status === "PASS"
+          ? "PASS"
+          : check.status === "FAIL"
+            ? "FAIL"
+            : statusPayload.job_status === "RUNNING"
+              ? "RUNNING"
+              : "PENDING";
+      return { ...step, status: mapped as DeliveryStepStatus };
+    }
+
+    if (statusPayload.job_status === "RUNNING") {
+      return { ...step, status: "RUNNING" };
+    }
+
+    return step;
+  });
+}
+
+function isLegacyDeliveryComplete(statusPayload: LegacyDeliveryStatusResponse | null): boolean {
+  if (!statusPayload) {
+    return false;
+  }
+  if (statusPayload.client_build_status === "ready") {
+    return true;
+  }
+  if (statusPayload.client_build_status === "error") {
+    return false;
+  }
+  if (statusPayload.job_status === "PASS") {
+    return true;
+  }
+  if (statusPayload.job_status === "FAIL") {
+    return true;
+  }
+  if (statusPayload.status === "PASS") {
+    return true;
+  }
+  return Boolean(statusPayload.checks?.length && statusPayload.checks.every((check) => check.status === "PASS"));
+}
+
+function normalizeModuleList(
+  modules: string[] | Record<string, unknown> | undefined,
+): string[] {
+  if (Array.isArray(modules)) {
+    return modules.map(String);
+  }
+  return [];
+}
+
+function deliveryBadgeVariant(status: DeliveryStepStatus) {
+  if (status === "PASS") {
+    return "default" as const;
+  }
+  if (status === "FAIL") {
+    return "destructive" as const;
+  }
+  if (status === "RUNNING") {
+    return "secondary" as const;
+  }
+  return "outline" as const;
+}
+
+function FieldLabel({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
+  return (
+    <label htmlFor={htmlFor} className="text-sm font-medium">
+      {children}
+    </label>
+  );
+}
+
+function isBusinessType(value: string): value is QuestionnaireForm["business_type"] {
+  return (BUSINESS_TYPES as readonly string[]).includes(value);
+}
+
+function isLanguage(value: string): value is QuestionnaireForm["language"] {
+  return (LANGUAGE_OPTIONS as readonly string[]).includes(value);
+}
+
+function isDeliveryMethod(value: string): value is QuestionnaireForm["delivery_method"] {
+  return (DELIVERY_METHODS as readonly string[]).includes(value);
+}
+
+function buildSavePayload(form: QuestionnaireForm) {
+  return {
+    business_name: form.business_name,
+    business_type: form.business_type,
+    email: form.email,
+    phone: form.phone,
+    telegram: form.telegram,
+    whatsapp: form.whatsapp,
+    language: form.language,
+    delivery_method: form.delivery_method,
+    address: "",
+    website: "",
+    logo: "assets/logo.png",
+    currency: "EUR",
+    plan_id: "free",
+    plan: "Free",
+    amount: 0,
+    payment_status: "FREE",
+    terms_accepted: true,
+    privacy_accepted: true,
+    accepted_at: new Date().toISOString(),
+    working_hours: DEFAULT_WORKING_HOURS,
+    social_links: {
+      instagram: "",
+      facebook: "",
+      tiktok: "",
+      website: "",
+    },
+    business_questions: {},
+  };
+}
+
+export function ClientQuestionnairePage() {
+  const router = useRouter();
+  const { locale, setLocale, ready } = useTranslation();
+  const copy = getQuestionnaireCopy(locale);
+  const previewCopy = getPreviewCopy(locale);
+  const [form, setForm] = useState<QuestionnaireForm>(DEFAULT_FORM);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [delivering, setDelivering] = useState(false);
+  const [deliverySteps, setDeliverySteps] = useState<DeliveryStep[]>(() =>
+    INITIAL_DELIVERY_STEPS(getQuestionnaireCopy("en")),
+  );
+  const [deliveryResult, setDeliveryResult] = useState<DeliveryResponse | null>(null);
+  const [deliveryStatus, setDeliveryStatus] = useState<DeliveryStatusResponse | null>(null);
+  const [deliveryError, setDeliveryError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setDeliverySteps((current) =>
+      current.map((step, index) => ({
+        ...step,
+        label: INITIAL_DELIVERY_STEPS(copy)[index]?.label ?? step.label,
+      })),
+    );
+  }, [copy, locale]);
+
+  useEffect(() => {
+    if (!ready) {
+      return;
+    }
+    setForm((current) =>
+      current.language === locale ? current : { ...current, language: locale },
+    );
+  }, [locale, ready]);
+
+  function setQuestionnaireLanguage(next: Locale) {
+    setLocale(next);
+    setForm((current) =>
+      current.language === next ? current : { ...current, language: next },
+    );
+  }
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadQuestionnaire() {
+      try {
+        const response = await fetch("/api/client-questionnaire");
+        if (!response.ok) {
+          return;
+        }
+        const data = (await response.json()) as Partial<QuestionnaireForm & { delivery_method?: string }>;
+        if (!active) {
+          return;
+        }
+        const loadedBusinessType = String(data.business_type ?? DEFAULT_FORM.business_type);
+        const loadedLanguage = String(data.language ?? DEFAULT_FORM.language);
+        const loadedDeliveryMethod = String(data.delivery_method ?? DEFAULT_FORM.delivery_method);
+
+        setForm({
+          business_name: String(data.business_name ?? ""),
+          business_type: isBusinessType(loadedBusinessType) ? loadedBusinessType : DEFAULT_FORM.business_type,
+          email: String(data.email ?? ""),
+          phone: String(data.phone ?? ""),
+          telegram: String(data.telegram ?? ""),
+          whatsapp: String(data.whatsapp ?? ""),
+          language: isLanguage(loadedLanguage) ? loadedLanguage : DEFAULT_FORM.language,
+          delivery_method: isDeliveryMethod(loadedDeliveryMethod)
+            ? loadedDeliveryMethod
+            : DEFAULT_FORM.delivery_method,
+        });
+
+        if (isLocale(loadedLanguage)) {
+          setLocale(loadedLanguage);
+        }
+      } catch {
+        if (active) {
+          setError(getQuestionnaireCopy(locale).loadError);
+        }
+      } finally {
+        if (active) {
+          setLoading(false);
+        }
+      }
+    }
+
+    void loadQuestionnaire();
+    return () => {
+      active = false;
+    };
+  }, [locale, setLocale]);
+
+  function updateField<K extends keyof QuestionnaireForm>(key: K, value: QuestionnaireForm[K]) {
+    setForm((current) => ({ ...current, [key]: value }));
+  }
+
+  async function handleGenerateMvp() {
+    setDelivering(true);
+    setDeliveryError(null);
+    setDeliveryResult(null);
+    setDeliveryStatus(null);
+    const baseSteps = INITIAL_DELIVERY_STEPS(copy);
+    setDeliverySteps(
+      baseSteps.map((step) => ({
+        ...step,
+        status: "RUNNING" as DeliveryStepStatus,
+      })),
+    );
+
+    try {
+      const saveResponse = await fetch("/api/client-questionnaire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(buildSavePayload(form)),
+      });
+      const saveResult = (await saveResponse.json()) as { ok?: boolean; error?: string };
+      if (!saveResponse.ok || !saveResult.ok) {
+        throw new Error(saveResult.error ?? copy.messages.saveFailedBeforeDelivery);
+      }
+
+      const runResponse = await fetch("/api/client-delivery/run", { method: "POST" });
+      const runPayload = (await runResponse.json()) as LegacyDeliveryStatusResponse & {
+        status?: string;
+        job_id?: string;
+      };
+
+      if (!runResponse.ok && runPayload.status !== "STARTED") {
+        throw new Error(runPayload.error ?? copy.messages.deliveryFailed);
+      }
+
+      if (runPayload.status !== "STARTED") {
+        throw new Error(copy.messages.deliveryFailed);
+      }
+
+      const pollIntervalMs = 3000;
+      const maxAttempts = 120;
+      let statusPayload: LegacyDeliveryStatusResponse | null = null;
+
+      for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+        await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
+
+        const statusResponse = await fetch("/api/client-delivery/status");
+        if (!statusResponse.ok) {
+          continue;
+        }
+
+        statusPayload = (await statusResponse.json()) as LegacyDeliveryStatusResponse;
+        setDeliveryStatus(statusPayload as DeliveryStatusResponse);
+        setDeliverySteps(mapLegacyDeliverySteps(baseSteps, statusPayload));
+
+        if (statusPayload.client_build_status === "error") {
+          throw new Error(statusPayload.error ?? copy.messages.deliveryFailed);
+        }
+
+        if (isLegacyDeliveryComplete(statusPayload)) {
+          break;
+        }
+      }
+
+      if (!statusPayload) {
+        throw new Error(copy.messages.deliveryFailed);
+      }
+
+      if (statusPayload.client_build_status === "ready") {
+        setDeliveryResult({
+          status: "PASS",
+          business_name: statusPayload.business_name ?? form.business_name,
+          business_type: statusPayload.business_type ?? form.business_type,
+          final_package: statusPayload.final_package,
+        });
+        setDeliverySteps(mapLegacyDeliverySteps(baseSteps, statusPayload));
+        router.push("/client-preview/latest");
+        return;
+      }
+
+      const passed =
+        statusPayload.job_status === "PASS" ||
+        statusPayload.status === "PASS" ||
+        Boolean(statusPayload.checks?.every((check) => check.status === "PASS"));
+
+      const normalizedResult: DeliveryResponse = {
+        status: passed ? "PASS" : "FAIL",
+        business_name: statusPayload.business_name ?? form.business_name,
+        business_type: statusPayload.business_type ?? form.business_type,
+        final_package: statusPayload.final_package,
+        error: statusPayload.error,
+        steps: statusPayload.steps,
+      };
+
+      setDeliveryResult(normalizedResult);
+      setDeliverySteps(mapLegacyDeliverySteps(baseSteps, statusPayload));
+
+      if (!passed) {
+        setDeliveryError(statusPayload.error ?? copy.messages.deliveryFailed);
+        return;
+      }
+    } catch (generateError) {
+      setDeliveryError(
+        generateError instanceof Error ? generateError.message : copy.messages.deliveryFailed,
+      );
+      setDeliverySteps(
+        INITIAL_DELIVERY_STEPS(copy).map((step) => ({
+          ...step,
+          status: "FAIL" as DeliveryStepStatus,
+        })),
+      );
+    } finally {
+      setDelivering(false);
+    }
+  }
+
+  async function handleSave() {
+    setSaving(true);
+    setMessage(null);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/client-questionnaire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(buildSavePayload(form)),
+      });
+      const result = (await response.json()) as { ok?: boolean; path?: string; error?: string };
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error ?? copy.messages.saveFailed);
+      }
+      setMessage(
+        formatQuestionnaireMessage(copy.messages.savedTo, {
+          path: result.path ?? DEFAULT_QUESTIONNAIRE_PATH,
+        }),
+      );
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : copy.messages.saveFailed);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  if (loading) {
+    return (
+      <ClientFunnelShell title={copy.cardTitle} description={copy.cardDescription} activeStep="questionnaire">
+        <p className="text-sm text-muted-foreground">{copy.loading}</p>
+      </ClientFunnelShell>
+    );
+  }
+
+  return (
+    <ClientFunnelShell title={copy.cardTitle} description={copy.cardDescription} activeStep="questionnaire">
+    <div className="space-y-6">
+      <Card>
+        <CardHeader className="gap-4">
+          <div className="space-y-1">
+            <CardTitle>{copy.cardTitle}</CardTitle>
+            <CardDescription>{copy.cardDescription}</CardDescription>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-2 md:col-span-2">
+              <FieldLabel htmlFor="business_type">{copy.businessType}</FieldLabel>
+              <select
+                id="business_type"
+                name="business_type"
+                className={selectClassName}
+                value={form.business_type}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  if (isBusinessType(value)) {
+                    updateField("business_type", value);
+                  }
+                }}
+              >
+                {BUSINESS_TYPES.map((type) => (
+                  <option key={type} value={type}>
+                    {copy.businessTypes[type] ?? type}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="space-y-2 md:col-span-2">
+              <FieldLabel htmlFor="business_name">{copy.businessName}</FieldLabel>
+              <Input
+                id="business_name"
+                name="business_name"
+                value={form.business_name}
+                onChange={(event) => updateField("business_name", event.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <FieldLabel htmlFor="phone">{copy.phone}</FieldLabel>
+              <Input
+                id="phone"
+                name="phone"
+                value={form.phone}
+                onChange={(event) => updateField("phone", event.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <FieldLabel htmlFor="whatsapp">{copy.whatsapp}</FieldLabel>
+              <Input
+                id="whatsapp"
+                name="whatsapp"
+                value={form.whatsapp}
+                onChange={(event) => updateField("whatsapp", event.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <FieldLabel htmlFor="telegram">{copy.telegram}</FieldLabel>
+              <Input
+                id="telegram"
+                name="telegram"
+                value={form.telegram}
+                onChange={(event) => updateField("telegram", event.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <FieldLabel htmlFor="email">{copy.email}</FieldLabel>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={(event) => updateField("email", event.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <FieldLabel htmlFor="language">{copy.language}</FieldLabel>
+              <select
+                id="language"
+                name="language"
+                className={selectClassName}
+                value={form.language}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  if (isLanguage(value)) {
+                    setQuestionnaireLanguage(value);
+                  }
+                }}
+              >
+                {LANGUAGE_OPTIONS.map((code) => (
+                  <option key={code} value={code}>
+                    {copy.languageOptions[code]}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="space-y-2">
+              <FieldLabel htmlFor="delivery_method">{copy.deliveryMethod}</FieldLabel>
+              <select
+                id="delivery_method"
+                name="delivery_method"
+                className={selectClassName}
+                value={form.delivery_method}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  if (isDeliveryMethod(value)) {
+                    updateField("delivery_method", value);
+                  }
+                }}
+              >
+                {DELIVERY_METHODS.map((method) => (
+                  <option key={method} value={method}>
+                    {copy.deliveryMethods[method] ?? method}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <Button type="button" onClick={() => void handleSave()} disabled={saving}>
+              {copy.saveQuestionnaire}
+            </Button>
+          </div>
+
+          {message ? (
+            <Alert>
+              <AlertTitle>{copy.saved}</AlertTitle>
+              <AlertDescription>{message}</AlertDescription>
+            </Alert>
+          ) : null}
+
+          {error ? (
+            <Alert variant="destructive">
+              <AlertTitle>{copy.error}</AlertTitle>
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          ) : null}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>{copy.deliveryTitle}</CardTitle>
+          <CardDescription>{copy.deliveryDescription}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <Button type="button" onClick={() => void handleGenerateMvp()} disabled={delivering || saving}>
+            {copy.generateMvp}
+          </Button>
+
+          {delivering ? <Progress value={50} className="w-full" /> : null}
+
+          <div className="space-y-2">
+            {deliverySteps.map((step) => (
+              <div
+                key={step.name}
+                className="flex items-center justify-between rounded-md border p-3"
+              >
+                <span className="text-sm font-medium">{step.label}</span>
+                <Badge variant={deliveryBadgeVariant(step.status)}>
+                  {localizeStepStatus(step.status, copy)}
+                </Badge>
+              </div>
+            ))}
+          </div>
+
+          {deliveryResult?.status === "PASS" ? (
+            <Alert>
+              <AlertTitle>{copy.deliveryPass}</AlertTitle>
+              <AlertDescription className="space-y-3">
+                <dl className="grid gap-2 text-sm sm:grid-cols-2">
+                  <div>
+                    <dt className="font-medium text-muted-foreground">{copy.resultStatus}</dt>
+                    <dd>{localizeStepStatus(deliveryResult.status, copy)}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-muted-foreground">{copy.resultBusinessName}</dt>
+                    <dd>{deliveryStatus?.business_name ?? deliveryResult.business_name ?? form.business_name}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-muted-foreground">{copy.resultBusinessType}</dt>
+                    <dd>
+                      {localizeBusinessType(
+                        deliveryStatus?.business_type ??
+                          deliveryResult.business_type ??
+                          form.business_type,
+                        copy,
+                      )}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-muted-foreground">{copy.resultTemplateId}</dt>
+                    <dd className="font-mono text-xs">{deliveryStatus?.template_id ?? deliveryResult.template_id}</dd>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <dt className="font-medium text-muted-foreground">{copy.resultModules}</dt>
+                    <dd className="flex flex-wrap gap-2 pt-1">
+                      {normalizeModuleList(deliveryStatus?.modules ?? deliveryResult.modules).map(
+                        (moduleName) => (
+                        <Badge key={moduleName} variant="secondary">
+                          {moduleName}
+                        </Badge>
+                        ),
+                      )}
+                    </dd>
+                  </div>
+                </dl>
+                {deliveryResult.final_package ? (
+                  <p className="font-mono text-xs text-muted-foreground">{deliveryResult.final_package}</p>
+                ) : null}
+                <div className="flex flex-wrap gap-2">
+                  <Button asChild className="mt-1">
+                    <Link href="/client-delivery-status">{copy.openDeliveryStatus}</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="mt-1">
+                    <Link href="/client-preview/latest">{previewCopy.openPreview}</Link>
+                  </Button>
+                </div>
+              </AlertDescription>
+            </Alert>
+          ) : null}
+
+          {deliveryResult?.status === "FAIL" || deliveryError ? (
+            <Alert variant="destructive">
+              <AlertTitle>{copy.deliveryFail}</AlertTitle>
+              <AlertDescription>
+                {deliveryError ?? deliveryResult?.error ?? copy.messages.deliveryFailed}
+              </AlertDescription>
+            </Alert>
+          ) : null}
+        </CardContent>
+      </Card>
+    </div>
+    </ClientFunnelShell>
+  );
+}

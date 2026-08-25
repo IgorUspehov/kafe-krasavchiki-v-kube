@@ -1,0 +1,61 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# build outputs
+dist/
+output/
+artifacts/**
+!artifacts/factory_output/
+!artifacts/factory_output/react_mvp/
+!artifacts/factory_output/react_mvp/**
+artifacts/factory_output/react_mvp/node_modules/**
+artifacts/factory_output/react_mvp/dist/**
+
+# Factory Website+CRM template dist for Cloudflare Direct Upload (Railway)
+!client-template/
+!client-template/**
+!client-template/dist/
+!client-template/dist/**
+
+# netlify / vercel
+.netlify/
+.vercel/
+
+# railway / AI data dirs
+factory/
+knowledge_library/
+patterns/
+
+# nested repos / templates
+mvp-funnel-template/
+mvp-template/
+
+# env files
+.env
+.env.local
+.env.*.local
+
+# archives
+*.tar.gz
+*.zip
+
+# misc
+.DS_Store
+*.log
+logs/
+data/pending-deletions.json
+data/demo-registry.json
+data/checkout-references.json
+data/site-download-access.json
+data/client-dists/
+
+# local deployable-zip test artifacts
+tmp/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

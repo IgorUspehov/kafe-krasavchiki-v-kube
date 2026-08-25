@@ -1,0 +1,36 @@
+import {
+  analyzeWithDeepSeek,
+  buildFallbackAnalysis,
+  buildMockAnalysis,
+  formatDeepSeekError,
+} from "@/lib/ai-orchestrator/deepseek-client";
+import { buildFallbackOnlyAnalysis } from "@/lib/ai-orchestrator/fallback-client";
+import { writeAiArtifacts } from "@/lib/ai-orchestrator/artifact-writer";
+import { getAiProvider } from "@/lib/ai-orchestrator/provider-config";
+import type { AnalyzeIdeaRequest, AnalyzeIdeaResponse } from "@/lib/ai-orchestrator/types";
+
+export async function analyzeIdea(input: AnalyzeIdeaRequest): Promise<AnalyzeIdeaResponse> {
+  const generatedAt = new Date().toISOString();
+  const providerMode = getAiProvider();
+
+  let analysis: AnalyzeIdeaResponse;
+
+  if (providerMode === "fallback") {
+    analysis = buildFallbackOnlyAnalysis(input, generatedAt);
+  } else {
+    const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+
+    if (apiKey) {
+      try {
+        analysis = await analyzeWithDeepSeek(input, apiKey);
+      } catch (error) {
+        analysis = buildFallbackAnalysis(input, generatedAt, formatDeepSeekError(undefined, error));
+      }
+    } else {
+      analysis = buildMockAnalysis(input, generatedAt);
+    }
+  }
+
+  writeAiArtifacts(input, analysis, providerMode);
+  return analysis;
+}

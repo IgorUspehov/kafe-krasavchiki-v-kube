@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "language": "en",
+  "title": "Refund Policy",
+  "disclaimer": "This is not legal advice. This policy describes refund conditions for digital MVP deliveries.",
+  "sections": [
+    {
+      "id": "general",
+      "title": "General Policy",
+      "text": "All products are digital deliverables generated specifically for each customer. Refunds are not available once delivery has been completed."
+    },
+    {
+      "id": "non-delivery",
+      "title": "Non-Delivery Refund",
+      "text": "If your product has not been delivered within 24 hours of payment confirmation, you are entitled to a full refund. Contact support@mvpfactory.de with your order details."
+    },
+    {
+      "id": "processing",
+      "title": "Refund Processing",
+      "text": "Approved refunds are returned to the original payment method within 5–10 business days, depending on your bank or payment provider."
+    }
+  ]
+}

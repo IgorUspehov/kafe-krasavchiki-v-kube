@@ -1,0 +1,15 @@
+export const EXECUTION_PATHS = {
+  root: "artifacts/factory_output/execution",
+  manifest: "artifacts/factory_output/execution/execution_manifest.json",
+  report: "artifacts/factory_output/execution/execution_report.json",
+  runReport: "artifacts/factory_output/execution/run_report.json",
+  healthReport: "artifacts/factory_output/execution/health_report.json",
+  executionMatrix: "artifacts/factory_output/execution/execution_matrix.json",
+  startupSequence: "artifacts/factory_output/execution/startup_sequence.json",
+  shutdownSequence: "artifacts/factory_output/execution/shutdown_sequence.json",
+  environment: "artifacts/factory_output/execution/environment.json",
+  startScript: "artifacts/factory_output/execution/run/start.sh",
+  stopScript: "artifacts/factory_output/execution/run/stop.sh",
+  statusScript: "artifacts/factory_output/execution/run/status.sh",
+  healthcheckScript: "artifacts/factory_output/execution/run/healthcheck.sh",
+} as const;

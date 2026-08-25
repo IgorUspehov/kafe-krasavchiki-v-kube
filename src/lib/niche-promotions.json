@@ -1,0 +1,473 @@
+{
+  "beauty_salon": [
+    {
+      "ru": "Маникюр + педикюр — скидка 25%. Только по пятницам!",
+      "de": "Maniküre + Pediküre −25%. Nur freitags!",
+      "en": "Manicure + Pedicure −25%. Fridays only!"
+    },
+    {
+      "ru": "Первое окрашивание — скидка 20%",
+      "de": "Erste Haarfärbung −20%",
+      "en": "First hair coloring −20%"
+    },
+    {
+      "ru": "Женская стрижка + уход в подарок",
+      "de": "Damenhaarschnitt + Pflege gratis",
+      "en": "Women's haircut + care treatment free"
+    },
+    {
+      "ru": "Бесплатная консультация стилиста",
+      "de": "Kostenlose Stilberatung",
+      "en": "Free stylist consultation"
+    },
+    {
+      "ru": "Программа лояльности: каждый 5-й визит бесплатно",
+      "de": "Treueprogramm: Jeder 5. Besuch kostenlos",
+      "en": "Loyalty program: every 5th visit free"
+    }
+  ],
+  "massage_salon": [
+    {
+      "ru": "Первый сеанс для новых клиентов — скидка 30%",
+      "de": "Erste Sitzung für Neukunden −30%",
+      "en": "First session for new clients −30%"
+    },
+    {
+      "ru": "Антистресс-массаж +15 минут бесплатно",
+      "de": "Anti-Stress-Massage +15 Minuten gratis",
+      "en": "Anti-stress massage +15 minutes free"
+    },
+    {
+      "ru": "5 сеансов + 1 бесплатно",
+      "de": "5 Sitzungen + 1 gratis",
+      "en": "5 sessions + 1 free"
+    },
+    {
+      "ru": "Скидка пенсионерам 20% каждый вторник",
+      "de": "Seniorenrabatt 20% jeden Dienstag",
+      "en": "Senior discount 20% every Tuesday"
+    },
+    {
+      "ru": "Подарочный сертификат от €50",
+      "de": "Geschenkgutschein ab €50",
+      "en": "Gift voucher from €50"
+    }
+  ],
+  "dental_clinic": [
+    {
+      "ru": "Профчистка зубов €79 вместо €119",
+      "de": "Profireinigung €79 statt €119",
+      "en": "Professional cleaning €79 instead of €119"
+    },
+    {
+      "ru": "Бесплатная консультация по имплантации",
+      "de": "Kostenlose Implantatberatung",
+      "en": "Free implant consultation"
+    },
+    {
+      "ru": "Детская стоматология — первое посещение бесплатно",
+      "de": "Kinderzahnheilkunde — erster Besuch kostenlos",
+      "en": "Children's dentistry — first visit free"
+    },
+    {
+      "ru": "Отбеливание зубов — скидка 25%",
+      "de": "Zahnaufhellung −25%",
+      "en": "Teeth whitening −25%"
+    },
+    {
+      "ru": "Имплант + консультация — скидка 15%",
+      "de": "Implantat + Beratung −15%",
+      "en": "Implant + consultation −15%"
+    }
+  ],
+  "health_clinic": [
+    {
+      "ru": "Полный осмотр + анализы — €99. Без очереди!",
+      "de": "Volluntersuchung + Tests — €99. Ohne Wartezeit!",
+      "en": "Full checkup + tests — €99. No waiting!"
+    },
+    {
+      "ru": "УЗИ всех органов — €79",
+      "de": "Ultraschall aller Organe — €79",
+      "en": "Full body ultrasound — €79"
+    },
+    {
+      "ru": "Анализ крови + консультация — €49",
+      "de": "Bluttest + Beratung — €49",
+      "en": "Blood test + consultation — €49"
+    },
+    {
+      "ru": "Кардиограмма бесплатно при записи онлайн",
+      "de": "EKG kostenlos bei Online-Buchung",
+      "en": "ECG free with online booking"
+    },
+    {
+      "ru": "Семейный пакет — скидка 20%",
+      "de": "Familienpaket −20%",
+      "en": "Family package −20%"
+    }
+  ],
+  "fitness_club": [
+    {
+      "ru": "Первая тренировка бесплатно!",
+      "de": "Erstes Training kostenlos!",
+      "en": "First workout free!"
+    },
+    {
+      "ru": "Месяц без вступительного взноса",
+      "de": "Monat ohne Aufnahmegebühr",
+      "en": "One month without enrollment fee"
+    },
+    {
+      "ru": "Приведи друга — получи месяц бесплатно",
+      "de": "Freund mitbringen — Monat gratis",
+      "en": "Bring a friend — get a month free"
+    },
+    {
+      "ru": "Абонемент на 12 месяцев — скидка 25%",
+      "de": "12-Monats-Abo −25%",
+      "en": "12-month membership −25%"
+    },
+    {
+      "ru": "Персональная консультация тренера бесплатно",
+      "de": "Kostenlose Trainerberatung",
+      "en": "Free personal trainer consultation"
+    }
+  ],
+  "restaurant": [
+    {
+      "ru": "По вторникам после 18:00 — десерт за €1",
+      "de": "Dienstags ab 18:00 — Dessert für €1",
+      "en": "Tuesdays after 6PM — dessert for €1"
+    },
+    {
+      "ru": "Бизнес-ланч €9.90 с 11:00 до 14:00",
+      "de": "Mittagsmenü €9.90 von 11-14 Uhr",
+      "en": "Business lunch €9.90 from 11AM to 2PM"
+    },
+    {
+      "ru": "Бесплатный напиток при заказе от €30",
+      "de": "Gratis Getränk ab Bestellung €30",
+      "en": "Free drink with order from €30"
+    },
+    {
+      "ru": "Happy Hour 17:00–19:00 — напитки −30%",
+      "de": "Happy Hour 17-19 Uhr — Getränke −30%",
+      "en": "Happy Hour 5-7PM — drinks −30%"
+    },
+    {
+      "ru": "Семейное меню со скидкой 20% по воскресеньям",
+      "de": "Familienmenü −20% sonntags",
+      "en": "Family menu −20% on Sundays"
+    }
+  ],
+  "car_service": [
+    {
+      "ru": "Диагностика развал-схождения по понедельникам 8-10 — бесплатно",
+      "de": "Spureinstellung montags 8-10 Uhr — kostenlos",
+      "en": "Wheel alignment Mondays 8-10AM — free"
+    },
+    {
+      "ru": "Замена масла + фильтр — скидка 20%",
+      "de": "Ölwechsel + Filter −20%",
+      "en": "Oil change + filter −20%"
+    },
+    {
+      "ru": "Бесплатная проверка авто перед отпуском",
+      "de": "Kostenloser Urlaubscheck",
+      "en": "Free pre-vacation car check"
+    },
+    {
+      "ru": "Шиномонтаж 4 колеса — €39",
+      "de": "Reifenwechsel 4 Räder — €39",
+      "en": "Tire change 4 wheels — €39"
+    },
+    {
+      "ru": "Проверка кондиционера — €19",
+      "de": "Klimaanlagencheck — €19",
+      "en": "Air conditioning check — €19"
+    }
+  ],
+  "hotel_booking": [
+    {
+      "ru": "Забронируй 3 ночи — 4-я бесплатно!",
+      "de": "3 Nächte buchen — 4. Nacht gratis!",
+      "en": "Book 3 nights — get the 4th free!"
+    },
+    {
+      "ru": "Завтрак включён при бронировании онлайн",
+      "de": "Frühstück inklusive bei Online-Buchung",
+      "en": "Breakfast included with online booking"
+    },
+    {
+      "ru": "Ранний заезд бесплатно от 2 ночей",
+      "de": "Früh-Check-in gratis ab 2 Nächten",
+      "en": "Early check-in free from 2 nights"
+    },
+    {
+      "ru": "Романтический пакет — ужин + вино в подарок",
+      "de": "Romantikpaket — Abendessen + Wein gratis",
+      "en": "Romantic package — dinner + wine free"
+    },
+    {
+      "ru": "Скидка 15% при бронировании за 30 дней",
+      "de": "15% Rabatt bei Buchung 30 Tage voraus",
+      "en": "15% off when booked 30 days in advance"
+    }
+  ],
+  "education": [
+    {
+      "ru": "Первый урок бесплатно. Проверь свой уровень!",
+      "de": "Erste Stunde kostenlos. Teste dein Niveau!",
+      "en": "First lesson free. Test your level!"
+    },
+    {
+      "ru": "Курс немецкого B2 — запись до конца месяца со скидкой 20%",
+      "de": "Deutschkurs B2 — Anmeldung bis Monatsende −20%",
+      "en": "German B2 course — enroll this month −20%"
+    },
+    {
+      "ru": "Приведи друга — скидка 15% обоим",
+      "de": "Freund mitbringen — 15% Rabatt für beide",
+      "en": "Bring a friend — 15% off for both"
+    },
+    {
+      "ru": "Онлайн-занятия — первые 2 недели бесплатно",
+      "de": "Online-Unterricht — erste 2 Wochen kostenlos",
+      "en": "Online classes — first 2 weeks free"
+    },
+    {
+      "ru": "Пакет 10 уроков — скидка 25%",
+      "de": "10-Stunden-Paket −25%",
+      "en": "10-lesson package −25%"
+    }
+  ],
+  "logistics": [
+    {
+      "ru": "Первая доставка в Мюнхене — бесплатно",
+      "de": "Erste Lieferung in München — kostenlos",
+      "en": "First delivery in Munich — free"
+    },
+    {
+      "ru": "Экспресс-доставка за 2 часа — €9.90",
+      "de": "Express-Lieferung in 2 Stunden — €9.90",
+      "en": "Express delivery in 2 hours — €9.90"
+    },
+    {
+      "ru": "10 доставок — 11-я бесплатно",
+      "de": "10 Lieferungen — 11. kostenlos",
+      "en": "10 deliveries — 11th free"
+    },
+    {
+      "ru": "Переезд под ключ — бесплатная оценка",
+      "de": "Komplettumzug — kostenlose Bewertung",
+      "en": "Full relocation — free assessment"
+    },
+    {
+      "ru": "Корпоративный тариф — скидка 30%",
+      "de": "Firmentarif −30%",
+      "en": "Corporate rate −30%"
+    }
+  ],
+  "ecommerce": [
+    {
+      "ru": "Бесплатная доставка от €50. Только до конца месяца!",
+      "de": "Kostenloser Versand ab €50. Nur bis Monatsende!",
+      "en": "Free shipping from €50. This month only!"
+    },
+    {
+      "ru": "Скидка 10% на первый заказ",
+      "de": "10% Rabatt auf erste Bestellung",
+      "en": "10% off your first order"
+    },
+    {
+      "ru": "Купи 2 — получи 3-й за полцены",
+      "de": "Kaufe 2 — bekomme das 3. zum halben Preis",
+      "en": "Buy 2 — get 3rd at half price"
+    },
+    {
+      "ru": "Возврат в течение 30 дней без вопросов",
+      "de": "30 Tage Rückgabe ohne Fragen",
+      "en": "30-day returns no questions asked"
+    },
+    {
+      "ru": "Программа лояльности — копи баллы с каждой покупки",
+      "de": "Treueprogramm — Punkte bei jedem Kauf",
+      "en": "Loyalty program — earn points with every purchase"
+    }
+  ],
+  "technology": [
+    {
+      "ru": "Бесплатная консультация по вашему проекту — 60 минут",
+      "de": "Kostenlose Projektberatung — 60 Minuten",
+      "en": "Free project consultation — 60 minutes"
+    },
+    {
+      "ru": "MVP за 2 недели — фиксированная цена",
+      "de": "MVP in 2 Wochen — Festpreis",
+      "en": "MVP in 2 weeks — fixed price"
+    },
+    {
+      "ru": "Аудит вашего сайта бесплатно",
+      "de": "Website-Audit kostenlos",
+      "en": "Free website audit"
+    },
+    {
+      "ru": "Мобильное приложение — первый месяц поддержки бесплатно",
+      "de": "Mobile App — erster Support-Monat kostenlos",
+      "en": "Mobile app — first month support free"
+    },
+    {
+      "ru": "Техподдержка 24/7 — первые 3 месяца бесплатно",
+      "de": "24/7 Support — erste 3 Monate kostenlos",
+      "en": "24/7 support — first 3 months free"
+    }
+  ],
+  "real_estate": [
+    {
+      "ru": "Бесплатная консультация по подбору объекта недвижимости!",
+      "de": "Kostenlose Beratung zur Immobilienauswahl!",
+      "en": "Free consultation on property selection!"
+    },
+    {
+      "ru": "Скидка 2% при заключении договора в этом месяце",
+      "de": "2% Rabatt bei Vertragsabschluss diesen Monat",
+      "en": "2% discount when signing a contract this month"
+    },
+    {
+      "ru": "Эксклюзивные объекты — только у нас. Смотрите каталог!",
+      "de": "Exklusive Objekte — nur bei uns. Katalog ansehen!",
+      "en": "Exclusive properties — only with us. View the catalogue!"
+    },
+    {
+      "ru": "Виртуальный тур по объекту — бесплатно для всех клиентов",
+      "de": "Virtuelle Besichtigung — kostenlos für alle Kunden",
+      "en": "Virtual property tour — free for all clients"
+    }
+  ],
+  "accounting": [
+    {
+      "ru": "Бесплатная консультация при первом обращении",
+      "de": "Kostenlose Erstberatung",
+      "en": "Free first consultation"
+    },
+    {
+      "ru": "Налоговая декларация — от €99",
+      "de": "Steuererklärung — ab €99",
+      "en": "Tax return — from €99"
+    },
+    {
+      "ru": "Регистрация ООО под ключ — €299",
+      "de": "GmbH-Gründung Komplettpaket — €299",
+      "en": "Full company registration — €299"
+    },
+    {
+      "ru": "Расчёт зарплаты для малого бизнеса — скидка 15%",
+      "de": "Lohnabrechnung für Kleinunternehmen −15%",
+      "en": "Payroll for small business −15%"
+    },
+    {
+      "ru": "Годовой отчёт без доплат при заключении договора до конца месяца",
+      "de": "Jahresabschluss ohne Aufpreis bei Vertragsabschluss bis Monatsende",
+      "en": "Annual report at no extra cost if signed before month-end"
+    }
+  ],
+  "construction": [
+    {
+      "ru": "Бесплатный замер и смета",
+      "de": "Kostenloses Aufmaß und Kostenvoranschlag",
+      "en": "Free measurement and estimate"
+    },
+    {
+      "ru": "Ремонт под ключ — от €2500",
+      "de": "Komplettrenovierung — ab €2500",
+      "en": "Full renovation — from €2500"
+    },
+    {
+      "ru": "Кровельные работы со скидкой 10% до конца месяца",
+      "de": "Dacharbeiten −10% bis Monatsende",
+      "en": "Roofing works −10% until month-end"
+    },
+    {
+      "ru": "Гарантия на все работы — 5 лет",
+      "de": "5 Jahre Garantie auf alle Arbeiten",
+      "en": "5-year warranty on all work"
+    },
+    {
+      "ru": "Рассрочка без переплат на ремонт",
+      "de": "Ratenzahlung ohne Aufpreis für Renovierungen",
+      "en": "Interest-free installments for renovations"
+    }
+  ],
+  "law_firm": [
+    {
+      "ru": "Первая консультация бесплатно",
+      "de": "Erstberatung kostenlos",
+      "en": "First consultation free"
+    },
+    {
+      "ru": "Регистрация компании под ключ — €590",
+      "de": "Firmengründung Komplettpaket — €590",
+      "en": "Full company registration — €590"
+    },
+    {
+      "ru": "Составление договора — от €150",
+      "de": "Vertragserstellung — ab €150",
+      "en": "Contract drafting — from €150"
+    },
+    {
+      "ru": "Скидка 15% при заключении абонентского обслуживания",
+      "de": "−15% bei Abschluss eines Servicevertrags",
+      "en": "−15% with a service subscription agreement"
+    },
+    {
+      "ru": "Бесплатная вторая консультация по трудовым спорам",
+      "de": "Kostenlose Zweitberatung bei Arbeitsrechtsstreitigkeiten",
+      "en": "Free second consultation for labor disputes"
+    }
+  ],
+  "cleaning_service": [
+    {
+      "ru": "Первая уборка со скидкой 20%",
+      "de": "Erste Reinigung −20%",
+      "en": "First cleaning −20%"
+    },
+    {
+      "ru": "Генеральная уборка квартиры — от €120",
+      "de": "Grundreinigung der Wohnung — ab €120",
+      "en": "Apartment deep cleaning — from €120"
+    },
+    {
+      "ru": "Уборка офиса по абонементу со скидкой",
+      "de": "Büroreinigung im Abo mit Rabatt",
+      "en": "Office cleaning subscription with discount"
+    },
+    {
+      "ru": "Мытьё окон в подарок при заказе генеральной уборки",
+      "de": "Fensterreinigung gratis bei Grundreinigung",
+      "en": "Free window cleaning with deep cleaning order"
+    },
+    {
+      "ru": "Эко-средства без доплаты",
+      "de": "Ökologische Reinigungsmittel ohne Aufpreis",
+      "en": "Eco-friendly products at no extra cost"
+    }
+  ],
+  "veterinary_clinic": [
+    {
+      "ru": "Бесплатный первичный осмотр для новых пациентов",
+      "de": "Kostenlose Erstuntersuchung für neue Patienten",
+      "en": "Free first exam for new patients"
+    },
+    {
+      "ru": "Вакцинация со скидкой 15% в этом месяце",
+      "de": "Impfung diesen Monat −15%",
+      "en": "Vaccinations −15% this month"
+    },
+    {
+      "ru": "Чипирование питомца — €25",
+      "de": "Chippen Ihres Haustiers — €25",
+      "en": "Pet microchipping — €25"
+    }
+  ]
+}

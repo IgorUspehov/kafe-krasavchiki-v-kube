@@ -1,0 +1,55 @@
+// ============================================================
+// AI Orchestrator
+// Flow: claude → gemini → smart_fallback
+// ============================================================
+
+import { analyzeWithClaude } from "./claude-client";
+import { analyzeWithGemini } from "./gemini-client";
+import { buildSmartFallbackAnalysis } from "./fallback-client";
+import { getActiveProvider } from "./provider-config";
+import { AnalyzeIdeaRequest, AnalyzeIdeaResponse } from "./types";
+
+export async function orchestrateAnalysis(
+  request: AnalyzeIdeaRequest
+): Promise<AnalyzeIdeaResponse> {
+  const { idea, language = "ru", target_output } = request;
+  const provider = getActiveProvider();
+
+  console.log(`[Orchestrator] Provider: ${provider} | Idea: ${idea.slice(0, 60)}...`);
+
+  // ── Primary: Claude ────────────────────────────────────
+  if (provider === "claude") {
+    try {
+      console.log("[Orchestrator] → Trying Claude API...");
+      const result = await analyzeWithClaude(idea, language);
+      console.log("[Orchestrator] ✓ Claude success");
+      return result;
+    } catch (err) {
+      console.error("[Orchestrator] ✗ Claude failed:", err);
+      console.log("[Orchestrator] → Falling back to Gemini...");
+      try {
+        const result = await analyzeWithGemini(idea, language);
+        console.log("[Orchestrator] ✓ Gemini fallback success");
+        return result;
+      } catch (geminiErr) {
+        console.error("[Orchestrator] ✗ Gemini also failed:", geminiErr);
+      }
+    }
+  }
+
+  // ── Secondary: Gemini ──────────────────────────────────
+  if (provider === "gemini") {
+    try {
+      console.log("[Orchestrator] → Trying Gemini API...");
+      const result = await analyzeWithGemini(idea, language);
+      console.log("[Orchestrator] ✓ Gemini success");
+      return result;
+    } catch (err) {
+      console.error("[Orchestrator] ✗ Gemini failed:", err);
+    }
+  }
+
+  // ── Fallback: Smart local analysis ────────────────────
+  console.log("[Orchestrator] → Using Smart Fallback...");
+  return buildSmartFallbackAnalysis(idea, language);
+}

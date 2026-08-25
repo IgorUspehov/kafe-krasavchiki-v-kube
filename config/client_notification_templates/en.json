@@ -1,0 +1,6 @@
+{
+  "MVP_READY": "Your MVP package is ready.\n\nPlease download your files within 48 hours.",
+  "DOWNLOAD_REMINDER": "Reminder: your downloadable files will be removed soon.\n\nPlease download your package within 12 hours.",
+  "DOWNLOAD_CONFIRMED": "Download confirmed.\n\nYour package was downloaded successfully.",
+  "FILES_DELETED": "Temporary delivery files have been deleted according to the retention policy."
+}

@@ -1,0 +1,28 @@
+{
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free",
+      "price": 0,
+      "currency": "EUR"
+    },
+    {
+      "id": "starter",
+      "name": "Starter",
+      "price": 49,
+      "currency": "EUR"
+    },
+    {
+      "id": "professional",
+      "name": "Professional",
+      "price": 99,
+      "currency": "EUR"
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "price": 299,
+      "currency": "EUR"
+    }
+  ]
+}

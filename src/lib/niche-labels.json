@@ -1,0 +1,1284 @@
+{
+  "beauty_salon": {
+    "panel_title": {
+      "ru": "Панель салона",
+      "de": "Salon-Panel",
+      "en": "Salon Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "masters": {
+        "ru": "Мастера",
+        "de": "Meister",
+        "en": "Masters"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Dienstleistungen",
+        "en": "Services"
+      },
+      "appointments": {
+        "ru": "Приёмы",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "staff": {
+        "ru": "Мастера",
+        "de": "Meister",
+        "en": "Staff"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Клиенты, мастера и услуги",
+      "de": "Kunden, Meister und Dienstleistungen",
+      "en": "Clients, stylists and services"
+    }
+  },
+  "restaurant": {
+    "panel_title": {
+      "ru": "Панель ресторана",
+      "de": "Restaurant-Panel",
+      "en": "Restaurant Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "reservations": {
+        "ru": "Бронирования",
+        "de": "Reservierungen",
+        "en": "Reservations"
+      },
+      "tables": {
+        "ru": "Столы",
+        "de": "Tische",
+        "en": "Tables"
+      },
+      "menu": {
+        "ru": "Меню",
+        "de": "Speisekarte",
+        "en": "Menu"
+      },
+      "staff": {
+        "ru": "Персонал",
+        "de": "Personal",
+        "en": "Staff"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Бронирования, меню и персонал",
+      "de": "Reservierungen, Menü und Personal",
+      "en": "Reservations, menu and staff"
+    }
+  },
+  "fitness_club": {
+    "panel_title": {
+      "ru": "Панель фитнеса",
+      "de": "Fitness-Panel",
+      "en": "Fitness Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "members": {
+        "ru": "Участники",
+        "de": "Mitglieder",
+        "en": "Members"
+      },
+      "trainers": {
+        "ru": "Тренеры",
+        "de": "Trainer",
+        "en": "Trainers"
+      },
+      "subscriptions": {
+        "ru": "Абонементы",
+        "de": "Abonnements",
+        "en": "Subscriptions"
+      },
+      "classes": {
+        "ru": "Занятия",
+        "de": "Kurse",
+        "en": "Classes"
+      },
+      "attendance": {
+        "ru": "Посещаемость",
+        "de": "Anwesenheit",
+        "en": "Attendance"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "clients": {
+        "ru": "Участники",
+        "de": "Mitglieder",
+        "en": "Members"
+      },
+      "appointments": {
+        "ru": "Занятия",
+        "de": "Kurse",
+        "en": "Classes"
+      },
+      "services": {
+        "ru": "Абонементы",
+        "de": "Abonnements",
+        "en": "Subscriptions"
+      },
+      "staff": {
+        "ru": "Тренеры",
+        "de": "Trainer",
+        "en": "Trainers"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Тренировки, абонементы и тренеры",
+      "de": "Training, Mitgliedschaften und Trainer",
+      "en": "Workouts, memberships and trainers"
+    }
+  },
+  "dental_clinic": {
+    "panel_title": {
+      "ru": "Панель стоматологии",
+      "de": "Zahnarzt-Panel",
+      "en": "Dental Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "patients": {
+        "ru": "Пациенты",
+        "de": "Patienten",
+        "en": "Patients"
+      },
+      "doctors": {
+        "ru": "Врачи",
+        "de": "Ärzte",
+        "en": "Doctors"
+      },
+      "appointments": {
+        "ru": "Приёмы",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Leistungen",
+        "en": "Services"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "clients": {
+        "ru": "Пациенты",
+        "de": "Patienten",
+        "en": "Patients"
+      },
+      "masters": {
+        "ru": "Врачи",
+        "de": "Ärzte",
+        "en": "Doctors"
+      },
+      "staff": {
+        "ru": "Врачи",
+        "de": "Ärzte",
+        "en": "Doctors"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Пациенты, приёмы и лечение",
+      "de": "Patienten, Termine und Behandlung",
+      "en": "Patients, appointments and treatment"
+    }
+  },
+  "health_clinic": {
+    "panel_title": {
+      "ru": "Панель клиники",
+      "de": "Praxis-Panel",
+      "en": "Clinic Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "patients": {
+        "ru": "Пациенты",
+        "de": "Patienten",
+        "en": "Patients"
+      },
+      "doctors": {
+        "ru": "Врачи",
+        "de": "Ärzte",
+        "en": "Doctors"
+      },
+      "appointments": {
+        "ru": "Приёмы",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Leistungen",
+        "en": "Services"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "clients": {
+        "ru": "Пациенты",
+        "de": "Patienten",
+        "en": "Patients"
+      },
+      "masters": {
+        "ru": "Врачи",
+        "de": "Ärzte",
+        "en": "Doctors"
+      },
+      "staff": {
+        "ru": "Персонал",
+        "de": "Personal",
+        "en": "Staff"
+      },
+      "notifications": {
+        "ru": "Уведомления",
+        "de": "Benachrichtigungen",
+        "en": "Notifications"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Планы лечения и карты пациентов",
+      "de": "Behandlungspläne und Patientenkarten",
+      "en": "Treatment plans and patient records"
+    }
+  },
+  "massage_salon": {
+    "panel_title": {
+      "ru": "Панель массажного салона",
+      "de": "Massage-Panel",
+      "en": "Massage Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "appointments": {
+        "ru": "Приёмы",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Dienstleistungen",
+        "en": "Services"
+      },
+      "therapists": {
+        "ru": "Терапевты",
+        "de": "Therapeuten",
+        "en": "Therapists"
+      },
+      "schedule": {
+        "ru": "Расписание",
+        "de": "Zeitplan",
+        "en": "Schedule"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "staff": {
+        "ru": "Терапевты",
+        "de": "Therapeuten",
+        "en": "Therapists"
+      },
+      "masters": {
+        "ru": "Терапевты",
+        "de": "Therapeuten",
+        "en": "Therapists"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Сессии, клиенты и мастера",
+      "de": "Sitzungen, Kunden und Therapeuten",
+      "en": "Sessions, clients and therapists"
+    }
+  },
+  "car_service": {
+    "panel_title": {
+      "ru": "Панель автосервиса",
+      "de": "Werkstatt-Panel",
+      "en": "Car Service Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "orders": {
+        "ru": "Заказы",
+        "de": "Aufträge",
+        "en": "Orders"
+      },
+      "cars": {
+        "ru": "Автомобили",
+        "de": "Fahrzeuge",
+        "en": "Cars"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "mechanics": {
+        "ru": "Механики",
+        "de": "Mechaniker",
+        "en": "Mechanics"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "work_orders": {
+        "ru": "Заказы",
+        "de": "Aufträge",
+        "en": "Work Orders"
+      },
+      "vehicles": {
+        "ru": "Автомобили",
+        "de": "Fahrzeuge",
+        "en": "Vehicles"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Заказы, автомобили и механики",
+      "de": "Aufträge, Fahrzeuge und Mechaniker",
+      "en": "Orders, vehicles and mechanics"
+    }
+  },
+  "hotel_booking": {
+    "panel_title": {
+      "ru": "Панель отеля",
+      "de": "Hotel-Panel",
+      "en": "Hotel Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "rooms": {
+        "ru": "Номера",
+        "de": "Zimmer",
+        "en": "Rooms"
+      },
+      "bookings": {
+        "ru": "Бронирования",
+        "de": "Buchungen",
+        "en": "Bookings"
+      },
+      "guests": {
+        "ru": "Гости",
+        "de": "Gäste",
+        "en": "Guests"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "housekeeping": {
+        "ru": "Уборка",
+        "de": "Housekeeping",
+        "en": "Housekeeping"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "reservations": {
+        "ru": "Бронирования",
+        "de": "Buchungen",
+        "en": "Reservations"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Номера, гости и бронирования",
+      "de": "Zimmer, Gäste und Buchungen",
+      "en": "Rooms, guests and bookings"
+    }
+  },
+  "education": {
+    "panel_title": {
+      "ru": "Панель образования",
+      "de": "Bildungs-Panel",
+      "en": "Education Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "students": {
+        "ru": "Студенты",
+        "de": "Schüler",
+        "en": "Students"
+      },
+      "teachers": {
+        "ru": "Преподаватели",
+        "de": "Lehrer",
+        "en": "Teachers"
+      },
+      "classes": {
+        "ru": "Занятия",
+        "de": "Klassen",
+        "en": "Classes"
+      },
+      "attendance": {
+        "ru": "Посещаемость",
+        "de": "Anwesenheit",
+        "en": "Attendance"
+      },
+      "grades": {
+        "ru": "Успеваемость",
+        "de": "Noten",
+        "en": "Grades"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "courses": {
+        "ru": "Курсы",
+        "de": "Kurse",
+        "en": "Courses"
+      },
+      "appointments": {
+        "ru": "Занятия",
+        "de": "Termine",
+        "en": "Classes"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Студенты, курсы и успеваемость",
+      "de": "Studenten, Kurse und Leistungen",
+      "en": "Students, courses and performance"
+    }
+  },
+  "logistics": {
+    "panel_title": {
+      "ru": "Панель логистики",
+      "de": "Logistik-Panel",
+      "en": "Logistics Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "orders": {
+        "ru": "Заказы",
+        "de": "Aufträge",
+        "en": "Orders"
+      },
+      "drivers": {
+        "ru": "Водители",
+        "de": "Fahrer",
+        "en": "Drivers"
+      },
+      "vehicles": {
+        "ru": "Транспорт",
+        "de": "Fahrzeuge",
+        "en": "Vehicles"
+      },
+      "routes": {
+        "ru": "Маршруты",
+        "de": "Routen",
+        "en": "Routes"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "deliveries": {
+        "ru": "Доставки",
+        "de": "Lieferungen",
+        "en": "Deliveries"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Маршруты, водители и доставки",
+      "de": "Routen, Fahrer und Lieferungen",
+      "en": "Routes, drivers and deliveries"
+    }
+  },
+  "ecommerce": {
+    "panel_title": {
+      "ru": "Панель магазина",
+      "de": "Shop-Panel",
+      "en": "Shop Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "orders": {
+        "ru": "Заказы",
+        "de": "Bestellungen",
+        "en": "Orders"
+      },
+      "products": {
+        "ru": "Товары",
+        "de": "Produkte",
+        "en": "Products"
+      },
+      "customers": {
+        "ru": "Покупатели",
+        "de": "Kunden",
+        "en": "Customers"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "analytics": {
+        "ru": "Аналитика",
+        "de": "Analytik",
+        "en": "Analytics"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "clients": {
+        "ru": "Покупатели",
+        "de": "Kunden",
+        "en": "Clients"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Товары, заказы и клиенты",
+      "de": "Produkte, Bestellungen und Kunden",
+      "en": "Products, orders and customers"
+    }
+  },
+  "technology": {
+    "panel_title": {
+      "ru": "Панель технологий",
+      "de": "Tech-Panel",
+      "en": "Tech Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "projects": {
+        "ru": "Проекты",
+        "de": "Projekte",
+        "en": "Projects"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "developers": {
+        "ru": "Разработчики",
+        "de": "Entwickler",
+        "en": "Developers"
+      },
+      "tasks": {
+        "ru": "Задачи",
+        "de": "Aufgaben",
+        "en": "Tasks"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "products": {
+        "ru": "Продукты",
+        "de": "Produkte",
+        "en": "Products"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Продукты, клиенты и задачи",
+      "de": "Produkte, Kunden und Aufgaben",
+      "en": "Products, clients and tasks"
+    }
+  },
+  "real_estate": {
+    "panel_title": {
+      "ru": "Панель недвижимости",
+      "de": "Immobilien-Panel",
+      "en": "Real Estate Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "properties": {
+        "ru": "Объекты",
+        "de": "Objekte",
+        "en": "Properties"
+      },
+      "agents": {
+        "ru": "Агенты",
+        "de": "Makler",
+        "en": "Agents"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "viewings": {
+        "ru": "Показы",
+        "de": "Besichtigungen",
+        "en": "Viewings"
+      },
+      "contracts": {
+        "ru": "Договоры",
+        "de": "Verträge",
+        "en": "Contracts"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Объекты, клиенты и показы",
+      "de": "Objekte, Kunden und Besichtigungen",
+      "en": "Properties, clients and viewings"
+    }
+  },
+  "veterinary_clinic": {
+    "panel_title": {
+      "ru": "Панель ветклиники",
+      "de": "Tierklinik-Panel",
+      "en": "Veterinary Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "pets": {
+        "ru": "Питомцы",
+        "de": "Haustiere",
+        "en": "Pets"
+      },
+      "owners": {
+        "ru": "Владельцы",
+        "de": "Besitzer",
+        "en": "Owners"
+      },
+      "appointments": {
+        "ru": "Приёмы",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "treatments": {
+        "ru": "Лечение",
+        "de": "Behandlungen",
+        "en": "Treatments"
+      },
+      "vaccinations": {
+        "ru": "Вакцинации",
+        "de": "Impfungen",
+        "en": "Vaccinations"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Питомцы, владельцы и приёмы",
+      "de": "Haustiere, Besitzer und Termine",
+      "en": "Pets, owners and appointments"
+    }
+  },
+  "school_management": {
+    "panel_title": {
+      "ru": "Панель школы",
+      "de": "Schul-Panel",
+      "en": "School Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "students": {
+        "ru": "Ученики",
+        "de": "Schüler",
+        "en": "Students"
+      },
+      "teachers": {
+        "ru": "Учителя",
+        "de": "Lehrer",
+        "en": "Teachers"
+      },
+      "classes": {
+        "ru": "Классы",
+        "de": "Klassen",
+        "en": "Classes"
+      },
+      "attendance": {
+        "ru": "Посещаемость",
+        "de": "Anwesenheit",
+        "en": "Attendance"
+      },
+      "grades": {
+        "ru": "Оценки",
+        "de": "Noten",
+        "en": "Grades"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Ученики, классы и оценки",
+      "de": "Schüler, Klassen und Noten",
+      "en": "Students, classes and grades"
+    }
+  },
+  "course_platform": {
+    "panel_title": {
+      "ru": "Панель курсов",
+      "de": "Kurs-Panel",
+      "en": "Course Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "courses": {
+        "ru": "Курсы",
+        "de": "Kurse",
+        "en": "Courses"
+      },
+      "lessons": {
+        "ru": "Уроки",
+        "de": "Lektionen",
+        "en": "Lessons"
+      },
+      "students": {
+        "ru": "Студенты",
+        "de": "Studierende",
+        "en": "Students"
+      },
+      "progress": {
+        "ru": "Прогресс",
+        "de": "Fortschritt",
+        "en": "Progress"
+      },
+      "certificates": {
+        "ru": "Сертификаты",
+        "de": "Zertifikate",
+        "en": "Certificates"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Курсы, уроки и прогресс",
+      "de": "Kurse, Lektionen und Fortschritt",
+      "en": "Courses, lessons and progress"
+    }
+  },
+  "inventory_system": {
+    "panel_title": {
+      "ru": "Панель склада",
+      "de": "Lager-Panel",
+      "en": "Inventory Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "products": {
+        "ru": "Товары",
+        "de": "Produkte",
+        "en": "Products"
+      },
+      "warehouses": {
+        "ru": "Склады",
+        "de": "Lager",
+        "en": "Warehouses"
+      },
+      "suppliers": {
+        "ru": "Поставщики",
+        "de": "Lieferanten",
+        "en": "Suppliers"
+      },
+      "stock": {
+        "ru": "Остатки",
+        "de": "Bestand",
+        "en": "Stock"
+      },
+      "orders": {
+        "ru": "Заказы",
+        "de": "Bestellungen",
+        "en": "Orders"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Товары, склады и заказы",
+      "de": "Produkte, Lager und Bestellungen",
+      "en": "Products, warehouses and orders"
+    }
+  },
+  "law_firm": {
+    "panel_title": {
+      "ru": "Панель юрфирмы",
+      "de": "Kanzlei-Panel",
+      "en": "Law Firm Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Mandanten",
+        "en": "Clients"
+      },
+      "matters": {
+        "ru": "Дела",
+        "de": "Mandate",
+        "en": "Matters"
+      },
+      "appointments": {
+        "ru": "Встречи",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Leistungen",
+        "en": "Services"
+      },
+      "invoices": {
+        "ru": "Счета",
+        "de": "Rechnungen",
+        "en": "Invoices"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      },
+      "staff": {
+        "en": "Staff",
+        "de": "Mitarbeiter",
+        "ru": "Сотрудники"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Клиенты, дела и встречи",
+      "de": "Mandanten, Mandate und Termine",
+      "en": "Clients, matters and appointments"
+    }
+  },
+  "accounting": {
+    "panel_title": {
+      "ru": "Панель бухгалтерии",
+      "de": "Buchhaltungs-Panel",
+      "en": "Accounting Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Mandanten",
+        "en": "Clients"
+      },
+      "invoices": {
+        "ru": "Счета",
+        "de": "Rechnungen",
+        "en": "Invoices"
+      },
+      "appointments": {
+        "ru": "Встречи",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Leistungen",
+        "en": "Services"
+      },
+      "reports": {
+        "ru": "Отчёты",
+        "de": "Berichte",
+        "en": "Reports"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      },
+      "staff": {
+        "en": "Staff",
+        "de": "Mitarbeiter",
+        "ru": "Сотрудники"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Клиенты, счета и отчёты",
+      "de": "Mandanten, Rechnungen und Berichte",
+      "en": "Clients, invoices and reports"
+    }
+  },
+  "construction": {
+    "panel_title": {
+      "ru": "Панель строительства",
+      "de": "Bau-Panel",
+      "en": "Construction Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "projects": {
+        "ru": "Проекты",
+        "de": "Projekte",
+        "en": "Projects"
+      },
+      "appointments": {
+        "ru": "Выезды",
+        "de": "Termine",
+        "en": "Site visits"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Leistungen",
+        "en": "Services"
+      },
+      "staff": {
+        "ru": "Бригада",
+        "de": "Team",
+        "en": "Crew"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Клиенты, проекты и выезды",
+      "de": "Kunden, Projekte und Termine",
+      "en": "Clients, projects and site visits"
+    }
+  },
+  "cleaning_service": {
+    "panel_title": {
+      "ru": "Панель клининга",
+      "de": "Reinigungs-Panel",
+      "en": "Cleaning Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "appointments": {
+        "ru": "Уборки",
+        "de": "Einsätze",
+        "en": "Jobs"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Leistungen",
+        "en": "Services"
+      },
+      "staff": {
+        "ru": "Сотрудники",
+        "de": "Mitarbeiter",
+        "en": "Staff"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      },
+      "payments": {
+        "en": "Payments",
+        "de": "Zahlungen",
+        "ru": "Платежи"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Клиенты, уборки и услуги",
+      "de": "Kunden, Einsätze und Leistungen",
+      "en": "Clients, jobs and services"
+    }
+  },
+  "car_wash": {
+    "panel_title": {
+      "ru": "Панель автомойки",
+      "de": "Autowäsche-Panel",
+      "en": "Car Wash Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Customers"
+      },
+      "appointments": {
+        "ru": "Заказы на мойку",
+        "de": "Waschaufträge",
+        "en": "Wash Orders"
+      },
+      "services": {
+        "ru": "Услуги мойки",
+        "de": "Waschleistungen",
+        "en": "Wash Services"
+      },
+      "staff": {
+        "ru": "Сотрудники",
+        "de": "Mitarbeiter",
+        "en": "Employees"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Клиенты, заказы на мойку и услуги мойки",
+      "de": "Kunden, Waschaufträge und Waschleistungen",
+      "en": "Customers, wash orders and wash services"
+    }
+  },
+  "barbershop": {
+    "panel_title": {
+      "ru": "Панель барбершопа",
+      "de": "Barbershop-Panel",
+      "en": "Barbershop Panel"
+    },
+    "tabs": {
+      "dashboard": {
+        "ru": "Дашборд",
+        "de": "Dashboard",
+        "en": "Dashboard"
+      },
+      "clients": {
+        "ru": "Клиенты",
+        "de": "Kunden",
+        "en": "Clients"
+      },
+      "appointments": {
+        "ru": "Записи",
+        "de": "Termine",
+        "en": "Appointments"
+      },
+      "services": {
+        "ru": "Услуги",
+        "de": "Leistungen",
+        "en": "Services"
+      },
+      "staff": {
+        "ru": "Барберы",
+        "de": "Barbiere",
+        "en": "Barbers"
+      },
+      "payments": {
+        "ru": "Платежи",
+        "de": "Zahlungen",
+        "en": "Payments"
+      },
+      "settings": {
+        "ru": "Настройки",
+        "de": "Einstellungen",
+        "en": "Settings"
+      }
+    },
+    "panel_tagline": {
+      "ru": "Клиенты, записи и услуги",
+      "de": "Kunden, Termine und Leistungen",
+      "en": "Clients, appointments and services"
+    }
+  }
+}

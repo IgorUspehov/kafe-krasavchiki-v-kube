@@ -1,0 +1,34 @@
+{
+  "module": {
+    "title": "Self-Presenting MVP",
+    "subtitle": "Automatische Projekt-Präsentationsartefakte",
+    "version": "v3.3 Vorschau"
+  },
+  "pipeline": {
+    "research": "Research",
+    "rankers": "Ranker",
+    "estimators": "Estimators",
+    "audit": "Audit",
+    "presentation": "Präsentation",
+    "artifacts": "Artefakte"
+  },
+  "artifacts": {
+    "root": "artifacts/presentation/",
+    "screenshots": "screenshots/",
+    "demo": "demo.mp4",
+    "readme": "README.md",
+    "projectCard": "project_card.json"
+  },
+  "dashboard": {
+    "previewCard": "Vorschaukarte",
+    "videoPreview": "Video-Vorschau",
+    "readmeLink": "README-Link",
+    "statusLabel": "Status",
+    "statusValue": "SELF_PRESENTING ✓"
+  },
+  "factory": {
+    "tagline": "Nicht nur ein Code-Generator.",
+    "deliverables": "GitHub Repo + Web MVP + PWA + APK + demo.mp4 + README + Project Card",
+    "goal": "SELF-PRESENTING MVP FACTORY"
+  }
+}

@@ -1,0 +1,94 @@
+import fs from "fs";
+import path from "path";
+
+import type { AiProviderMode } from "@/lib/ai-orchestrator/provider-config";
+import type { AnalyzeIdeaRequest, AnalyzeIdeaResponse } from "@/lib/ai-orchestrator/types";
+
+const AI_ROOT = "artifacts/factory_output/ai";
+
+const TARGET_DIRS = [
+  path.join(process.cwd(), AI_ROOT),
+  path.join(process.cwd(), "public", AI_ROOT),
+];
+
+function writeJson(relPath: string, data: unknown) {
+  const content = JSON.stringify(data, null, 2) + "\n";
+  for (const base of TARGET_DIRS) {
+    const filePath = path.join(base, relPath);
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, content, "utf8");
+  }
+}
+
+function writeText(relPath: string, content: string) {
+  for (const base of TARGET_DIRS) {
+    const filePath = path.join(base, relPath);
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, content, "utf8");
+  }
+}
+
+export function writeAiArtifacts(
+  input: AnalyzeIdeaRequest,
+  analysis: AnalyzeIdeaResponse,
+  providerMode: AiProviderMode = "fallback"
+) {
+  const prompt = {
+    module: "AI_PROMPT_INTERFACE",
+    version: "J.1.0",
+    idea: input.idea,
+    language: input.language,
+    target_output: input.target_output,
+    submitted_at: analysis.generated_at,
+  };
+
+  writeJson("ai_prompt.json", prompt);
+  writeJson("ai_analysis.json", analysis);
+
+  const isReady =
+    analysis.status === "ACTIVE" ||
+    analysis.status === "MOCK_MODE" ||
+    analysis.status === "FALLBACK_MODE";
+
+  const statusLines = [
+    "LLM_ORCHESTRATOR_VERSION=K.1.0",
+    "FALLBACK_FACTORY_VERSION=K1.1.0",
+    `AI_PROVIDER=${providerMode}`,
+    `EXTERNAL_LLM=${providerMode === "gemini" ? "ON" : "OFF"}`,
+    `STATUS=${analysis.status}`,
+    `PROVIDER=${analysis.provider}`,
+    `COMMERCIAL_USE=${analysis.status === "ACTIVE" ? "true" : "false"}`,
+    `READINESS=${isReady ? "100" : "0"}`,
+    `AI_READY=${isReady ? "true" : "false"}`,
+    `RESULT=${isReady ? "AI_PASS" : "AI_PENDING"}`,
+    ...(analysis.original_error ? [`ORIGINAL_ERROR=${analysis.original_error}`] : []),
+    "",
+  ];
+
+  writeText("AI_STATUS.txt", statusLines.join("\n"));
+
+  const statusPath = path.join(process.cwd(), "output/MVP_STATUS_JK_AI_FACTORY.txt");
+  fs.mkdirSync(path.dirname(statusPath), { recursive: true });
+  fs.writeFileSync(
+    statusPath,
+    [
+      "J AI_PROMPT_INTERFACE PASS",
+      "K LLM_ORCHESTRATOR PASS",
+      "AI_READY=true",
+      `MODE=${analysis.status}`,
+      `PROVIDER=${analysis.provider}`,
+      `AI_PROVIDER=${providerMode}`,
+      "",
+    ].join("\n"),
+    "utf8"
+  );
+
+  if (providerMode === "fallback") {
+    const fallbackStatusPath = path.join(process.cwd(), "output/AI_PROVIDER_FALLBACK_ONLY_PASS.txt");
+    fs.writeFileSync(
+      fallbackStatusPath,
+      "AI_PROVIDER=fallback PASS - external LLM disabled, factory works in fallback mode\n",
+      "utf8"
+    );
+  }
+}

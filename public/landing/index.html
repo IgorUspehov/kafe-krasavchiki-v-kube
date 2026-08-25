@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fertige CRM-Software für Ihr Unternehmen — in 24 Stunden, ohne Programmierer, ab €299."
+    />
+    <title>MVP Factory — CRM-Software für Ihr Unternehmen</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-soft: #f0f7ff;
+        --bg-muted: #e8f4fd;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --text: #0f172a;
+        --text-muted: #475569;
+        --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        --radius: 14px;
+        --max-width: 1100px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(100% - 2rem, var(--max-width));
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 4.5rem 0;
+      }
+
+      .section-alt {
+        background: var(--bg-soft);
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+        margin: 0 0 1rem;
+      }
+
+      h2 {
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.9rem 1.6rem;
+        border: none;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+      }
+
+      .btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.32);
+      }
+
+      .btn-outline {
+        background: #fff;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+        box-shadow: none;
+      }
+
+      .btn-outline:hover {
+        background: var(--bg-soft);
+        color: var(--accent-hover);
+      }
+
+      .btn-sm {
+        padding: 0.55rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      /* Hero */
+      .hero {
+        background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+        padding: 5.5rem 0 4.5rem;
+        text-align: center;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        margin-bottom: 1.25rem;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        background: var(--bg-muted);
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        max-width: 18ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero p {
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        color: var(--text-muted);
+        max-width: 36ch;
+        margin: 0 auto 2rem;
+      }
+
+      /* Video */
+      .video-wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--card-shadow);
+        overflow: hidden;
+        border: 1px solid #dbeafe;
+      }
+
+      .video-wrap video {
+        display: block;
+        width: 100%;
+        background: var(--bg-muted);
+      }
+
+      .video-caption {
+        text-align: center;
+        margin-top: 1.25rem;
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      /* Niche cards */
+      .niche-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+
+      .niche-card {
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--card-shadow);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        border: 1px solid #eef2ff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .niche-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+      }
+
+      .niche-icon {
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .niche-card h3 {
+        font-size: 1.15rem;
+        margin: 0;
+      }
+
+      .niche-price {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 0.25rem 0 0.75rem;
+      }
+
+      /* Steps */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .step-card {
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--card-shadow);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        border: 1px solid #eef2ff;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--bg-muted);
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .step-icon {
+        font-size: 2.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .step-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .step-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* Form */
+      .contact-section {
+        background: linear-gradient(180deg, var(--bg-soft) 0%, #ffffff 100%);
+      }
+
+      .form-card {
+        max-width: 640px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--card-shadow);
+        padding: 2rem;
+        border: 1px solid #dbeafe;
+      }
+
+      .form-group {
+        margin-bottom: 1.1rem;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.75rem 0.9rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        font: inherit;
+        background: #fff;
+        color: var(--text);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .form-success {
+        display: none;
+        margin-top: 1.25rem;
+        padding: 1rem 1.1rem;
+        border-radius: 10px;
+        background: #ecfdf5;
+        color: #065f46;
+        border: 1px solid #a7f3d0;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .form-success.visible {
+        display: block;
+      }
+
+      .hp-field {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+      }
+
+      footer {
+        padding: 2rem 0;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        background: var(--bg-soft);
+        border-top: 1px solid #dbeafe;
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 3.5rem 0;
+        }
+
+        .niche-grid,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .form-card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <span class="hero-badge">MVP Factory · CRM in 24h</span>
+        <h1>Fertige CRM-Software für Ihr Unternehmen</h1>
+        <p>In 24 Stunden — ohne Programmierer — ab €299</p>
+        <a class="btn" href="#contact">Kostenlose Demo anfordern</a>
+      </div>
+    </header>
+
+    <section class="section-alt" id="demo">
+      <div class="container">
+        <h2>Sehen Sie Ihr MVP in Aktion</h2>
+        <div class="video-wrap">
+          <video src="client_delivery/demo.mp4" controls playsinline preload="metadata">
+            Ihr Browser unterstützt das Video-Element nicht.
+          </video>
+        </div>
+        <p class="video-caption">Das ist ein echtes Beispiel — Ihr MVP sieht genauso aus</p>
+      </div>
+    </section>
+
+    <section id="branchen">
+      <div class="container">
+        <h2>Wählen Sie Ihre Branche</h2>
+        <div class="niche-grid">
+          <article class="niche-card" data-niche="Zahnarztpraxis">
+            <span class="niche-icon" aria-hidden="true">🦷</span>
+            <h3>Zahnarztpraxis</h3>
+            <p class="niche-price">€299</p>
+            <button type="button" class="btn btn-sm btn-outline select-niche">Auswählen</button>
+          </article>
+          <article class="niche-card" data-niche="Massage-Salon">
+            <span class="niche-icon" aria-hidden="true">💆</span>
+            <h3>Massage-Salon</h3>
+            <p class="niche-price">€299</p>
+            <button type="button" class="btn btn-sm btn-outline select-niche">Auswählen</button>
+          </article>
+          <article class="niche-card" data-niche="Autowerkstatt">
+            <span class="niche-icon" aria-hidden="true">🚗</span>
+            <h3>Autowerkstatt</h3>
+            <p class="niche-price">€349</p>
+            <button type="button" class="btn btn-sm btn-outline select-niche">Auswählen</button>
+          </article>
+          <article class="niche-card" data-niche="Fitnessstudio">
+            <span class="niche-icon" aria-hidden="true">💪</span>
+            <h3>Fitnessstudio</h3>
+            <p class="niche-price">€349</p>
+            <button type="button" class="btn btn-sm btn-outline select-niche">Auswählen</button>
+          </article>
+          <article class="niche-card" data-niche="Beauty-Salon">
+            <span class="niche-icon" aria-hidden="true">💅</span>
+            <h3>Beauty-Salon</h3>
+            <p class="niche-price">€299</p>
+            <button type="button" class="btn btn-sm btn-outline select-niche">Auswählen</button>
+          </article>
+          <article class="niche-card" data-niche="Gesundheitsklinik">
+            <span class="niche-icon" aria-hidden="true">🏥</span>
+            <h3>Gesundheitsklinik</h3>
+            <p class="niche-price">€399</p>
+            <button type="button" class="btn btn-sm btn-outline select-niche">Auswählen</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="ablauf">
+      <div class="container">
+        <h2>So funktioniert es</h2>
+        <div class="steps">
+          <article class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon" aria-hidden="true">📋</div>
+            <h3>Sie wählen Ihre Branche</h3>
+            <p>Wählen Sie aus 6 Branchen die passende CRM-Vorlage für Ihr Geschäft.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon" aria-hidden="true">⚡</div>
+            <h3>Wir generieren Ihr MVP in 24h</h3>
+            <p>Ihr individuelles CRM wird automatisch erstellt und getestet.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon" aria-hidden="true">📦</div>
+            <h3>Sie erhalten Link + ZIP-Paket</h3>
+            <p>Live-Demo-Link, Demo-Video und vollständiges ZIP-Paket zum Download.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <h2>Jetzt MVP bestellen</h2>
+        <div class="form-card">
+          <form
+            id="order-form"
+            name="mvp-bestellung"
+            method="POST"
+            action="/"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="mvp-bestellung" />
+            <p class="hp-field" aria-hidden="true">
+              <label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
+
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input id="name" name="name" type="text" required autocomplete="name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-Mail *</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label for="branche">Branche *</label>
+              <select id="branche" name="branche" required>
+                <option value="">Bitte wählen…</option>
+                <option value="Zahnarztpraxis">🦷 Zahnarztpraxis — €299</option>
+                <option value="Massage-Salon">💆 Massage-Salon — €299</option>
+                <option value="Autowerkstatt">🚗 Autowerkstatt — €349</option>
+                <option value="Fitnessstudio">💪 Fitnessstudio — €349</option>
+                <option value="Beauty-Salon">💅 Beauty-Salon — €299</option>
+                <option value="Gesundheitsklinik">🏥 Gesundheitsklinik — €399</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nachricht">Nachricht</label>
+              <textarea
+                id="nachricht"
+                name="nachricht"
+                placeholder="Besondere Wünsche…"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%">MVP jetzt bestellen — ab €299</button>
+          </form>
+          <p id="form-success" class="form-success" role="status">
+            ✅ Vielen Dank! Wir melden uns innerhalb von 24 Stunden.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">© <span id="year"></span> MVP Factory — CRM-Software für KMU</div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const brancheSelect = document.getElementById("branche");
+      const orderForm = document.getElementById("order-form");
+      const successMessage = document.getElementById("form-success");
+
+      document.querySelectorAll(".select-niche").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".niche-card");
+          const niche = card?.dataset.niche;
+          if (!niche) return;
+
+          const option = Array.from(brancheSelect.options).find((opt) => opt.value === niche);
+          if (option) {
+            brancheSelect.value = niche;
+          }
+
+          document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
+          brancheSelect.focus();
+        });
+      });
+
+      function showSuccess() {
+        orderForm.style.display = "none";
+        successMessage.classList.add("visible");
+      }
+
+      function buildMailtoPayload(formData) {
+        const name = formData.get("name") || "";
+        const email = formData.get("email") || "";
+        const phone = formData.get("phone") || "";
+        const branche = formData.get("branche") || "";
+        const nachricht = formData.get("nachricht") || "";
+        const subject = encodeURIComponent(`MVP Bestellung — ${branche}`);
+        const body = encodeURIComponent(
+          `Name: ${name}\nE-Mail: ${email}\nTelefon: ${phone}\nBranche: ${branche}\n\nNachricht:\n${nachricht}`,
+        );
+        return `mailto:info@mvp-factory.de?subject=${subject}&body=${body}`;
+      }
+
+      orderForm.addEventListener("submit", async (event) => {
+        const isNetlifyHost =
+          window.location.hostname.includes("netlify.app") ||
+          window.location.hostname.endsWith(".netlify.com");
+
+        if (!isNetlifyHost) {
+          event.preventDefault();
+          const formData = new FormData(orderForm);
+          window.location.href = buildMailtoPayload(formData);
+          showSuccess();
+          return;
+        }
+
+        event.preventDefault();
+        const formData = new FormData(orderForm);
+
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+          });
+
+          if (response.ok) {
+            showSuccess();
+            return;
+          }
+        } catch (_error) {
+          /* fallback below */
+        }
+
+        window.location.href = buildMailtoPayload(formData);
+        showSuccess();
+      });
+
+      if (new URLSearchParams(window.location.search).get("success") === "true") {
+        showSuccess();
+      }
+    </script>
+  </body>
+</html>

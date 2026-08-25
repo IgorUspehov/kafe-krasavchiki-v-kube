@@ -1,0 +1,25 @@
+{
+  "business_type_to_normalized": {
+    "barbershop": "beauty_salon",
+    "beauty_salon": "beauty_salon",
+    "dental_clinic": "dentist",
+    "car_service": "automotive_service",
+    "fitness_club": "fitness",
+    "restaurant": "restaurant",
+    "real_estate": "real_estate",
+    "education": "education",
+    "ecommerce": "ecommerce",
+    "cleaning_service": "cleaning"
+  },
+  "normalized_to_assembly_rules_key": {
+    "beauty_salon": "beauty_salon",
+    "dentist": "dentist",
+    "automotive_service": "automotive_service",
+    "fitness": "fitness_club",
+    "restaurant": "restaurant",
+    "real_estate": "real_estate",
+    "education": "online_course",
+    "ecommerce": "consulting",
+    "cleaning": "cleaning_service"
+  }
+}

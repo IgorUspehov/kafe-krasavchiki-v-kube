@@ -1,0 +1,54 @@
+{
+  "business_type_to_category": {
+  "health_clinic": "medical_clinic",
+    "dental_clinic": "dental_clinic",
+    "beauty_salon": "beauty_salon",
+    "barbershop": "beauty_salon",
+    "car_service": "car_service",
+    "fitness_club": "fitness_club",
+    "restaurant": "restaurant",
+    "real_estate": "real_estate",
+    "education": "education",
+    "ecommerce": "ecommerce",
+    "cleaning_service": "cleaning_service",
+    "restaurant_crm": "restaurant",
+    "hotel_booking": "restaurant",
+    "massage_salon": "beauty_salon",
+    "real_estate_crm": "real_estate",
+    "car_service_crm": "car_service",
+    "course_platform": "education",
+    "school_management": "education",
+    "veterinary_clinic": "medical_clinic",
+    "inventory_system": "ecommerce"
+  },
+  "knowledge_pack_folder_aliases": {
+    "dental_clinic": "dentist",
+    "car_service": "automotive_service",
+    "education": "online_course",
+    "ecommerce": "consulting",
+    "medical_clinic": "medical_clinic"
+  },
+  "supported_languages": [
+    "en",
+    "de",
+    "ru"
+  ],
+  "business_categories": [
+    "dental_clinic",
+    "health_clinic",
+    "beauty_salon",
+    "car_service",
+    "fitness_club",
+    "restaurant",
+    "real_estate",
+    "education",
+    "ecommerce",
+    "cleaning_service",
+    "dentist",
+    "automotive_service",
+    "online_course",
+    "consulting",
+    "medical_clinic"
+  ],
+  "default_category": "consulting"
+}

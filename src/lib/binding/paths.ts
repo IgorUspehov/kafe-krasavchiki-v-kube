@@ -1,0 +1,15 @@
+export const BINDING_PATHS = {
+  root: "artifacts/factory_output/binding",
+  manifest: "artifacts/factory_output/binding/binding_manifest.json",
+  report: "artifacts/factory_output/binding/binding_report.json",
+  frontendRoutes: "artifacts/factory_output/binding/frontend_routes.json",
+  entityBinding: "artifacts/factory_output/binding/entity_binding.json",
+  apiBinding: "artifacts/factory_output/binding/api_binding.json",
+  routeBinding: "artifacts/factory_output/binding/route_binding.json",
+  formBinding: "artifacts/factory_output/binding/form_binding.json",
+  tableBinding: "artifacts/factory_output/binding/table_binding.json",
+  dashboardBinding: "artifacts/factory_output/binding/dashboard_binding.json",
+  errorHandling: "artifacts/factory_output/binding/error_handling.json",
+  services: "artifacts/factory_output/binding/services.json",
+  hooks: "artifacts/factory_output/binding/hooks.json",
+} as const;

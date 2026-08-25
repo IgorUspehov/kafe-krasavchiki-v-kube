@@ -1,0 +1,33 @@
+import { NextResponse } from "next/server";
+
+import { toErrorMessage } from "@/lib/errors";
+import { orchestrateAnalysis } from "@/lib/ai-orchestrator/orchestrator";
+import type { AnalyzeIdeaRequest, PromptLanguage, TargetOutput } from "@/lib/ai-orchestrator/types";
+
+const LANGUAGES: PromptLanguage[] = ["ru", "en", "de"];
+const TARGETS: TargetOutput[] = ["MVP", "SaaS", "Landing", "APK", "PWA"];
+
+export async function POST(request: Request) {
+  try {
+    const body = (await request.json()) as Partial<AnalyzeIdeaRequest>;
+    const idea = typeof body.idea === "string" ? body.idea.trim() : "";
+
+    if (!idea) {
+      return NextResponse.json({ error: "idea is required" }, { status: 400 });
+    }
+
+    const language = LANGUAGES.includes(body.language as PromptLanguage)
+      ? (body.language as PromptLanguage)
+      : "en";
+
+    const target_output = TARGETS.includes(body.target_output as TargetOutput)
+      ? (body.target_output as TargetOutput)
+      : "MVP";
+
+    const analysis = await orchestrateAnalysis({ idea, language, target_output });
+    return NextResponse.json(analysis, { status: 200 });
+  } catch (error) {
+    const message = toErrorMessage(error, "Invalid request");
+    return NextResponse.json({ error: message }, { status: 400 });
+  }
+}

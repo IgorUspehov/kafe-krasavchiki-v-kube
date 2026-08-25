@@ -1,0 +1,28 @@
+{
+  "og_width": 1200,
+  "og_height": 630,
+  "og_max_bytes": 256000,
+  "og_photo_index": 5,
+  "folders": [
+    "hotel",
+    "car_dealer",
+    "beauty_salon",
+    "dental_clinic",
+    "restaurant",
+    "fitness_club",
+    "real_estate",
+    "technology",
+    "generic",
+    "logistics",
+    "massage_salon",
+    "health_clinic",
+    "ecommerce",
+    "education",
+    "law_firm",
+    "accounting",
+    "construction",
+    "cleaning_service",
+    "veterinary_clinic"
+  ],
+  "placeholders": []
+}
