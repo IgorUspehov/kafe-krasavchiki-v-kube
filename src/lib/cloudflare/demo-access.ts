@@ -5,6 +5,7 @@ import {
   buildReadablePublicSiteUrlByClientId,
 } from "@/lib/cloudflare/shared-project";
 import { hydrateClientManifest } from "@/lib/admin/lookup";
+import { isDeployableZipRuntime } from "@/lib/deployable-zip/runtime";
 import { POLAR_CHECKOUT_WEBSTUDIO_199 } from "@/lib/polar/constants";
 import { buildTariffsPagePath } from "@/lib/tariffs/urls";
 
@@ -38,6 +39,7 @@ export function buildCrmDemoCheckoutUrl(clientId: string): string {
  * `paid` is true only when registry or pending-deletion record is marked paid
  * (Polar/LemonSqueezy webhook via cancelDeletion / markDemoPaid).
  * Unknown clientId → unpaid (fail closed).
+ * Deployable ZIP (€999 self-host) is always full license — no demo badge / paywall.
  * Banner CTA opens the tariff chooser; €199/month uses Polar.
  */
 export function resolveDemoAccess(clientId: string): DemoAccessStatus {
@@ -62,12 +64,27 @@ export function resolveDemoAccess(clientId: string): DemoAccessStatus {
 
   const demo = findDemoByClientId(id);
   const pending = findPendingByClientId(id);
-  const found = Boolean(demo || pending);
-  const paid = demo?.paid === true || pending?.paid === true;
   const slug = demo?.slug || pending?.slug || null;
   const crmUrl = slug ? buildReadableDemoUrl(slug, id) : null;
   // Prefer clientId URLs — immune to slug typos (a03c vs a83c) and cold Render /tmp.
   const publicSiteUrl = buildReadablePublicSiteUrlByClientId(id);
+
+  // Buyer ZIP already paid €999 — never show Demo / subscription upsells.
+  if (isDeployableZipRuntime()) {
+    return {
+      clientId: id,
+      paid: true,
+      found: true,
+      checkoutUrl,
+      polarCheckoutUrl,
+      crmUrl,
+      publicSiteUrl,
+      slug,
+    };
+  }
+
+  const found = Boolean(demo || pending);
+  const paid = demo?.paid === true || pending?.paid === true;
 
   return {
     clientId: id,

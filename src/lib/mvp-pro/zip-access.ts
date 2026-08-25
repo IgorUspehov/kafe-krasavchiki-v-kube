@@ -1,11 +1,18 @@
 import { isClientZipUnlockedInStore } from "@/lib/billing/paid-tenant";
+import { isDeployableZipRuntime } from "@/lib/deployable-zip/runtime";
 import { loadMvpProEntitlement } from "@/lib/mvp-pro/entitlement-store";
 
-export type ZipUnlockReason = "bypass" | "entitlement" | "firestore" | "payment_required";
+export type ZipUnlockReason =
+  | "bypass"
+  | "deployable_zip"
+  | "entitlement"
+  | "firestore"
+  | "payment_required";
 
 /**
  * Who may download Deployable ZIP:
  * - env DEPLOYABLE_ZIP_OWNER_BYPASS=1 (operator testing)
+ * - runtime IS_DEPLOYABLE_ZIP=true (buyer already runs the paid ZIP — no €999 upsell)
  * - local MVP Pro / Deployable ZIP entitlement for this clientId
  * - Firestore clients/{clientId}.zip_unlocked === true (Polar webhook)
  */
@@ -15,6 +22,10 @@ export function canDownloadDeployableZip(clientId: string): {
 } {
   if (process.env.DEPLOYABLE_ZIP_OWNER_BYPASS?.trim() === "1") {
     return { allowed: true, reason: "bypass" };
+  }
+  // Self-hosted ZIP is the product — never pitch Buy ZIP €999 again.
+  if (isDeployableZipRuntime()) {
+    return { allowed: true, reason: "deployable_zip" };
   }
   const entitlement = loadMvpProEntitlement(clientId);
   if (entitlement?.downloadToken) {

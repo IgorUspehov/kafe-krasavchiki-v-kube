@@ -5,11 +5,15 @@ import { useSearchParams } from "next/navigation";
 
 import { AdminI18nProvider, useAdminI18n } from "@/components/admin/admin-i18n";
 import { AdminLangSwitcher } from "@/components/admin/admin-lang-switcher";
+import {
+  buildZipAdminEnterPath,
+  enterZipAdminSession,
+} from "@/lib/admin/zip-client-session";
 
-function buildBypassLoginUrl(clientId: string): string {
+function buildDirectAdminUrl(clientId: string): string {
   const id = clientId.trim();
   if (!id || typeof window === "undefined") return "";
-  return `${window.location.origin}/api/admin/bypass?clientId=${encodeURIComponent(id)}&token=bypass`;
+  return `${window.location.origin}${buildZipAdminEnterPath(id)}`;
 }
 
 function LoginForm() {
@@ -24,7 +28,7 @@ function LoginForm() {
   const [emailSent, setEmailSent] = useState(false);
   const [showDirectLink, setShowDirectLink] = useState(false);
 
-  const bypassUrl = useMemo(() => (clientId ? buildBypassLoginUrl(clientId) : ""), [clientId]);
+  const directUrl = useMemo(() => (clientId ? buildDirectAdminUrl(clientId) : ""), [clientId]);
 
   const errorText =
     errorCode === "expired"
@@ -36,11 +40,19 @@ function LoginForm() {
           : "";
 
   function revealDirectLink(preferredUrl?: string) {
-    const url = (preferredUrl || "").trim() || bypassUrl;
+    const url = (preferredUrl || "").trim() || directUrl;
     if (url) {
       setLoginUrl(url);
       setShowDirectLink(true);
     }
+  }
+
+  function openAdminDirect() {
+    if (clientId) {
+      enterZipAdminSession(clientId, email || undefined);
+      return;
+    }
+    revealDirectLink(directUrl);
   }
 
   async function onSubmit(event: FormEvent) {
@@ -61,6 +73,7 @@ function LoginForm() {
         error?: string;
         loginUrl?: string;
         emailSent?: boolean;
+        deployableZip?: boolean;
       } = {};
       try {
         data = (await response.json()) as typeof data;
@@ -70,10 +83,20 @@ function LoginForm() {
 
       const apiLink = typeof data.loginUrl === "string" ? data.loginUrl.trim() : "";
 
+      // ZIP: skip fragile server bypass — enter from the client immediately.
+      if (data.deployableZip && clientId) {
+        enterZipAdminSession(clientId, email || undefined);
+        return;
+      }
+      if (apiLink.includes("/admin/enter") && clientId) {
+        enterZipAdminSession(clientId, email || undefined);
+        return;
+      }
+
       // Always surface a clickable login link when we have clientId (ZIP / Vercel without Resend).
       if (apiLink || clientId) {
         setEmailSent(Boolean(data.emailSent) && Boolean(apiLink));
-        revealDirectLink(apiLink || bypassUrl);
+        revealDirectLink(apiLink || directUrl);
         setStatus("sent");
         return;
       }
@@ -81,7 +104,7 @@ function LoginForm() {
       if (!response.ok || !data.ok) {
         setStatus("error");
         setApiError(data.error || "");
-        revealDirectLink(bypassUrl);
+        revealDirectLink(directUrl);
         return;
       }
 
@@ -89,12 +112,16 @@ function LoginForm() {
     } catch {
       setStatus("error");
       setApiError("");
-      // Guaranteed fallback for network / API failures.
-      revealDirectLink(bypassUrl);
+      // Guaranteed fallback: client-side ZIP entry, no server bypass.
+      if (clientId) {
+        enterZipAdminSession(clientId, email || undefined);
+        return;
+      }
+      revealDirectLink(directUrl);
     }
   }
 
-  const displayUrl = loginUrl || (showDirectLink ? bypassUrl : "");
+  const displayUrl = loginUrl || (showDirectLink ? directUrl : "");
 
   return (
     <main className="admin-login-wrap">
@@ -139,23 +166,21 @@ function LoginForm() {
               <p className="admin-muted">
                 {emailSent ? copy.login.sentWithLink : copy.login.linkReady}
               </p>
-              <a
+              <button
+                type="button"
                 className="admin-btn-primary"
-                href={displayUrl}
-                style={{ display: "inline-block", textAlign: "center", textDecoration: "none" }}
+                style={{ width: "100%" }}
+                onClick={() => openAdminDirect()}
               >
                 {copy.login.openLink}
+              </button>
+              <a
+                className="admin-link"
+                href={displayUrl}
+                style={{ fontSize: "0.85rem", wordBreak: "break-all" }}
+              >
+                {displayUrl}
               </a>
-              <input
-                className="admin-input"
-                type="text"
-                readOnly
-                value={displayUrl}
-                aria-label={copy.login.openLink}
-                onFocus={(event) => event.currentTarget.select()}
-                onClick={(event) => event.currentTarget.select()}
-                style={{ fontSize: "0.75rem" }}
-              />
             </div>
           ) : null}
 
@@ -171,7 +196,7 @@ function LoginForm() {
               type="button"
               className="admin-btn-primary"
               style={{ width: "100%" }}
-              onClick={() => revealDirectLink(bypassUrl)}
+              onClick={() => openAdminDirect()}
             >
               {copy.login.openLink}
             </button>

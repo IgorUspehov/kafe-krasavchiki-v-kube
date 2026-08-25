@@ -2,8 +2,10 @@ import { NextResponse } from "next/server";
 
 import { hydrateClientManifest, resolveMagicLinkClientId } from "@/lib/admin/lookup";
 import { createMagicLink, ADMIN_MAGIC_LINK_FROM } from "@/lib/admin/magic-link";
+import { buildZipAdminEnterPath } from "@/lib/admin/zip-client-session";
 import { sendResendEmail, waitForResendDeliveryStatus } from "@/lib/email/resend";
 import { resolveMagicLinkOrigin } from "@/lib/cloudflare/shared-project";
+import { isDeployableZipRuntime } from "@/lib/deployable-zip/runtime";
 import { readRootClientManifest } from "@/lib/deployable-zip/buyer-setup";
 
 export const runtime = "nodejs";
@@ -17,14 +19,22 @@ function escapeHtml(value: string): string {
 }
 
 function pickPackagedClientId(): string {
-  const packaged = readRootClientManifest();
-  if (!packaged) return "";
-  const id = packaged.clientId ?? packaged.client_id;
-  return typeof id === "string" ? id.trim() : "";
+  try {
+    const packaged = readRootClientManifest();
+    if (!packaged) return "";
+    const id = packaged.clientId ?? packaged.client_id;
+    return typeof id === "string" ? id.trim() : "";
+  } catch {
+    return "";
+  }
 }
 
-function isDeployableZip(): boolean {
-  return process.env.IS_DEPLOYABLE_ZIP === "true";
+function resolveRequestOrigin(request: Request): string {
+  try {
+    return new URL(request.url).origin;
+  } catch {
+    return resolveMagicLinkOrigin(request);
+  }
 }
 
 /**
@@ -32,10 +42,16 @@ function isDeployableZip(): boolean {
  * clientId (or URL hint) when email lookup has no Firestore/manifest match.
  */
 async function resolveLoginClientId(email: string, clientIdHint: string): Promise<string | null> {
-  const fromLookup = await resolveMagicLinkClientId(email, clientIdHint || undefined);
-  if (fromLookup) return fromLookup;
+  try {
+    const fromLookup = await resolveMagicLinkClientId(email, clientIdHint || undefined);
+    if (fromLookup) return fromLookup;
+  } catch (error) {
+    console.warn("[admin/login] lookup failed", {
+      message: error instanceof Error ? error.message : String(error),
+    });
+  }
 
-  if (!isDeployableZip()) return null;
+  if (!isDeployableZipRuntime()) return null;
 
   const packagedId = pickPackagedClientId();
   const hint = clientIdHint.trim();
@@ -44,68 +60,76 @@ async function resolveLoginClientId(email: string, clientIdHint: string): Promis
   return null;
 }
 
+function zipEnterLoginUrl(origin: string, clientId: string): string {
+  return `${origin.replace(/\/$/, "")}${buildZipAdminEnterPath(clientId)}`;
+}
+
 export async function POST(request: Request) {
+  const zip = isDeployableZipRuntime();
   let email = "";
   let clientIdHint = "";
+
   try {
-    const body = (await request.json()) as { email?: unknown; clientId?: unknown };
-    email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
-    clientIdHint = typeof body.clientId === "string" ? body.clientId.trim() : "";
-  } catch {
-    return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
-  }
+    try {
+      const body = (await request.json()) as { email?: unknown; clientId?: unknown };
+      email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+      clientIdHint = typeof body.clientId === "string" ? body.clientId.trim() : "";
+    } catch {
+      return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
+    }
 
-  if (!email || !email.includes("@")) {
-    return NextResponse.json({ ok: false, error: "Valid email required" }, { status: 400 });
-  }
+    if (!email || !email.includes("@")) {
+      return NextResponse.json({ ok: false, error: "Valid email required" }, { status: 400 });
+    }
 
-  const clientId = await resolveLoginClientId(email, clientIdHint);
-  console.log("[admin/login] lookup", {
-    email,
-    clientIdHint: clientIdHint || null,
-    clientId: clientId || null,
-    deployableZip: isDeployableZip(),
-  });
+    const origin = resolveRequestOrigin(request);
 
-  if (!clientId) {
-    // Deployable ZIP: still return a bypass URL so the UI never dead-ends.
-    if (isDeployableZip()) {
-      const fallbackId = clientIdHint.trim() || pickPackagedClientId();
-      if (fallbackId) {
-        let origin = resolveMagicLinkOrigin(request);
-        try {
-          origin = new URL(request.url).origin;
-        } catch {
-          /* keep */
-        }
+    // Deployable ZIP: never mint magic links / call Resend / hit bypass — client enters via /admin/enter.
+    if (zip) {
+      const clientId =
+        (await resolveLoginClientId(email, clientIdHint)) ||
+        clientIdHint.trim() ||
+        pickPackagedClientId();
+      if (!clientId) {
         return NextResponse.json({
           ok: true,
           emailSent: false,
-          loginUrl: `${origin}/api/admin/bypass?clientId=${encodeURIComponent(fallbackId)}&token=bypass`,
-          clientId: fallbackId,
+          deployableZip: true,
         });
       }
+      return NextResponse.json({
+        ok: true,
+        emailSent: false,
+        deployableZip: true,
+        loginUrl: zipEnterLoginUrl(origin, clientId),
+        clientId,
+      });
     }
-    return NextResponse.json({ ok: true, emailSent: false });
-  }
 
-  const { token } = createMagicLink({ clientId, email });
-  let origin = resolveMagicLinkOrigin(request);
-  if (isDeployableZip()) {
+    const clientId = await resolveLoginClientId(email, clientIdHint);
+    console.log("[admin/login] lookup", {
+      email,
+      clientIdHint: clientIdHint || null,
+      clientId: clientId || null,
+      deployableZip: false,
+    });
+
+    if (!clientId) {
+      return NextResponse.json({ ok: true, emailSent: false });
+    }
+
+    const { token } = createMagicLink({ clientId, email });
+    const loginUrl = `${origin}/api/admin/callback?token=${encodeURIComponent(token)}`;
+
+    let businessName = "Website";
     try {
-      origin = new URL(request.url).origin;
+      const manifest = (await hydrateClientManifest(clientId)) || readRootClientManifest() || {};
+      businessName = String(manifest.businessName || manifest.business_name || "Website");
     } catch {
-      /* keep resolveMagicLinkOrigin */
+      /* ignore */
     }
-  }
-  const loginUrl = `${origin}/api/admin/callback?token=${encodeURIComponent(token)}`;
-  const manifest = (await hydrateClientManifest(clientId)) || readRootClientManifest() || {};
-  const businessName = String(manifest.businessName || manifest.business_name || "Website");
 
-  const skipEmail = isDeployableZip();
-  let emailSent = false;
-
-  if (!skipEmail) {
+    let emailSent = false;
     const sendResult = await sendResendEmail({
       to: email,
       from: ADMIN_MAGIC_LINK_FROM,
@@ -131,7 +155,6 @@ export async function POST(request: Request) {
           clientId,
         });
         if (lastEvent === "bounced" || lastEvent === "failed" || lastEvent === "suppressed") {
-          // Fall through: still return loginUrl so the user can sign in without email.
           emailSent = false;
           console.warn("[admin/login] delivery failed — returning on-screen loginUrl", { lastEvent });
         }
@@ -139,16 +162,37 @@ export async function POST(request: Request) {
     } else {
       console.error("[admin/login] resend failed — returning on-screen loginUrl", sendResult.error);
     }
-  } else {
-    console.info("[admin/login] Deployable ZIP — skip Resend, return on-screen loginUrl", { clientId });
-  }
 
-  // Never fail the UX when we already minted a valid magic link.
-  return NextResponse.json({
-    ok: true,
-    emailSent,
-    loginUrl,
-    clientId,
-    businessName,
-  });
+    return NextResponse.json({
+      ok: true,
+      emailSent,
+      loginUrl,
+      clientId,
+      businessName,
+    });
+  } catch (error) {
+    console.error("[admin/login] unexpected failure", {
+      message: error instanceof Error ? error.message : String(error),
+      deployableZip: zip,
+    });
+    // ZIP must never 500 — hand the client an enter URL when possible.
+    if (zip) {
+      const fallbackId = clientIdHint.trim() || pickPackagedClientId();
+      const origin = resolveRequestOrigin(request);
+      if (fallbackId) {
+        return NextResponse.json({
+          ok: true,
+          emailSent: false,
+          deployableZip: true,
+          loginUrl: zipEnterLoginUrl(origin, fallbackId),
+          clientId: fallbackId,
+        });
+      }
+      return NextResponse.json({ ok: true, emailSent: false, deployableZip: true });
+    }
+    return NextResponse.json(
+      { ok: false, error: error instanceof Error ? error.message : "Login failed" },
+      { status: 500 },
+    );
+  }
 }

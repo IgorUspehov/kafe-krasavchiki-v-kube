@@ -37,7 +37,9 @@ export async function GET(request: Request) {
           note:
             zipAccess.reason === "bypass"
               ? "Owner bypass (DEPLOYABLE_ZIP_OWNER_BYPASS=1)"
-              : "Unlocked after €999 Deployable ZIP payment",
+              : zipAccess.reason === "deployable_zip"
+                ? "Full license — Deployable ZIP runtime"
+                : "Unlocked after €999 Deployable ZIP payment",
         };
       }
       return {

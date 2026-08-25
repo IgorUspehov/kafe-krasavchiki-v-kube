@@ -3,6 +3,12 @@ import { createHmac, timingSafeEqual } from "crypto";
 export const ADMIN_SESSION_COOKIE = "site_admin_client";
 export const ADMIN_SESSION_MAX_AGE_SEC = 7 * 24 * 60 * 60;
 
+/**
+ * Client-set session marker for Deployable ZIP (no server HMAC).
+ * Accepted only when IS_DEPLOYABLE_ZIP=true — never on SaaS Render.
+ */
+export const ZIP_LOCAL_SESSION_MAC = "zip-local";
+
 export type AdminSession = {
   clientId: string;
   email: string;
@@ -46,14 +52,7 @@ export function buildAdminSessionValue(session: AdminSession): string {
   return `${payload}.${sign(payload)}`;
 }
 
-export function parseAdminSessionValue(raw: string | undefined | null): AdminSession | null {
-  const value = String(raw || "");
-  const dot = value.lastIndexOf(".");
-  if (dot <= 0) return null;
-  const payload = value.slice(0, dot);
-  const mac = value.slice(dot + 1);
-  if (!payload || mac.length < 32 || !safeEqual(mac, sign(payload))) return null;
-
+function decodeSessionPayload(payload: string): AdminSession | null {
   try {
     const parsed = JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as {
       c?: unknown;
@@ -69,6 +68,24 @@ export function parseAdminSessionValue(raw: string | undefined | null): AdminSes
   } catch {
     return null;
   }
+}
+
+export function parseAdminSessionValue(raw: string | undefined | null): AdminSession | null {
+  const value = String(raw || "");
+  const dot = value.lastIndexOf(".");
+  if (dot <= 0) return null;
+  const payload = value.slice(0, dot);
+  const mac = value.slice(dot + 1);
+  if (!payload || !mac) return null;
+
+  // Deployable ZIP: allow client-minted sessions (Admin öffnen without /api/admin/bypass).
+  if (mac === ZIP_LOCAL_SESSION_MAC) {
+    if (process.env.IS_DEPLOYABLE_ZIP !== "true") return null;
+    return decodeSessionPayload(payload);
+  }
+
+  if (mac.length < 32 || !safeEqual(mac, sign(payload))) return null;
+  return decodeSessionPayload(payload);
 }
 
 export function createAdminSession(clientId: string, email: string): AdminSession {

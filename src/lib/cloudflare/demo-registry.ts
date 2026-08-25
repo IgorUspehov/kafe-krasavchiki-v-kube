@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 
+import { isDeployableZipRuntime } from "@/lib/deployable-zip/runtime";
 import { resolvePersistentDataDir } from "@/lib/site-delivery/data-dir";
 import {
   readCachedDemoRegistry,
@@ -190,6 +191,11 @@ export async function hydrateDemoRecord(input: {
   if (existing) {
     const clientId = existing.clientId || clientIdHint;
     if (!clientId) return existing;
+    // Deployable ZIP is always full license — never re-lock from SaaS Firestore paid=false.
+    if (isDeployableZipRuntime()) {
+      if (!existing.paid) markDemoPaidByClientId(clientId);
+      return findDemoByClientId(clientId) || { ...existing, paid: true };
+    }
     const data = await loadFirestoreDemoFields(clientId);
     // Only explicit clients/{id}.paid unlocks — never inherit from a paid email.
     if (data?.paid === true) {
@@ -227,7 +233,7 @@ export async function hydrateDemoRecord(input: {
   const slug = asTrimmedString(data?.demoSlug) || slugHint;
   if (!clientId || !slug) return undefined;
 
-  const paid = data?.paid === true;
+  const paid = isDeployableZipRuntime() || data?.paid === true;
   const record: DemoSiteRecord = {
     slug,
     clientId,
