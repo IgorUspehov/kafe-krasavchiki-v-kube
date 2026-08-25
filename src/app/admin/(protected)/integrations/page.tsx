@@ -16,15 +16,41 @@ type IntegrationsResponse = {
   error?: string;
 };
 
-type ZipDownloadState = "ready" | "loading" | "error";
+type ZipActionState = "ready" | "loading" | "error";
+
+function staticPolarCheckoutUrl(clientId: string, email?: string): string {
+  const base =
+    process.env.NEXT_PUBLIC_POLAR_CHECKOUT_DEPLOYABLE_ZIP?.trim() ||
+    process.env.POLAR_CHECKOUT_DEPLOYABLE_ZIP?.trim() ||
+    "";
+  if (!base) return "";
+  try {
+    const url = new URL(base);
+    if (clientId) {
+      url.searchParams.set("reference_id", clientId);
+      url.searchParams.set("metadata[client_id]", clientId);
+      url.searchParams.set("metadata[reference_id]", clientId);
+      url.searchParams.set("metadata[product_kind]", "deployable_zip");
+    }
+    if (email?.trim()) {
+      url.searchParams.set("customer_email", email.trim());
+      url.searchParams.set("prefilled_email", email.trim());
+    }
+    return url.toString();
+  } catch {
+    return base;
+  }
+}
 
 export default function AdminIntegrationsPage() {
-  const { copy } = useAdminI18n();
+  const { copy, locale } = useAdminI18n();
   const { data, loading, error } = useAdminSite();
   const [distReady, setDistReady] = useState<boolean | null>(null);
   const [zipUnlocked, setZipUnlocked] = useState(false);
+  const [checkoutConfigured, setCheckoutConfigured] = useState(true);
+  const [ownerEmail, setOwnerEmail] = useState("");
   const [statusError, setStatusError] = useState("");
-  const [zipState, setZipState] = useState<ZipDownloadState>("ready");
+  const [zipState, setZipState] = useState<ZipActionState>("ready");
   const [zipError, setZipError] = useState("");
 
   const loadStatus = useCallback(async () => {
@@ -41,6 +67,8 @@ export default function AdminIntegrationsPage() {
       setStatusError("");
       setDistReady(Boolean(json.distReady));
       setZipUnlocked(Boolean(json.zipUnlocked));
+      setCheckoutConfigured(Boolean(json.checkoutConfigured));
+      setOwnerEmail(json.email || "");
     } catch (err) {
       setStatusError(err instanceof Error ? err.message : copy.loadFailed);
     }
@@ -49,6 +77,52 @@ export default function AdminIntegrationsPage() {
   useEffect(() => {
     void loadStatus();
   }, [loadStatus]);
+
+  async function openPolarCheckout() {
+    const clientId = data?.clientId || "";
+    setZipState("loading");
+    setZipError("");
+    try {
+      const response = await fetch("/api/polar/deployable-zip-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clientId: clientId || undefined,
+          email: ownerEmail || undefined,
+          locale,
+        }),
+      });
+      const json = (await response.json()) as { checkout_url?: string; error?: string };
+      if (response.ok && json.checkout_url) {
+        window.open(json.checkout_url, "_blank", "noopener,noreferrer");
+        setZipState("ready");
+        return;
+      }
+
+      const fallback = staticPolarCheckoutUrl(clientId, ownerEmail);
+      if (fallback) {
+        window.open(fallback, "_blank", "noopener,noreferrer");
+        setZipState("ready");
+        return;
+      }
+
+      setZipError(
+        checkoutConfigured
+          ? json.error || copy.integrations.buyZipError
+          : copy.integrations.buyZipCheckoutMissing,
+      );
+      setZipState("error");
+    } catch (err) {
+      const fallback = staticPolarCheckoutUrl(clientId, ownerEmail);
+      if (fallback) {
+        window.open(fallback, "_blank", "noopener,noreferrer");
+        setZipState("ready");
+        return;
+      }
+      setZipError(err instanceof Error ? err.message : copy.integrations.buyZipError);
+      setZipState("error");
+    }
+  }
 
   async function downloadOwnerZip() {
     setZipState("loading");
@@ -103,6 +177,7 @@ export default function AdminIntegrationsPage() {
   }
 
   const zipBusy = zipState === "loading";
+  const staticCheckoutHref = staticPolarCheckoutUrl(data?.clientId || "", ownerEmail);
 
   return (
     <AdminPageShell
@@ -124,7 +199,44 @@ export default function AdminIntegrationsPage() {
         </div>
 
         <ul className="admin-delivery-list">
-          {zipUnlocked ? (
+          {!zipUnlocked ? (
+            <li>
+              {staticCheckoutHref ? (
+                <a
+                  className="admin-delivery-row admin-delivery-row--primary"
+                  href={staticCheckoutHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(event) => {
+                    // Prefer API checkout (correct success URL + metadata); fall back to href.
+                    event.preventDefault();
+                    void openPolarCheckout();
+                  }}
+                >
+                  <span className="admin-delivery-icon" aria-hidden>
+                    📦
+                  </span>
+                  <span className="admin-delivery-label">
+                    {zipBusy ? copy.integrations.buyZipLoading : copy.integrations.buyZip}
+                  </span>
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="admin-delivery-row admin-delivery-row--primary"
+                  disabled={zipBusy}
+                  onClick={() => void openPolarCheckout()}
+                >
+                  <span className="admin-delivery-icon" aria-hidden>
+                    📦
+                  </span>
+                  <span className="admin-delivery-label">
+                    {zipBusy ? copy.integrations.buyZipLoading : copy.integrations.buyZip}
+                  </span>
+                </button>
+              )}
+            </li>
+          ) : (
             <li>
               <button
                 type="button"
@@ -142,7 +254,7 @@ export default function AdminIntegrationsPage() {
                 </span>
               </button>
             </li>
-          ) : null}
+          )}
 
           {OWNER_PLATFORM_LINKS.map((platform) => (
             <li key={platform.id}>
@@ -161,6 +273,9 @@ export default function AdminIntegrationsPage() {
           ))}
         </ul>
 
+        {!zipUnlocked ? (
+          <p className="admin-muted admin-delivery-msg">{copy.integrations.zipLockedHint}</p>
+        ) : null}
         {zipError ? <p className="admin-error admin-delivery-msg">{zipError}</p> : null}
         {zipUnlocked && distReady === false ? (
           <p className="admin-muted admin-delivery-msg">
