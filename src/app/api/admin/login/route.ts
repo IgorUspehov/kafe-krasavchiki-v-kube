@@ -68,7 +68,24 @@ export async function POST(request: Request) {
   });
 
   if (!clientId) {
-    // Privacy: do not reveal whether the email exists.
+    // Deployable ZIP: still return a bypass URL so the UI never dead-ends.
+    if (isDeployableZip()) {
+      const fallbackId = clientIdHint.trim() || pickPackagedClientId();
+      if (fallbackId) {
+        let origin = resolveMagicLinkOrigin(request);
+        try {
+          origin = new URL(request.url).origin;
+        } catch {
+          /* keep */
+        }
+        return NextResponse.json({
+          ok: true,
+          emailSent: false,
+          loginUrl: `${origin}/api/admin/bypass?clientId=${encodeURIComponent(fallbackId)}&token=bypass`,
+          clientId: fallbackId,
+        });
+      }
+    }
     return NextResponse.json({ ok: true, emailSent: false });
   }
 
