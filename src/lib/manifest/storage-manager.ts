@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { resolveClientDistsRoot } from "@/lib/site-delivery/dist-store";
-import { listActiveProtectedClientIds, pruneExpiredProtectionRecords } from "@/lib/site-delivery/dist-protection";
+import { pruneExpiredProtectionRecords } from "@/lib/site-delivery/dist-protection";
 import { pruneExpiredDownloadAccessRecords } from "@/lib/site-delivery/download-access";
 import { resolvePersistentDataDir } from "@/lib/site-delivery/data-dir";
 import {
@@ -12,9 +12,10 @@ import {
 } from "@/lib/manifest/storage-paths";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
-const MANIFEST_MAX_AGE_MS = 7 * DAY_MS;
-const CLIENT_DIST_MAX_AGE_MS = 7 * DAY_MS;
-const PENDING_DELETION_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+/** Demos are permanent — do not age-delete manifests / dists (was 7 days). */
+const MANIFEST_MAX_AGE_MS = 10 * 365 * DAY_MS;
+const CLIENT_DIST_MAX_AGE_MS = 10 * 365 * DAY_MS;
+const PENDING_DELETION_MAX_AGE_MS = 10 * 365 * DAY_MS;
 const TEMP_ZIP_MAX_AGE_MS = 60 * 60 * 1000;
 const MIN_FREE_SPACE_BYTES = 100 * 1024 * 1024;
 const CLIENT_DISTS_SIZE_LIMIT_BYTES = 200 * 1024 * 1024;
@@ -430,29 +431,17 @@ export function runStorageCleanup(options?: {
   const aggressive =
     options?.aggressive ?? (diskBefore.freeBytes < MIN_FREE_SPACE_BYTES || aggressiveBySize);
 
-  const manifestMaxAgeMs = options?.manifestMaxAgeMs ?? (aggressive ? DAY_MS : MANIFEST_MAX_AGE_MS);
-  const clientDistMaxAgeMs = options?.clientDistMaxAgeMs ?? (aggressive ? DAY_MS : CLIENT_DIST_MAX_AGE_MS);
-  const pendingDeletionMaxAgeMs =
-    options?.pendingDeletionMaxAgeMs ?? PENDING_DELETION_MAX_AGE_MS;
-  const maxManifests = options?.maxManifests ?? (aggressive ? 40 : 120);
-  const maxClientDists = options?.maxClientDists ?? (aggressive ? 4 : 25);
-
   const folderSizesBefore = getFolderSizes();
-  const manifestsDir = resolveManifestsDir();
-  const protectedClientIds = listActiveProtectedClientIds();
   pruneExpiredProtectionRecords();
   pruneExpiredDownloadAccessRecords();
 
-  const deletedManifests =
-    pruneFilesByAge(manifestsDir, manifestMaxAgeMs, ".json", protectedClientIds) +
-    pruneNewestOverflow(manifestsDir, maxManifests, ".json", protectedClientIds);
-  const deletedClientDists =
-    pruneDirectoriesByAge(clientDistsDir, clientDistMaxAgeMs, protectedClientIds) +
-    pruneDirectoryOverflow(clientDistsDir, maxClientDists, protectedClientIds);
+  // Permanent demos: never age-delete or overflow-prune manifests / client-dists / pending rows.
+  const deletedManifests = 0;
+  const deletedClientDists = 0;
+  const deletedPendingDeletions = 0;
   const deletedZipFiles = aggressive
     ? pruneTempZipFiles(0)
     : pruneTempZipFiles(TEMP_ZIP_MAX_AGE_MS);
-  const deletedPendingDeletions = prunePendingDeletionRecords(pendingDeletionMaxAgeMs);
 
   const diskAfter = getDiskSpaceStats();
   const result: StorageCleanupResult = {

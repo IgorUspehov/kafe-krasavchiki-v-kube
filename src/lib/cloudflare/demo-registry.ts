@@ -235,7 +235,7 @@ export async function hydrateDemoRecord(input: {
     deploymentUrl: asTrimmedString(data?.deploymentUrl),
     projectName: asTrimmedString(data?.projectName) || "crm-demo-sites",
     deployedAt: asTrimmedString(data?.deployedAt) || new Date().toISOString(),
-    deleteAt: asTrimmedString(data?.deleteAt) || new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+    deleteAt: asTrimmedString(data?.deleteAt) || new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000).toISOString(),
     paid,
   };
   upsertDemoRecord(record);

@@ -294,7 +294,7 @@ function stubDemoRecord(input: {
     deploymentUrl: input.deploymentUrl || `https://${projectName}.pages.dev`,
     projectName,
     deployedAt: new Date().toISOString(),
-    deleteAt: new Date(Date.now() + 365 * 864e5).toISOString(),
+    deleteAt: new Date(Date.now() + 10 * 365 * 864e5).toISOString(),
     paid: true,
   };
 }

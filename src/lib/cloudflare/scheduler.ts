@@ -1,19 +1,11 @@
 import fs from "fs";
 import path from "path";
 
+import { isCloudflareDeployConfigured, pruneOldDeployments } from "@/lib/cloudflare/deploy";
 import {
-  deletePagesDeployment,
-  isCloudflareDeployConfigured,
-  pruneOldDeployments,
-} from "@/lib/cloudflare/deploy";
-import {
-  findDemoByClientId,
-  findDemoByDeploymentId,
-  findDemoBySlug,
   listDemoRecords,
   markDemoPaid,
   markDemoPaidByClientId,
-  removeDemoByDeploymentId,
 } from "@/lib/cloudflare/demo-registry";
 import {
   getDeploymentKeepCount,
@@ -21,17 +13,16 @@ import {
 } from "@/lib/cloudflare/shared-project";
 import type { PendingDeletionRecord } from "@/lib/manifest/storage-manager";
 import { resolvePendingDeletionsPath } from "@/lib/manifest/storage-paths";
-import { removeClientDistIfUnprotected } from "@/lib/site-delivery/dist-store";
-import { getClientDistProtection, isClientDistProtected } from "@/lib/site-delivery/dist-protection";
 
-/** Test-mode default: auto-delete unpaid CRM Demo deployments after 10 minutes. */
-const DEFAULT_TTL_MINUTES = 10;
-const CHECK_INTERVAL_MS = 60 * 1000;
+/**
+ * Demo TTL is disabled — demos + CRM data are permanent.
+ * Kept as ~10 years only so existing call sites that still compute deleteAt stay far in the future.
+ */
+const PERMANENT_TTL_MINUTES = 10 * 365 * 24 * 60; // ~10 years
 
+/** Always returns a multi-year TTL. Env CRM_DEMO_TTL_MINUTES is ignored (deletion disabled). */
 export function getCrmDemoTtlMinutes(): number {
-  const raw = Number(process.env.CRM_DEMO_TTL_MINUTES ?? DEFAULT_TTL_MINUTES);
-  if (!Number.isFinite(raw) || raw < 1) return DEFAULT_TTL_MINUTES;
-  return Math.floor(raw);
+  return PERMANENT_TTL_MINUTES;
 }
 
 export function getCrmDemoTtlMs(): number {
@@ -68,6 +59,10 @@ function writePendingDeletions(entries: PendingDeletion[]): void {
   fs.writeFileSync(pendingDeletionsPath, `${JSON.stringify(entries, null, 2)}\n`, "utf8");
 }
 
+/**
+ * Records demo metadata for paid/lookup flows. Does not schedule real deletion —
+ * deleteAt is set ~10 years ahead; processExpiredDeletions is a no-op.
+ */
 export function scheduleDeletion(entry: {
   siteId: string;
   clientId: string;
@@ -98,7 +93,7 @@ export function scheduleDeletion(entry: {
   entries.push(record);
   writePendingDeletions(entries);
 
-  console.info("[cloudflare-scheduler] scheduled deletion", {
+  console.info("[cloudflare-scheduler] recorded demo (TTL deletion disabled)", {
     deploymentId: record.siteId,
     clientId: record.clientId,
     deployedAt: record.deployedAt,
@@ -165,15 +160,6 @@ export function reopenDeletionForClient(clientId: string): boolean {
   return updated;
 }
 
-function isPendingEntryPaid(entry: PendingDeletion): boolean {
-  if (entry.paid) return true;
-  if (findDemoByClientId(entry.clientId)?.paid === true) return true;
-  if (findDemoByDeploymentId(entry.siteId)?.paid === true) return true;
-  if (entry.slug && findDemoBySlug(entry.slug)?.paid === true) return true;
-  if (getClientDistProtection(entry.clientId)?.paid === true) return true;
-  return false;
-}
-
 export function findPendingBySiteId(siteId: string): PendingDeletion | undefined {
   return readPendingDeletions().find((item) => item.siteId === siteId);
 }
@@ -190,71 +176,27 @@ export function findPendingBySiteUrl(siteUrl: string): PendingDeletion | undefin
   });
 }
 
+/**
+ * TTL auto-deletion disabled — demos, deployments, and CRM data are never removed by time.
+ * Kept as an exported no-op so callers/instrumentation remain safe.
+ */
 export async function processExpiredDeletions(): Promise<void> {
-  if (!isCloudflareDeployConfigured()) {
-    return;
-  }
-
-  const projectName = getSharedPagesProjectName();
-  const now = Date.now();
-  const entries = readPendingDeletions();
-  const remaining: PendingDeletion[] = [];
-
-  for (const entry of entries) {
-    let paid = isPendingEntryPaid(entry);
-    if (!paid) {
-      try {
-        const { isClientPaidInStore } = await import("@/lib/billing/paid-tenant");
-        paid = await isClientPaidInStore(entry.clientId);
-      } catch {
-        paid = false;
-      }
-    }
-    if (paid) {
-      remaining.push({ ...entry, paid: true });
-      continue;
-    }
-
-    if (new Date(entry.deleteAt).getTime() <= now) {
-      try {
-        const targetProject = entry.projectName || projectName;
-        // siteId is deploymentId in the shared-project model.
-        await deletePagesDeployment(targetProject, entry.siteId);
-        removeDemoByDeploymentId(entry.siteId);
-
-        // Volume snapshot: unpaid only (paid entries already skipped above).
-        // Double protection check lives in removeClientDistIfUnprotected.
-        if (isClientDistProtected(entry.clientId)) {
-          console.info("[cloudflare-scheduler] skip client-dist delete — protected", {
-            clientId: entry.clientId,
-          });
-        } else {
-          removeClientDistIfUnprotected(entry.clientId);
-        }
-
-        console.info(`[cloudflare-scheduler] Deleted expired deployment ${entry.siteId}`);
-      } catch (error) {
-        console.error(`[cloudflare-scheduler] Failed to delete deployment ${entry.siteId}:`, error);
-        remaining.push(entry);
-      }
-    } else {
-      remaining.push(entry);
-    }
-  }
-
-  writePendingDeletions(remaining);
+  return;
 }
 
+/**
+ * Protect every known demo deployment so unpaid demos are never pruned from Cloudflare Pages.
+ */
 export async function pruneSharedProjectDeployments(): Promise<void> {
   if (!isCloudflareDeployConfigured()) return;
   const projectName = getSharedPagesProjectName();
   const keep = getDeploymentKeepCount();
   const protect = new Set<string>();
   for (const entry of readPendingDeletions()) {
-    if (entry.paid) protect.add(entry.siteId);
+    protect.add(entry.siteId);
   }
   for (const demo of listDemoRecords()) {
-    if (demo.paid) protect.add(demo.deploymentId);
+    protect.add(demo.deploymentId);
   }
   await pruneOldDeployments(projectName, keep, protect);
 }
@@ -268,14 +210,8 @@ export function startDeletionScheduler(): void {
 
   schedulerStarted = true;
 
-  console.info("[cloudflare-scheduler] started", {
+  console.info("[cloudflare-scheduler] TTL deletion DISABLED — demos are permanent", {
     ttlMinutes: getCrmDemoTtlMinutes(),
-    checkIntervalMs: CHECK_INTERVAL_MS,
     pendingPath: getPendingDeletionsPath(),
   });
-
-  void processExpiredDeletions();
-  setInterval(() => {
-    void processExpiredDeletions();
-  }, CHECK_INTERVAL_MS);
 }
