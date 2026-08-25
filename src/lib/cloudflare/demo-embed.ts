@@ -28,7 +28,8 @@ export function buildDemoEmbedSrc(
   const publicOrigin = getPublicSiteOrigin();
 
   if (process.env.IS_DEPLOYABLE_ZIP === "true") {
-    const url = new URL(publicOrigin);
+    // Self-hosted ZIP: CRM is the Next admin panel, not Cloudflare Pages SPA / home landing.
+    const url = new URL(`${publicOrigin}/admin/login`);
     if (clientId) url.searchParams.set("clientId", clientId);
     return url.toString();
   }

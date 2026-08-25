@@ -8,6 +8,8 @@ type DemoTenantLinksBarProps = {
   clientId: string;
   slug?: string;
   language?: string;
+  /** Deployable ZIP: CRM button opens Admin instead of /demo. */
+  preferAdminCrm?: boolean;
   /** @deprecated use clientId — kept for callers that still pass it */
   publicSiteUrl?: string;
 };
@@ -166,7 +168,12 @@ function CopyableFormLink({
 }
 
 /** Shareable tenant URLs on paid /demo — CRM, admin, public site, job + booking forms. */
-export function DemoTenantLinksBar({ clientId, slug, language }: DemoTenantLinksBarProps) {
+export function DemoTenantLinksBar({
+  clientId,
+  slug,
+  language,
+  preferAdminCrm,
+}: DemoTenantLinksBarProps) {
   const [lang, setLang] = useState(() => normalizeLang(language));
   const t = COPY[lang];
   const [origin, setOrigin] = useState<string | undefined>(undefined);
@@ -193,8 +200,8 @@ export function DemoTenantLinksBar({ clientId, slug, language }: DemoTenantLinks
   }, []);
 
   const links = useMemo(
-    () => buildTenantShareLinks({ clientId, slug, origin }),
-    [clientId, slug, origin],
+    () => buildTenantShareLinks({ clientId, slug, origin, preferAdminCrm }),
+    [clientId, slug, origin, preferAdminCrm],
   );
 
   const rows = [

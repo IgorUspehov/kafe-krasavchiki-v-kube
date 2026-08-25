@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 import { CrmLeadsBridge } from "@/components/crm-leads-bridge";
 import { DemoSiteFrame } from "@/components/demo-site-frame";
@@ -7,8 +8,16 @@ import { persistTenantUnpaid, restoreDemoByClientId } from "@/lib/billing/paid-t
 import { resolveDemoAccess } from "@/lib/cloudflare/demo-access";
 import { buildDemoEmbedSrc } from "@/lib/cloudflare/demo-embed";
 import { hydrateDemoRecord } from "@/lib/cloudflare/demo-registry";
+import { readRootClientManifest } from "@/lib/deployable-zip/buyer-setup";
 import { loadClientManifest } from "@/lib/manifest/storage";
 import { buildPublicSiteMetadata } from "@/lib/site/public-site-metadata";
+
+function pickManifestClientId(): string {
+  const packaged = readRootClientManifest();
+  if (!packaged) return "";
+  const id = packaged.clientId ?? packaged.client_id;
+  return typeof id === "string" ? id.trim() : "";
+}
 
 /** Demos falsely unlocked (email inherit) — re-lock paywall once Firestore is cleared. */
 const RELOCK_PAYWALL_CLIENT_IDS = new Set([
@@ -62,6 +71,15 @@ function resolveManifestLanguage(clientId: string): string | undefined {
 export default async function DemoPage({ params, searchParams }: DemoPageProps) {
   const { slug } = await params;
   const query = await searchParams;
+
+  // Deployable ZIP: CRM is Admin — never iframe home (which redirects to /site landing).
+  if (process.env.IS_DEPLOYABLE_ZIP === "true") {
+    const zipClientId = (query.clientId || "").trim() || pickManifestClientId();
+    if (zipClientId) {
+      redirect(`/admin/login?clientId=${encodeURIComponent(zipClientId)}`);
+    }
+  }
+
   let record = await hydrateDemoRecord({ slug, clientId: query.clientId });
 
   if (!record) {
@@ -79,6 +97,7 @@ export default async function DemoPage({ params, searchParams }: DemoPageProps) 
     // Registry lives in /tmp on Render — re-sync paid/unpaid from Firestore after wipe or stale unlock.
     record = (await restoreDemoByClientId(clientId)) || record;
   }
+
   const access = resolveDemoAccess(clientId);
   const unpaid = !access.paid;
   const language = resolveManifestLanguage(clientId);
