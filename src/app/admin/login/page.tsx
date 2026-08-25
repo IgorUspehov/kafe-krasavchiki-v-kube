@@ -1,20 +1,10 @@
 "use client";
 
-import { FormEvent, useMemo, useState, Suspense } from "react";
+import { FormEvent, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { AdminI18nProvider, useAdminI18n } from "@/components/admin/admin-i18n";
 import { AdminLangSwitcher } from "@/components/admin/admin-lang-switcher";
-import {
-  buildZipAdminEnterPath,
-  enterZipAdminSession,
-} from "@/lib/admin/zip-client-session";
-
-function buildDirectAdminUrl(clientId: string): string {
-  const id = clientId.trim();
-  if (!id || typeof window === "undefined") return "";
-  return `${window.location.origin}${buildZipAdminEnterPath(id)}`;
-}
 
 function LoginForm() {
   const search = useSearchParams();
@@ -26,9 +16,6 @@ function LoginForm() {
   const [apiError, setApiError] = useState("");
   const [loginUrl, setLoginUrl] = useState("");
   const [emailSent, setEmailSent] = useState(false);
-  const [showDirectLink, setShowDirectLink] = useState(false);
-
-  const directUrl = useMemo(() => (clientId ? buildDirectAdminUrl(clientId) : ""), [clientId]);
 
   const errorText =
     errorCode === "expired"
@@ -39,28 +26,12 @@ function LoginForm() {
           ? copy.login.invalid
           : "";
 
-  function revealDirectLink(preferredUrl?: string) {
-    const url = (preferredUrl || "").trim() || directUrl;
-    if (url) {
-      setLoginUrl(url);
-      setShowDirectLink(true);
-    }
-  }
-
-  function openAdminDirect() {
-    if (clientId) {
-      enterZipAdminSession(clientId, email || undefined);
-      return;
-    }
-    revealDirectLink(directUrl);
-  }
-
   async function onSubmit(event: FormEvent) {
     event.preventDefault();
     setStatus("sending");
     setApiError("");
     setEmailSent(false);
-    // Keep previous link visible until we have a better one.
+    setLoginUrl("");
     try {
       const response = await fetch("/api/admin/login", {
         method: "POST",
@@ -73,7 +44,6 @@ function LoginForm() {
         error?: string;
         loginUrl?: string;
         emailSent?: boolean;
-        deployableZip?: boolean;
       } = {};
       try {
         data = (await response.json()) as typeof data;
@@ -83,45 +53,20 @@ function LoginForm() {
 
       const apiLink = typeof data.loginUrl === "string" ? data.loginUrl.trim() : "";
 
-      // ZIP: skip fragile server bypass — enter from the client immediately.
-      if (data.deployableZip && clientId) {
-        enterZipAdminSession(clientId, email || undefined);
-        return;
-      }
-      if (apiLink.includes("/admin/enter") && clientId) {
-        enterZipAdminSession(clientId, email || undefined);
-        return;
-      }
-
-      // Always surface a clickable login link when we have clientId (ZIP / Vercel without Resend).
-      if (apiLink || clientId) {
-        setEmailSent(Boolean(data.emailSent) && Boolean(apiLink));
-        revealDirectLink(apiLink || directUrl);
-        setStatus("sent");
-        return;
-      }
-
       if (!response.ok || !data.ok) {
         setStatus("error");
         setApiError(data.error || "");
-        revealDirectLink(directUrl);
         return;
       }
 
+      setEmailSent(Boolean(data.emailSent));
+      if (apiLink) setLoginUrl(apiLink);
       setStatus("sent");
     } catch {
       setStatus("error");
       setApiError("");
-      // Guaranteed fallback: client-side ZIP entry, no server bypass.
-      if (clientId) {
-        enterZipAdminSession(clientId, email || undefined);
-        return;
-      }
-      revealDirectLink(directUrl);
     }
   }
-
-  const displayUrl = loginUrl || (showDirectLink ? directUrl : "");
 
   return (
     <main className="admin-login-wrap">
@@ -149,59 +94,28 @@ function LoginForm() {
             />
           </div>
           {errorText ? <p className="admin-error">{errorText}</p> : null}
-          {status === "error" && !displayUrl ? (
+          {status === "error" ? (
             <p className="admin-error">{apiError || copy.login.sendFailed}</p>
           ) : null}
-          {status === "sent" && !displayUrl ? (
-            <p className="admin-muted">{copy.login.sent}</p>
+          {status === "sent" ? (
+            <p className="admin-muted">
+              {emailSent ? copy.login.sent : loginUrl ? copy.login.linkReady : copy.login.sent}
+            </p>
           ) : null}
-
-          {displayUrl ? (
-            <div className="admin-stack" style={{ gap: "0.65rem" }}>
-              {status === "error" ? (
-                <p className="admin-error" style={{ marginBottom: 0 }}>
-                  {apiError || copy.login.sendFailed}
-                </p>
-              ) : null}
-              <p className="admin-muted">
-                {emailSent ? copy.login.sentWithLink : copy.login.linkReady}
-              </p>
-              <button
-                type="button"
-                className="admin-btn-primary"
-                style={{ width: "100%" }}
-                onClick={() => openAdminDirect()}
-              >
-                {copy.login.openLink}
-              </button>
-              <a
-                className="admin-link"
-                href={displayUrl}
-                style={{ fontSize: "0.85rem", wordBreak: "break-all" }}
-              >
-                {displayUrl}
-              </a>
-            </div>
+          {loginUrl ? (
+            <a
+              className="admin-link"
+              href={loginUrl}
+              style={{ fontSize: "0.85rem", wordBreak: "break-all" }}
+            >
+              {loginUrl}
+            </a>
           ) : null}
 
           <button type="submit" className="admin-btn-primary" style={{ width: "100%" }} disabled={status === "sending"}>
             {status === "sending" ? copy.login.sending : copy.login.send}
           </button>
         </form>
-
-        {/* Always offer direct entry when clientId is already in the URL (Deployable ZIP). */}
-        {clientId && !displayUrl ? (
-          <div className="admin-stack" style={{ marginTop: "1rem", gap: "0.65rem" }}>
-            <button
-              type="button"
-              className="admin-btn-primary"
-              style={{ width: "100%" }}
-              onClick={() => openAdminDirect()}
-            >
-              {copy.login.openLink}
-            </button>
-          </div>
-        ) : null}
       </div>
     </main>
   );
