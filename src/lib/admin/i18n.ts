@@ -118,6 +118,9 @@ export type AdminCopy = {
     sending: string;
     sent: string;
     sendFailed: string;
+    linkReady: string;
+    sentWithLink: string;
+    openLink: string;
     expired: string;
     used: string;
     invalid: string;
@@ -252,6 +255,9 @@ const EN: AdminCopy = {
     sending: "Sending…",
     sent: "If an account exists for this email, we send a login link. Check spam too. Gmail search: in:anywhere from:noreply@webstudio-muenchen.com",
     sendFailed: "Failed to send",
+    linkReady: "Email could not be sent. Use this login link:",
+    sentWithLink: "We sent a login link by email. You can also open it here:",
+    openLink: "Open admin →",
     expired: "This link has expired. Please request a new one.",
     used: "This link has already been used.",
     invalid: "Invalid login link.",
@@ -386,6 +392,9 @@ const DE: AdminCopy = {
     sending: "Senden…",
     sent: "Wenn ein Konto zu dieser E-Mail existiert, senden wir einen Login-Link. Prüfen Sie auch Spam. Suche in Gmail: in:anywhere from:noreply@webstudio-muenchen.com",
     sendFailed: "Senden fehlgeschlagen",
+    linkReady: "E-Mail konnte nicht gesendet werden. Nutzen Sie diesen Login-Link:",
+    sentWithLink: "Wir haben einen Login-Link per E-Mail gesendet. Sie können ihn auch hier öffnen:",
+    openLink: "Admin öffnen →",
     expired: "Dieser Link ist abgelaufen. Bitte fordern Sie einen neuen an.",
     used: "Dieser Link wurde bereits verwendet.",
     invalid: "Ungültiger Login-Link.",
@@ -520,6 +529,9 @@ const RU: AdminCopy = {
     sending: "Отправка…",
     sent: "Если аккаунт с этим email существует, мы отправим ссылку для входа. Проверьте также спам. Поиск в Gmail: in:anywhere from:noreply@webstudio-muenchen.com",
     sendFailed: "Не удалось отправить",
+    linkReady: "Письмо не удалось отправить. Используйте эту ссылку для входа:",
+    sentWithLink: "Мы отправили ссылку на email. Можно также открыть её здесь:",
+    openLink: "Открыть админку →",
     expired: "Ссылка истекла. Запросите новую.",
     used: "Эта ссылка уже использована.",
     invalid: "Недействительная ссылка для входа.",
