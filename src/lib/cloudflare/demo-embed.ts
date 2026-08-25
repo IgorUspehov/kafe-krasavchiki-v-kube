@@ -1,16 +1,22 @@
 import type { DemoSiteRecord } from "@/lib/cloudflare/demo-registry";
-import { getSharedPagesProjectName } from "@/lib/cloudflare/shared-project";
+import {
+  getPublicSiteOrigin,
+  getSharedPagesProjectName,
+} from "@/lib/cloudflare/shared-project";
+
+function isPagesDevHost(hostname: string): boolean {
+  const host = String(hostname || "").toLowerCase();
+  return host === "pages.dev" || host.endsWith(".pages.dev");
+}
 
 /**
- * Build the Cloudflare Pages iframe src with clientId for CRM bootstrap.
+ * Build the CRM iframe src with clientId for bootstrap.
  *
- * Always use the shared project production alias (`https://crm-demo-sites.pages.dev`)
- * when the stored deploymentUrl belongs to that project — never freeze a per-deploy
- * hash subdomain (`https://abc123.crm-demo-sites.pages.dev`) in the Railway iframe.
- * Hash URLs go stale when preview deployments are pruned or the shared CRM SPA is redeployed.
+ * Deployable ZIP / self-host: always embed the current deployment origin
+ * (Vercel / buyer domain) — never crm-demo-sites.pages.dev.
  *
- * Wizard Live Preview must iframe Railway `/demo/{slug}?clientId=…` (readable URL), not this
- * Pages URL directly — `/demo/[slug]` calls this helper for the nested CRM frame.
+ * SaaS production: use the shared Cloudflare Pages project alias when the
+ * stored deploymentUrl belongs to that project; rewrite stale hash subdomains.
  */
 export function buildDemoEmbedSrc(
   record: Pick<DemoSiteRecord, "deploymentUrl" | "clientId"> & {
@@ -19,6 +25,14 @@ export function buildDemoEmbedSrc(
   clientIdOverride?: string,
 ): string {
   const clientId = clientIdOverride || record.clientId;
+  const publicOrigin = getPublicSiteOrigin();
+
+  if (process.env.IS_DEPLOYABLE_ZIP === "true") {
+    const url = new URL(publicOrigin);
+    if (clientId) url.searchParams.set("clientId", clientId);
+    return url.toString();
+  }
+
   const sharedProject = getSharedPagesProjectName();
   const canonicalOrigin = `https://${sharedProject}.pages.dev`;
 
@@ -29,11 +43,17 @@ export function buildDemoEmbedSrc(
     const productionHost = `${sharedProject}.pages.dev`;
     const isSharedProjectHost =
       host === productionHost || host.endsWith(`.${productionHost}`);
-    // Shared-project hosts (production alias OR ephemeral `{hash}.project.pages.dev`)
-    // always resolve to the stable production alias — never return a raw hash URL.
-    origin = isSharedProjectHost ? canonicalOrigin : stored.origin;
+
+    if (isSharedProjectHost) {
+      origin = canonicalOrigin;
+    } else if (isPagesDevHost(host)) {
+      // Unknown / stale pages.dev → current public site, not a dead host.
+      origin = publicOrigin;
+    } else {
+      origin = stored.origin;
+    }
   } catch {
-    origin = canonicalOrigin;
+    origin = publicOrigin;
   }
 
   const url = new URL(origin);

@@ -169,11 +169,11 @@ function CopyableFormLink({
 export function DemoTenantLinksBar({ clientId, slug, language }: DemoTenantLinksBarProps) {
   const [lang, setLang] = useState(() => normalizeLang(language));
   const t = COPY[lang];
+  const [origin, setOrigin] = useState<string | undefined>(undefined);
 
-  const links = useMemo(() => {
-    const origin = typeof window !== "undefined" ? window.location.origin.replace(/\/$/, "") : undefined;
-    return buildTenantShareLinks({ clientId, slug, origin });
-  }, [clientId, slug]);
+  useEffect(() => {
+    setOrigin(window.location.origin.replace(/\/$/, ""));
+  }, []);
 
   useEffect(() => {
     setLang(normalizeLang(language));
@@ -191,6 +191,11 @@ export function DemoTenantLinksBar({ clientId, slug, language }: DemoTenantLinks
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
   }, []);
+
+  const links = useMemo(
+    () => buildTenantShareLinks({ clientId, slug, origin }),
+    [clientId, slug, origin],
+  );
 
   const rows = [
     { label: t.crm, href: links.crm },

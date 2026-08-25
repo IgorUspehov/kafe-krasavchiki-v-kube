@@ -95,5 +95,5 @@ export async function resolveBuyerFirebaseSetup(): Promise<BuyerFirebaseSetupSta
     return { nicheLabel, clientId };
   }
 
-  return null;
+  return { nicheLabel, clientId };
 }

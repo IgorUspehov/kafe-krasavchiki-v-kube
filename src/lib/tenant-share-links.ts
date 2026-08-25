@@ -1,8 +1,4 @@
-import {
-  buildReadableDemoUrl,
-  buildReadablePublicSiteUrlByClientId,
-  resolvePublicAppOrigin,
-} from "@/lib/cloudflare/shared-project";
+import { resolvePublicAppOrigin } from "@/lib/cloudflare/shared-project";
 
 export type TenantShareLinks = {
   crm: string;
@@ -16,7 +12,11 @@ function pickId(value: string | undefined): string {
   return String(value ?? "").trim();
 }
 
-/** Canonical share URLs for a paid tenant (CRM, admin, public site, forms). */
+/**
+ * Share URLs for a paid tenant — always on the current deployment origin
+ * (window.location.origin from the client, or request/env origin on the server).
+ * Never hardcode crm-demo-sites.pages.dev / bake-time SaaS hosts for ZIP buyers.
+ */
 export function buildTenantShareLinks(input: {
   clientId: string;
   slug?: string;
@@ -25,14 +25,17 @@ export function buildTenantShareLinks(input: {
   const clientId = pickId(input.clientId);
   const slug = pickId(input.slug);
   const origin = (input.origin || resolvePublicAppOrigin()).replace(/\/$/, "");
-  const site = clientId ? buildReadablePublicSiteUrlByClientId(clientId) : "";
-  const siteBase = site || (clientId ? `${origin}/site/${encodeURIComponent(clientId)}` : "");
+  const siteBase = clientId ? `${origin}/site/${encodeURIComponent(clientId)}` : "";
+  const crm =
+    slug && clientId
+      ? `${origin}/demo/${encodeURIComponent(slug)}?clientId=${encodeURIComponent(clientId)}`
+      : "";
 
   return {
-    crm: slug && clientId ? buildReadableDemoUrl(slug, clientId) : "",
+    crm,
     admin: clientId ? `${origin}/admin/login?clientId=${encodeURIComponent(clientId)}` : "",
     site: siteBase,
-    vacancies: siteBase ? `${siteBase.replace(/\/$/, "")}/job` : "",
-    booking: siteBase ? `${siteBase.replace(/\/$/, "")}/booking` : "",
+    vacancies: siteBase ? `${siteBase}/job` : "",
+    booking: siteBase ? `${siteBase}/booking` : "",
   };
 }

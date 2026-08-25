@@ -24,10 +24,16 @@ export function getDeploymentKeepCount(): number {
 }
 
 export function getPublicSiteOrigin(): string {
-  return (
-    process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") ||
-    RAILWAY_FRAME_ANCESTOR
-  );
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") || "";
+  if (fromEnv) return fromEnv;
+
+  // Deployable ZIP on Vercel — prefer the live deployment host.
+  if (process.env.IS_DEPLOYABLE_ZIP === "true") {
+    const vercel = process.env.VERCEL_URL?.trim().replace(/^https?:\/\//, "");
+    if (vercel) return `https://${vercel}`;
+  }
+
+  return RAILWAY_FRAME_ANCESTOR;
 }
 
 function isLoopbackOrigin(value: string): boolean {
@@ -43,6 +49,12 @@ function isLoopbackOrigin(value: string): boolean {
 export function resolvePublicAppOrigin(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") || "";
   if (fromEnv && !isLoopbackOrigin(fromEnv)) return fromEnv;
+
+  if (process.env.IS_DEPLOYABLE_ZIP === "true") {
+    const vercel = process.env.VERCEL_URL?.trim().replace(/^https?:\/\//, "");
+    if (vercel) return `https://${vercel}`;
+  }
+
   return "https://webstudio-muenchen.com";
 }
 
